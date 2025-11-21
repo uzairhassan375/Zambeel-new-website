@@ -276,7 +276,7 @@ export default function HomePage() {
                     <p className="text-[#2E3B78] text-sm leading-relaxed mb-6 text-left mt-2">
                       {service.desc}
                     </p>
-                    <button className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg hover:bg-[#1a234d] transition w-fit mx-auto">
+                    <button className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#1a234d] transition w-fit mx-auto">
                       {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
                     </button>
                   </div>
@@ -299,7 +299,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="flex justify-center gap-4 mt-6">
+          <div className="flex justify-center gap-2 md:gap-4 mt-6 px-4">
             <button
               onClick={() =>
                 setCurrentServiceIndex(
@@ -308,14 +308,20 @@ export default function HomePage() {
                     : currentServiceIndex - 1
                 )
               }
-              className="bg-white text-[#2E3B78] px-6 py-3 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition flex items-center gap-2"
+              className="bg-white text-[#2E3B78] px-6 py-2.5 md:px-8 md:py-3 rounded-full text-xs md:text-sm font-bold transition flex items-center justify-between flex-1 min-w-0 relative"
+              style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)' }}
+              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
             >
-              <i className="fa-solid fa-arrow-left"></i>
-              {services[
-                currentServiceIndex === 0
-                  ? services.length - 1
-                  : currentServiceIndex - 1
-              ].title}
+              <i className="fa-solid fa-arrow-left text-xs md:text-sm flex-shrink-0"></i>
+              <span className="absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap truncate max-w-[80px] md:max-w-none text-center">
+                {services[
+                  currentServiceIndex === 0
+                    ? services.length - 1
+                    : currentServiceIndex - 1
+                ].title}
+              </span>
+              <div className="flex-shrink-0 w-4"></div>
             </button>
             <button
               onClick={() =>
@@ -325,14 +331,20 @@ export default function HomePage() {
                     : currentServiceIndex + 1
                 )
               }
-              className="bg-white text-[#2E3B78] px-6 py-3 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition flex items-center gap-2"
+              className="bg-white text-[#2E3B78] px-6 py-2.5 md:px-8 md:py-3 rounded-full text-xs md:text-sm font-bold transition flex items-center justify-between flex-1 min-w-0 relative"
+              style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)' }}
+              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
             >
-              {services[
-                currentServiceIndex === services.length - 1
-                  ? 0
-                  : currentServiceIndex + 1
-              ].title}{" "}
-              <i className="fa-solid fa-arrow-right"></i>
+              <div className="flex-shrink-0 w-4"></div>
+              <span className="absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap truncate max-w-[80px] md:max-w-none text-center">
+                {services[
+                  currentServiceIndex === services.length - 1
+                    ? 0
+                    : currentServiceIndex + 1
+                ].title}
+              </span>
+              <i className="fa-solid fa-arrow-right text-xs md:text-sm flex-shrink-0"></i>
             </button>
           </div>
         </div>
@@ -400,14 +412,14 @@ export default function HomePage() {
                   <div
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer transition overflow-hidden shadow-md ${
+                    className={`w-16 h-12 rounded-xl flex items-center justify-center cursor-pointer transition overflow-hidden shadow-md ${
                       country.name === selectedCountry
                         ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
                         : "border-2 border-gray-200 hover:border-gray-300"
                     }`}
                   >
                     <img
-                      src={`https://flagcdn.com/w80/${country.code}.png`}
+                      src={`https://flagcdn.com/w160/${country.code}.png`}
                       className="w-full h-full object-cover"
                       alt={country.name}
                     />
