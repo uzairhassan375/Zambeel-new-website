@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import blue_logoImage from "../blue_logo.png";
+import bg1Image from "../assets/bg-1.png";
+import bg2Image from "../assets/bg-2.png";
 
 export default function HomePage() {
+  const location = useLocation();
   const [selectedCountry, setSelectedCountry] = useState("Qatar");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
@@ -143,6 +147,29 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
+  // Handle scroll to section on page load
+  useEffect(() => {
+    const scrollToSection = (sectionId) => {
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    };
+
+    // Check for hash in URL
+    const hash = window.location.hash;
+    if (hash) {
+      scrollToSection(hash.substring(1));
+    }
+
+    // Check for navigation state
+    if (location.state?.scrollTo) {
+      scrollToSection(location.state.scrollTo);
+    }
+  }, [location]);
+
   const services = [
     {
       title: "Dropshipping",
@@ -211,22 +238,43 @@ export default function HomePage() {
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
-        <div className="text-center mb-16">
-          <div className="mb-8 hidden md:flex justify-center">
+        <div className="text-center mb-16 relative">
+          <div className="mb-8 hidden md:flex justify-center relative items-center">
             <img
               src={blue_logoImage}
               alt="Zambeel Logo"
-              className="h-16 md:h-20 object-contain"
+              className="h-16 md:h-20 object-contain relative"
+              style={{ zIndex: 2 }}
             />
           </div>
-          <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal">
-            One platform.
-            <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block min-w-[80px] text-center">
-              {numberText}
-              <span className="animate-pulse">|</span>
-            </span>
-            powerful ways to grow your business.
-          </h1>
+          <div className="relative inline-block px-4">
+            <img
+              src={bg2Image}
+              alt="Background decoration"
+              className="absolute -top-6 -left-12 md:-top-8 md:-left-20 w-20 h-20 md:w-28 md:h-28 object-contain"
+              style={{ zIndex: 2, opacity: 0.9 }}
+            />
+            <img
+              src={bg2Image}
+              alt="Background decoration"
+              className="absolute -top-4 -left-6 md:-top-6 md:-left-8 w-16 h-16 md:w-24 md:h-24 object-contain"
+              style={{ zIndex: 2, opacity: 0.9 }}
+            />
+            <img
+              src={bg1Image}
+              alt="Background decoration"
+              className="absolute -top-6 -right-12 md:-top-8 md:-right-20 w-20 h-20 md:w-28 md:h-28 object-contain"
+              style={{ zIndex: 2, opacity: 0.9 }}
+            />
+            <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal relative" style={{ zIndex: 3 }}>
+              One platform.
+              <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block min-w-[80px] text-center">
+                {numberText}
+                <span className="animate-pulse">|</span>
+              </span>
+              powerful ways to grow your business.
+            </h1>
+          </div>
         </div>
 
         <div className="md:hidden w-full relative">
@@ -564,8 +612,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="hidden lg:flex gap-6 h-[500px] justify-center">
-            <div className="bg-white border border-gray-200 rounded-[32px] p-8 shadow-md flex flex-col justify-between w-[270px] h-full">
+          <div className="hidden lg:flex gap-4 h-[500px] justify-center">
+            <div className="bg-white border border-gray-200 rounded-[48px] p-8 shadow-md flex flex-col justify-between w-[320px] h-full">
               <div className="flex flex-col gap-10 h-full">
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 rounded-full bg-[#E6E9F5] text-[#344579] flex items-center justify-center text-3xl shrink-0">
@@ -640,12 +688,12 @@ export default function HomePage() {
                     desc: "Start your Ecommerce business anywhere without registration.",
                   },
                   {
-                    img: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?w=600",
+                    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=600&fit=crop",
                     title: "Cash on Delivery",
                     desc: "Scale easily with COD—no payment gateway needed.",
                   },
                   {
-                    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+                    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=600&fit=crop",
                     title: "AI Enabled Economy",
                     desc: "Use our AI tools to accelerate your work.",
                   },
