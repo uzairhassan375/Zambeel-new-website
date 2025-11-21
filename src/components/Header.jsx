@@ -6,7 +6,7 @@ export default function Header() {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
 
   return (
-    <nav className="w-[96%] max-w-[1400px] bg-[#2D3E7E] rounded-full px-6 py-3 flex justify-between items-center shadow-xl fixed top-4 left-1/2 transform -translate-x-1/2 z-50 mx-auto">
+    <nav className="w-[96%] max-w-[1400px] bg-[#2D3E7E] rounded-full px-4 md:px-6 py-3 flex justify-between items-center shadow-xl fixed top-4 left-1/2 transform -translate-x-1/2 z-50 mx-auto">
       <div className="flex items-center gap-3 pl-4">
         <Link to="/" className="mt-1">
           <img

@@ -22,9 +22,9 @@ export default function HomePage() {
     let cycleCount = 0;
     const totalCycles = 2;
     let isDeleting = false;
-    const typeSpeed = 70;
-    const deleteSpeed = 100;
-    const pauseAfterWord = 300;
+    const typeSpeed = 120;
+    const deleteSpeed = 150;
+    const pauseAfterWord = 500;
 
     const type = () => {
       const currentWord = numbers[wordIndex];
@@ -212,7 +212,7 @@ export default function HomePage() {
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
         <div className="text-center mb-16">
-          <div className="mb-8 flex justify-center">
+          <div className="mb-8 hidden md:flex justify-center">
             <img
               src={blue_logoImage}
               alt="Zambeel Logo"
@@ -230,7 +230,7 @@ export default function HomePage() {
         </div>
 
         <div className="md:hidden w-full relative">
-          <div className="relative overflow-hidden px-4">
+          <div className="relative overflow-hidden px-4 py-6">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
@@ -239,16 +239,16 @@ export default function HomePage() {
             >
               {services.map((service) => (
                 <div key={service.key} className="w-full flex-shrink-0 px-2">
-                  <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col items-center text-center relative">
-                    <div className="bg-[#E7EFFC] rounded-full px-6 py-2 mb-6">
-                      <h3 className="text-[#2E3B78] text-lg font-bold">
+                  <div className="bg-white rounded-3xl p-6 pt-10 shadow-xl flex flex-col relative">
+                    <div className="bg-[#E7EFFC] rounded-full px-6 py-2.5 absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <h3 className="text-[#2E3B78] text-base font-bold whitespace-nowrap">
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-[#2E3B78] text-sm leading-relaxed mb-8">
+                    <p className="text-[#2E3B78] text-sm leading-relaxed mb-6 text-left mt-2">
                       {service.desc}
                     </p>
-                    <button className="bg-[#2E3B78] text-white px-8 py-3 rounded-lg text-sm font-bold flex items-center gap-2 shadow-lg hover:bg-[#1a234d] transition">
+                    <button className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg hover:bg-[#1a234d] transition w-fit mx-auto">
                       {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
                     </button>
                   </div>
