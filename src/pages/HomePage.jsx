@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import blue_logoImage from "../blue_logo.png";
-import bg1Image from "../assets/bg-1.png";
-import bg2Image from "../assets/bg-2.png";
 
 export default function HomePage() {
   const location = useLocation();
@@ -233,8 +231,8 @@ export default function HomePage() {
   const selectedCountryData = countries.find((c) => c.name === selectedCountry);
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center">
-      <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-24 flex flex-col items-center relative z-10 mx-auto">
+    <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center overflow-x-hidden">
+      <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-24 flex flex-col items-center relative z-10 mx-auto overflow-x-hidden">
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
@@ -247,26 +245,8 @@ export default function HomePage() {
               style={{ zIndex: 2 }}
             />
           </div>
-          <div className="relative inline-block px-4">
-            <img
-              src={bg2Image}
-              alt="Background decoration"
-              className="absolute -top-6 -left-12 md:-top-8 md:-left-20 w-20 h-20 md:w-28 md:h-28 object-contain"
-              style={{ zIndex: 2, opacity: 0.9 }}
-            />
-            <img
-              src={bg2Image}
-              alt="Background decoration"
-              className="absolute -top-4 -left-6 md:-top-6 md:-left-8 w-16 h-16 md:w-24 md:h-24 object-contain"
-              style={{ zIndex: 2, opacity: 0.9 }}
-            />
-            <img
-              src={bg1Image}
-              alt="Background decoration"
-              className="absolute -top-6 -right-12 md:-top-8 md:-right-20 w-20 h-20 md:w-28 md:h-28 object-contain"
-              style={{ zIndex: 2, opacity: 0.9 }}
-            />
-            <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal relative" style={{ zIndex: 3 }}>
+          <div className="relative inline-block px-4 w-full max-w-full">
+            <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal relative">
               One platform.
               <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block min-w-[80px] text-center">
                 {numberText}
@@ -490,7 +470,7 @@ export default function HomePage() {
 
           <div className="hidden lg:flex flex-col lg:flex-row gap-8 items-start">
             <div className="w-full lg:w-[45%] flex flex-col gap-6">
-              <div className="relative bg-[#F5F5F5] rounded-3xl p-8 flex items-center justify-center min-h-[280px]">
+              <div className="relative bg-transparent rounded-3xl p-8 flex items-center justify-center min-h-[280px]">
                 <button
                   onClick={() => {
                     const currentIndex = countries.findIndex(
@@ -506,18 +486,13 @@ export default function HomePage() {
                 >
                   <i className="fa-solid fa-chevron-left text-[#2E3B78] text-sm"></i>
                 </button>
-                <div className="w-32 h-32 rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
+                <div className="w-48 h-32 rounded-xl overflow-hidden">
                   <img
-                    src={`https://flagsapi.com/${countries
+                    src={`https://flagcdn.com/w320/${countries
                       .find((c) => c.name === selectedCountry)
-                      ?.code.toUpperCase()}/flat/64.png`}
+                      ?.code}.png`}
                     className="w-full h-full object-cover"
                     alt={selectedCountry}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
                   />
                 </div>
                 <button
@@ -612,55 +587,59 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="hidden lg:flex gap-4 h-[500px] justify-center">
-            <div className="bg-white border border-gray-200 rounded-[48px] p-8 shadow-md flex flex-col justify-between w-[320px] h-full">
-              <div className="flex flex-col gap-10 h-full">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-full bg-[#E6E9F5] text-[#344579] flex items-center justify-center text-3xl shrink-0">
+          <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[500px] justify-center items-center lg:items-start">
+            {/* Statistics Card - Mobile and Desktop */}
+            <div className="bg-white border border-gray-200 rounded-[48px] p-6 md:p-8 pb-12 md:pb-8 shadow-md flex flex-col justify-between w-full max-w-[1200px] lg:max-w-[320px] lg:w-[320px] lg:h-full mb-6 md:mb-0">
+              <div className="grid grid-cols-2 lg:flex lg:flex-col gap-4 md:gap-6 lg:gap-10">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-[#E6E9F5] text-[#344579] flex items-center justify-center text-xl md:text-2xl lg:text-3xl shrink-0">
                     <i className="fa-solid fa-globe" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#2E3B78] text-xl">
+                    <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       5 countries
                     </h4>
-                    <span className="text-base text-gray-500">covered</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">covered</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-full bg-[#E3F3FA] text-[#2B8FA9] flex items-center justify-center text-3xl shrink-0">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-[#E3F3FA] text-[#2B8FA9] flex items-center justify-center text-xl md:text-2xl lg:text-3xl shrink-0">
                     <i className="fa-solid fa-truck-fast" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#2E3B78] text-xl">
+                    <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       80% Delivery
                     </h4>
-                    <span className="text-base text-gray-500">Success</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Success</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-full bg-[#F2E6FF] text-[#7C3AED] flex items-center justify-center text-3xl shrink-0">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-[#F2E6FF] text-[#7C3AED] flex items-center justify-center text-xl md:text-2xl lg:text-3xl shrink-0">
                     <i className="fa-solid fa-cart-shopping" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#2E3B78] text-xl">
+                    <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       10K+ Products
                     </h4>
-                    <span className="text-base text-gray-500">Listed</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Listed</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-full bg-[#FFF7E0] text-[#D97706] flex items-center justify-center text-3xl shrink-0">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-[#FFF7E0] text-[#D97706] flex items-center justify-center text-xl md:text-2xl lg:text-3xl shrink-0">
                     <i className="fa-regular fa-credit-card" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#2E3B78] text-xl">
+                    <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       5-Day Payment
                     </h4>
-                    <span className="text-base text-gray-500">Guarantee</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Guarantee</span>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Carousel - Desktop only */}
+            <div className="hidden lg:flex gap-4 h-[500px] justify-center">
 
             <div
               className="relative overflow-hidden h-full mx-auto"
@@ -720,6 +699,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </div>
 
