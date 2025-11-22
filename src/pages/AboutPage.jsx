@@ -126,7 +126,7 @@ function AboutPage() {
           {/* Zambeel Dropshipping */}
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop"
+              src="https://images.unsplash.com/photo-1612452830710-97cd38a7b6e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGVjb21tZXJjZXxlbnwwfDF8MHx8fDA%3D"
               alt="Zambeel Dropshipping"
               className="w-full h-full object-cover absolute inset-0"
             />
@@ -144,7 +144,7 @@ function AboutPage() {
           {/* Cash on Delivery */}
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
-              src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop"
+              src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww"
               alt="Cash on Delivery"
               className="w-full h-full object-cover absolute inset-0"
             />
@@ -162,7 +162,7 @@ function AboutPage() {
           {/* AI Enabled Economy */}
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
-              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop"
+              src="https://plus.unsplash.com/premium_photo-1677269465314-d5d2247a0b0c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEFJfGVufDB8MXwwfHx8MA%3D%3D"
               alt="AI Enabled Economy"
               className="w-full h-full object-cover absolute inset-0"
             />
@@ -180,7 +180,7 @@ function AboutPage() {
           {/* Dedicated Support */}
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=300&fit=crop"
+              src="https://plus.unsplash.com/premium_photo-1661508822147-810c368b0ea0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RGVkaWNhdGVkJTIwc3VwcG9ydHxlbnwwfDF8MHx8fDA%3D"
               alt="Dedicated Support"
               className="w-full h-full object-cover absolute inset-0"
             />
