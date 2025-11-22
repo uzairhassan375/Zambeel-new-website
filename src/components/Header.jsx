@@ -65,12 +65,12 @@ export default function Header() {
                 >
                   Zambeel 3PL
                 </a>
-                <a
-                  href="#"
+                <Link
+                  to="/zambeel-360"
                   className="block px-4 py-3 text-[#2E3B78] hover:bg-[#FCD64C] transition text-sm font-medium w-full"
                 >
                   Zambeel 360
-                </a>
+                </Link>
               </div>
             </div>
           )}
@@ -179,12 +179,13 @@ export default function Header() {
                   >
                     Zambeel 3PL
                   </a>
-                  <a
-                    href="#"
+                  <Link
+                    to="/zambeel-360"
                     className="block text-white/80 hover:text-[#FCD64C] transition py-2 text-sm"
+                    onClick={() => setShowMobileMenu(false)}
                   >
                     Zambeel 360
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>

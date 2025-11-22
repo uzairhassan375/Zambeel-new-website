@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import blue_logoImage from "../blue_logo.png";
 
 export default function HomePage() {
@@ -360,6 +360,7 @@ export default function HomePage() {
               title: "Build your brand, your way",
               desc: "Create and scale your own product line with full sourcing and delivery support.",
               cta: "Zambeel 360",
+              link: "/zambeel-360",
             },
             {
               title: "Start selling instantly with no stock",
@@ -379,10 +380,20 @@ export default function HomePage() {
                   {card.desc}
                 </p>
               </div>
-              <button className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
-                <span>{card.cta}</span>
-                <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
-              </button>
+              {card.link ? (
+                <Link
+                  to={card.link}
+                  className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg"
+                >
+                  <span>{card.cta}</span>
+                  <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
+                </Link>
+              ) : (
+                <button className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
+                  <span>{card.cta}</span>
+                  <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
+                </button>
+              )}
             </div>
           ))}
         </div>
