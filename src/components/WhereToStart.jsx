@@ -4,19 +4,19 @@ const WhereToStart = () => {
   const steps = [
     {
       number: 1,
-      title: "Book a Consultation",
+      title: "Book Consultation",
       description: "Contact us through our Whatsapp number and our senior business consultant will get in touch with you.",
       Icon: Link
     },
     {
       number: 2,
-      title: "Get Quotation",
+      title: "Send Inventoy",
       description: "Our team will share the product and shipping cost with you. Once you approve, we will send you a payment link.",
       Icon: Store
     },
     {
       number: 3,
-      title: "Sourcing & Shipping",
+      title: "Connect Store",
       description: "We will source your product and handle all shipping logistics to our warehouse.",
       Icon: Database
     },
@@ -30,22 +30,24 @@ const WhereToStart = () => {
 
   const StepItem = ({ step, isLast }) => (
     <>
-      <div className="md:hidden relative pb-8 last:pb-0">
-        <div className="absolute left-0 top-0 w-10 h-10 bg-[#fbbf24] rounded-full flex items-center justify-center shadow-lg z-10">
-          <span className="text-gray-900 font-bold text-lg">{step.number}</span>
-        </div>
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 shadow-sm ml-16">
-          <h3 className="text-lg font-bold text-[#3b4a7c] mb-3">{step.title}</h3>
+      <div className="md:hidden relative pb-2 last:pb-0">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 shadow-sm">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 bg-[#fbbf24] rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+              <span className="text-gray-900 font-bold text-lg">{step.number}</span>
+            </div>
+            <h3 className="text-lg font-bold text-[#3b4a7c]">{step.title}</h3>
+          </div>
           <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
         </div>
         {!isLast && (
-          <div className="flex justify-center py-4">
+          <div className="flex justify-center py-2">
             <div className="flex flex-col items-center">
-              <div className="w-0.5 h-8 border-l-2 border-dashed border-gray-300"></div>
-              <div className="w-8 h-8 bg-white rounded-lg shadow-md flex items-center justify-center my-2">
+              <div className="w-0.5 h-4 border-l-2 border-dashed border-gray-300"></div>
+              <div className="w-8 h-8 bg-white rounded-lg shadow-md flex items-center justify-center my-1">
                 <step.Icon className="w-4 h-4 text-[#3b4a7c]" />
               </div>
-              <div className="w-0.5 h-8 border-l-2 border-dashed border-gray-300"></div>
+              <div className="w-0.5 h-4 border-l-2 border-dashed border-gray-300"></div>
             </div>
           </div>
         )}
@@ -98,23 +100,37 @@ const WhereToStart = () => {
               ))}
             </div>
             <div className="hidden md:block">
-              <div className="relative flex items-start justify-between mb-12 px-4">
-                <div className="absolute top-7 left-0 right-0 flex items-center px-4">
-                  <div className="w-full flex items-center justify-between">
-                    {steps.map((_, index) => (
-                      <div key={index}>
-                        {index < steps.length - 1 && (
-                          <div className="flex-1 border-t-2 border-dashed border-gray-300" style={{ marginLeft: index === 0 ? '28px' : '-28px', marginRight: '-28px' }} />
-                        )}
+              <div className="relative mb-12">
+                {/* Horizontal dotted line with step numbers and icons */}
+                <div className="flex items-center justify-center mb-16">
+                  {steps.map((step, index) => (
+                    <div key={step.number} className="flex items-center">
+                      {/* Step number circle */}
+                      <div className="w-14 h-14 bg-[#fbbf24] rounded-full flex items-center justify-center shadow-lg z-10 relative">
+                        <span className="text-gray-900 font-bold text-2xl">{step.number}</span>
                       </div>
-                    ))}
-                  </div>
+                      {/* Dotted line and icon (except for last step) */}
+                      {index < steps.length - 1 && (
+                        <div className="flex items-center mx-4" style={{ minWidth: '120px' }}>
+                          <div className="flex-1 border-t-2 border-dashed border-gray-300"></div>
+                          <div className="w-10 h-10 bg-white rounded-lg shadow-md flex items-center justify-center mx-2">
+                            <step.Icon className="w-5 h-5 text-[#3b4a7c]" />
+                          </div>
+                          <div className="flex-1 border-t-2 border-dashed border-gray-300"></div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
-                {steps.map((step, index) => (
-                  <div key={step.number} className="flex-1 relative z-10">
-                    <StepItem step={step} isLast={index === steps.length - 1} />
-                  </div>
-                ))}
+                {/* Step content below */}
+                <div className="grid grid-cols-4 gap-4">
+                  {steps.map((step) => (
+                    <div key={step.number} className="text-center">
+                      <h3 className="text-base font-bold text-[#3b4a7c] mb-3">{step.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

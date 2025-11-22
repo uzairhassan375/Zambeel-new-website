@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import white_logoImage from "../white_logo.png";
+import blue_logoImage from "../blue_logo.png";
 
-export default function Header() {
+export default function Header({ theme = "dark" }) {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navigate = useNavigate();
@@ -22,25 +23,33 @@ export default function Header() {
     }
   };
 
+  const isLightTheme = theme === "light";
+  const navBgColor = isLightTheme ? "bg-[#E8F0FE]" : "bg-[#2D3E7E]";
+  const textColor = isLightTheme ? "text-[#2E3B78]" : "text-white";
+  const logoImage = isLightTheme ? blue_logoImage : white_logoImage;
+  const hoverColor = isLightTheme ? "hover:text-[#2E3B78]" : "hover:text-yellow-300";
+  const dropdownHoverColor = isLightTheme ? "hover:bg-[#2E3B78] hover:text-white" : "hover:bg-[#FCD64C]";
+  const servicesHoverColor = isLightTheme ? "hover:text-[#2E3B78]" : "hover:text-[#FCD64C]";
+
   return (
     <>
-      <nav className="w-[96%] max-w-[1400px] bg-[#2D3E7E] rounded-full px-4 md:px-6 py-3 flex justify-between items-center shadow-xl fixed top-4 left-1/2 transform -translate-x-1/2 z-50 mx-auto">
+      <nav className={`w-[96%] max-w-[1400px] ${navBgColor} rounded-full px-4 md:px-6 py-3 flex justify-between items-center shadow-xl fixed top-4 left-1/2 transform -translate-x-1/2 z-50 mx-auto`}>
         <div className="flex items-center gap-3 pl-4">
           <Link to="/" className="mt-1">
             <img
-              src={white_logoImage}
+              src={logoImage}
               alt="Zambeel Logo"
               className="h-10 md:h-12 object-contain"
             />
           </Link>
         </div>
-        <div className="hidden lg:flex items-center gap-10 text-white text-[15px] font-medium tracking-wide">
+        <div className={`hidden lg:flex items-center gap-10 ${textColor} text-[15px] font-medium tracking-wide`}>
         <div
           className="relative"
           onMouseEnter={() => setShowServicesDropdown(true)}
           onMouseLeave={() => setShowServicesDropdown(false)}
         >
-          <button className={`transition flex items-center gap-2 ${showServicesDropdown ? 'text-[#FCD64C]' : 'hover:text-[#FCD64C]'}`}>
+          <button className={`transition flex items-center gap-2 ${showServicesDropdown ? (isLightTheme ? 'text-[#2E3B78]' : 'text-[#FCD64C]') : servicesHoverColor}`}>
             Services
             <svg 
               className={`w-3 h-3 transition-transform duration-200 ${showServicesDropdown ? 'rotate-180' : ''}`}
@@ -55,19 +64,19 @@ export default function Header() {
               <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
                 <a
                   href="#"
-                  className="block px-4 py-3 text-[#2E3B78] hover:bg-[#FCD64C] transition text-sm font-medium w-full"
+                  className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
                 >
                   Dropshipping
                 </a>
                 <a
                   href="#"
-                  className="block px-4 py-3 text-[#2E3B78] hover:bg-[#FCD64C] transition text-sm font-medium w-full"
+                  className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
                 >
                   Zambeel 3PL
                 </a>
                 <Link
                   to="/zambeel-360"
-                  className="block px-4 py-3 text-[#2E3B78] hover:bg-[#FCD64C] transition text-sm font-medium w-full"
+                  className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
                 >
                   Zambeel 360
                 </Link>
@@ -77,31 +86,31 @@ export default function Header() {
         </div>
         <button
           onClick={() => handleSectionClick("where-to-sell")}
-          className="hover:text-yellow-300 transition cursor-pointer"
+          className={`${hoverColor} transition cursor-pointer`}
         >
           Where can you sell?
         </button>
         <button
           onClick={() => handleSectionClick("why-zambeel")}
-          className="hover:text-yellow-300 transition cursor-pointer"
+          className={`${hoverColor} transition cursor-pointer`}
         >
           Why Zambeel?
         </button>
         <button
           onClick={() => handleSectionClick("reviews")}
-          className="hover:text-yellow-300 transition cursor-pointer"
+          className={`${hoverColor} transition cursor-pointer`}
         >
           Reviews
         </button>
-        <Link to="/team" className="hover:text-yellow-300 transition">
+        <Link to="/team" className={`${hoverColor} transition`}>
           Our Team
         </Link>
-        <Link to="/about" className="hover:text-yellow-300 transition">
+        <Link to="/about" className={`${hoverColor} transition`}>
           About Us
         </Link>
       </div>
-      <div className="bg-white rounded-full p-[4px] pl-6 hidden md:flex items-center gap-4 shadow-md">
-        <a href="#" className="text-[#2D3E7E] font-bold text-sm">
+      <div className={`${isLightTheme ? 'bg-white' : 'bg-white'} rounded-full p-[4px] pl-6 hidden md:flex items-center gap-4 shadow-md`}>
+        <a href="#" className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2D3E7E]'} font-bold text-sm`}>
           Sign In
         </a>
         <button className="bg-[#FCD64C] text-[#2D3E7E] px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap">
@@ -110,7 +119,7 @@ export default function Header() {
       </div>
         <button
           onClick={() => setShowMobileMenu(!showMobileMenu)}
-          className="lg:hidden text-white p-2"
+          className={`lg:hidden ${textColor} p-2`}
           aria-label="Toggle menu"
         >
           <svg
@@ -143,12 +152,12 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {showMobileMenu && (
-        <div className="lg:hidden fixed top-20 left-1/2 transform -translate-x-1/2 w-[96%] max-w-[1400px] bg-[#2D3E7E] rounded-2xl shadow-2xl z-40 mt-2 overflow-hidden">
+        <div className={`lg:hidden fixed top-20 left-1/2 transform -translate-x-1/2 w-[96%] max-w-[1400px] ${isLightTheme ? 'bg-[#E8F0FE]' : 'bg-[#2D3E7E]'} rounded-2xl shadow-2xl z-40 mt-2 overflow-hidden`}>
           <div className="flex flex-col p-6 space-y-4">
             <div className="relative">
               <button
                 onClick={() => setShowServicesDropdown(!showServicesDropdown)}
-                className="w-full flex items-center justify-between text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition"
+                className={`w-full flex items-center justify-between ${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition`}
               >
                 <span>Services</span>
                 <svg
@@ -169,19 +178,19 @@ export default function Header() {
                 <div className="mt-2 pl-4 space-y-2">
                   <a
                     href="#"
-                    className="block text-white/80 hover:text-[#FCD64C] transition py-2 text-sm"
+                    className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
                   >
                     Dropshipping
                   </a>
                   <a
                     href="#"
-                    className="block text-white/80 hover:text-[#FCD64C] transition py-2 text-sm"
+                    className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
                   >
                     Zambeel 3PL
                   </a>
                   <Link
                     to="/zambeel-360"
-                    className="block text-white/80 hover:text-[#FCD64C] transition py-2 text-sm"
+                    className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Zambeel 360
@@ -191,40 +200,40 @@ export default function Header() {
             </div>
             <button
               onClick={() => handleSectionClick("where-to-sell")}
-              className="text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition text-left w-full"
+              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition text-left w-full`}
             >
               Where can you sell?
             </button>
             <button
               onClick={() => handleSectionClick("why-zambeel")}
-              className="text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition text-left w-full"
+              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition text-left w-full`}
             >
               Why Zambeel?
             </button>
             <Link
               to="/about"
               onClick={() => setShowMobileMenu(false)}
-              className="text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition"
+              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition`}
             >
               About Us
             </Link>
             <Link
               to="/team"
               onClick={() => setShowMobileMenu(false)}
-              className="text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition"
+              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition`}
             >
               Our Team
             </Link>
             <button
               onClick={() => handleSectionClick("reviews")}
-              className="text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition text-left w-full"
+              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition text-left w-full`}
             >
               Reviews
             </button>
-            <div className="pt-4 border-t border-white/20">
+            <div className={`pt-4 border-t ${isLightTheme ? 'border-[#2E3B78]/20' : 'border-white/20'}`}>
               <a
                 href="#"
-                className="block text-white text-[15px] font-medium py-3 hover:text-[#FCD64C] transition"
+                className={`block ${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition`}
               >
                 Sign In
               </a>

@@ -297,7 +297,7 @@ const Zambeel360Page = () => {
                 growing your business.
               </p>
             </div>
-            <div className="bg-[#e7ecef] px-14 py-10">
+            <div className="bg-white px-14 py-10">
               <div className="flex flex-wrap justify-center gap-12">
                 <div className="flex flex-col items-center w-32 text-center">
                   <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 ring-1 ring-gray-200">
@@ -376,7 +376,7 @@ const Zambeel360Page = () => {
             </div>
           </div>
           <div className="md:hidden w-full bg-[#92a3b1] overflow-hidden">
-            <div className="bg-gradient-to-b px-6 pt-10 pb-8 text-center">
+            <div className="bg-[#92a3b1] px-6 pt-10 pb-8 text-center">
               <h2 className="text-white text-xl font-bold mb-3 tracking-wide">Why China Sourcing with Zambeel?</h2>
               <p className="text-white/90 text-[12px] leading-5 font-light">
                 We sourced high quality products from trusted suppliers in China. Our end-to-end service includes product
@@ -384,7 +384,7 @@ const Zambeel360Page = () => {
                 growing your business.
               </p>
             </div>
-            <div className="py-8 space-y-5">
+            <div className="py-8 space-y-5 bg-[#92a3b1]">
               {features.map((feature) => (
                 <div key={feature.id} className="relative flex items-center w-full">
                   <div className={`absolute left-0 h-[2px] bg-[#fbbf24] z-0 transition-all duration-300 ${feature.mobileLineW}`}></div>
@@ -399,7 +399,7 @@ const Zambeel360Page = () => {
                 </div>
               ))}
             </div>
-            <div className="h-10 bg-gradient-to-t from-[#2b3e6a] via-[#3a5074] to-[#5f7389]"></div>
+            <div className="h-10 bg-[#92a3b1]"></div>
           </div>
         </div>
       </section>
