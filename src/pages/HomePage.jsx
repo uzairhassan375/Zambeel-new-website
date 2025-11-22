@@ -260,7 +260,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="md:hidden w-full relative">
+        <div className="md:hidden w-full relative mb-4">
           <div className="relative overflow-hidden px-4 py-6">
             <div
               className="flex transition-transform duration-500 ease-in-out"
