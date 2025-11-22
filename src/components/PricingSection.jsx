@@ -37,10 +37,9 @@ const PricingSection = ({
 
   return (
     <section
-      className="w-full mx-auto py-16 px-4 sm:px-6 md:px-8"
+      className="w-full mx-auto py-8 md:py-16 px-4 sm:px-6 md:px-8"
       style={{
         fontFamily: "Inter, sans-serif",
-        background: "linear-gradient(135deg, #243a86 0%, #6a3fa0 100%)"
       }}
     >
       <div className="max-w-[1050px] mx-auto text-center">

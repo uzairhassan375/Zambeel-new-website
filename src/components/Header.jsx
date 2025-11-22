@@ -62,12 +62,12 @@ export default function Header({ theme = "dark" }) {
           {showServicesDropdown && (
             <div className="absolute top-full left-0 pt-2 bg-transparent min-w-[200px] z-50">
               <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
-                <a
-                  href="#"
+                <Link
+                  to="/dropshipping"
                   className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
                 >
                   Dropshipping
-                </a>
+                </Link>
                 <a
                   href="#"
                   className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
@@ -176,12 +176,13 @@ export default function Header({ theme = "dark" }) {
               </button>
               {showServicesDropdown && (
                 <div className="mt-2 pl-4 space-y-2">
-                  <a
-                    href="#"
+                  <Link
+                    to="/dropshipping"
                     className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
+                    onClick={() => setShowMobileMenu(false)}
                   >
                     Dropshipping
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
