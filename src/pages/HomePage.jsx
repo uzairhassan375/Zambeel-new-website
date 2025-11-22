@@ -174,18 +174,21 @@ export default function HomePage() {
       desc: "Start selling instantly with no stock. Utilize AI for product evaluation and start selling from anywhere",
       cta: "Get started",
       key: "dropshipping",
+      link: "/dropshipping",
     },
     {
       title: "360",
       desc: "Build your brand, your way. Complete solution from design, manufacturing to delivery for your growth.",
       cta: "Get started",
       key: "360",
+      link: "/zambeel-360",
     },
     {
       title: "3PL",
       desc: "Reliable storage and fast delivery. Manage and deliver fast with our logistics network for business growth.",
       cta: "Get started",
       key: "3pl",
+      link: "/zambeel-3pl",
     },
   ];
 
@@ -276,9 +279,18 @@ export default function HomePage() {
                     <p className="text-[#2E3B78] text-sm leading-relaxed mb-6 text-left mt-2">
                       {service.desc}
                     </p>
-                    <button className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#1a234d] transition w-fit mx-auto">
-                      {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
-                    </button>
+                    {service.link ? (
+                      <Link
+                        to={service.link}
+                        className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#1a234d] transition w-fit mx-auto"
+                      >
+                        {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
+                      </Link>
+                    ) : (
+                      <button className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#1a234d] transition w-fit mx-auto">
+                        {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -355,6 +367,7 @@ export default function HomePage() {
               title: "Reliable storage and fast delivery",
               desc: "Manage inventory and fulfillment effortlessly with Zambeel's logistics network.",
               cta: "Zambeel 3PL",
+              link: "/zambeel-3pl",
             },
             {
               title: "Build your brand, your way",
@@ -366,6 +379,7 @@ export default function HomePage() {
               title: "Start selling instantly with no stock",
               desc: "Source trending products and sell globally with zero upfront cost.",
               cta: "Zambeel Dropshipping",
+              link: "/dropshipping",
             },
           ].map((card) => (
             <div

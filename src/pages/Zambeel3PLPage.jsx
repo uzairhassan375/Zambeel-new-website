@@ -2,29 +2,29 @@ import { useState, useEffect } from 'react';
 import PricingSection from '../components/PricingSection';
 import WhereToStart from '../components/WhereToStart';
 
-const Zambeel360Page = () => {
+const Zambeel3PLPage = () => {
   // Text carousel state
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   const carouselTexts = [
     {
-      line1: "Easily launch your white-label product from China.",
-      line2: "We handle the entire process - sourcing, customs",
-      line3: "clearance and delivery to our warehouse."
+      line1: "Reliable storage and fast delivery for your business.",
+      line2: "We handle inventory management, fulfillment, and",
+      line3: "shipping logistics to our warehouse network."
     },
     {
-      line1: "Streamline your supply chain with our end-to-end solution.",
-      line2: "From product sourcing to quality control, we manage",
-      line3: "every step of your business journey."
+      line1: "Streamline your fulfillment with our 3PL solution.",
+      line2: "From warehousing to order processing, we manage",
+      line3: "every step of your logistics journey."
     },
     {
       line1: "Scale your business without the complexity.",
-      line2: "Our expert team handles logistics, shipping, and",
-      line3: "customs clearance so you can focus on growth."
+      line2: "Our expert team handles storage, picking, packing, and",
+      line3: "shipping so you can focus on growth."
     },
     {
-      line1: "Transform your ideas into products with confidence.",
-      line2: "Trusted sourcing, reliable delivery, and dedicated",
+      line1: "Transform your logistics with confidence.",
+      line2: "Trusted warehousing, reliable delivery, and dedicated",
       line3: "support to help your business succeed."
     }
   ];
@@ -117,7 +117,7 @@ const Zambeel360Page = () => {
   ];
 
   return (
-    <div className="min-h-screen overflow-x-hidden relative -mt-20 pt-20" style={{ background: 'linear-gradient(186.57deg, rgba(18, 75, 61, 0.75) 5.1%, rgba(31, 46, 100, 0.958277) 12.51%, rgba(28, 54, 89, 0.911419) 31.95%, rgba(22, 81, 66, 0.793286) 47.98%, rgba(51, 88, 140, 0.913498) 70.93%, #4A61C4 81.76%)' }}>
+    <div className="min-h-screen overflow-x-hidden relative -mt-20 pt-20" style={{ background: 'linear-gradient(186.57deg, rgba(72, 11, 96, 0.75) 5.1%, rgba(31, 46, 100, 0.958277) 12.51%, rgba(28, 54, 89, 0.911419) 31.95%, rgba(53, 4, 72, 0.793286) 47.98%, rgba(51, 88, 140, 0.913498) 70.93%, #4A61C4 81.76%)' }}>
       {/* Decorative SVG Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <svg className="absolute top-32 left-12 w-20 h-24 opacity-30" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,10 +157,10 @@ const Zambeel360Page = () => {
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-10 md:mb-12">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
-              Zambeel 360
+              Zambeel 3PL
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">
-              Source anything from China
+              Reliable storage and fast delivery
             </p>
             <div className="mb-6 md:mb-8">
               <p className="text-xs sm:text-sm md:text-base text-white/95 max-w-3xl mx-auto leading-relaxed px-2 min-h-[60px] md:min-h-[72px] transition-opacity duration-500">
@@ -278,24 +278,21 @@ const Zambeel360Page = () => {
               loop
               playsInline
             >
-              <source src="/src/assets/dropshipping.webm" type="video/webm" />
+              <source src="/src/assets/3pl-landscape.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
       </section>
 
-      {/* Why China Sourcing Section */}
+      {/* Why 3PL with Zambeel Section */}
       <section className="relative py-10 md:py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="hidden md:block rounded-3xl overflow-hidden shadow-2xl">
             <div className="bg-white px-14 pt-16 pb-10 text-center">
-              <h2 className="text-4xl font-bold text-[#35466d] mb-6">Why China Sourcing with Zambeel?</h2>
+              <h2 className="text-4xl font-bold text-[#35466d] mb-6">Why 3PL with Zambeel?</h2>
               <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  
-                We sourced high quality products from trusted suppliers in China. Our end-to-end service includes product
-                sourcing, quality control, shipping logistics, and customs clearance, making it easy for you to focus on
-                growing your business.
+                We provide reliable warehousing and fulfillment services. Our end-to-end 3PL solution includes inventory management, order processing, picking, packing, and fast shipping, making it easy for you to focus on growing your business.
               </p>
             </div>
             <div className="bg-white px-14 py-10">
@@ -310,7 +307,7 @@ const Zambeel360Page = () => {
                       <defs><clipPath id="d_hq"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
                   </div>
-                  <p className="text-xs font-semibold text-[#35466d] leading-tight">High Quality<br />Products</p>
+                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Secure<br />Warehousing</p>
                 </div>
                 <div className="flex flex-col items-center w-32 text-center">
                   <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 ring-1 ring-gray-200">
@@ -323,7 +320,7 @@ const Zambeel360Page = () => {
                       <defs><clipPath id="d_ship"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
                   </div>
-                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Fast Shipping<br />from China</p>
+                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Fast Shipping<br />& Delivery</p>
                 </div>
                 <div className="flex flex-col items-center w-32 text-center">
                   <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 ring-1 ring-gray-200">
@@ -341,7 +338,7 @@ const Zambeel360Page = () => {
                       <defs><clipPath id="d_src"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
                   </div>
-                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Source<br />Anything</p>
+                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Order<br />Processing</p>
                 </div>
                 <div className="flex flex-col items-center w-32 text-center">
                   <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 ring-1 ring-gray-200">
@@ -371,18 +368,16 @@ const Zambeel360Page = () => {
                       <defs><clipPath id="d_low"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
                   </div>
-                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Lowest<br />Prices</p>
+                  <p className="text-xs font-semibold text-[#35466d] leading-tight">Competitive<br />Pricing</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="md:hidden w-full bg-[#92a3b1] overflow-hidden">
             <div className="bg-[#92a3b1] px-6 pt-10 pb-8 text-center">
-              <h2 className="text-white text-xl font-bold mb-3 tracking-wide">Why China Sourcing with Zambeel?</h2>
+              <h2 className="text-white text-xl font-bold mb-3 tracking-wide">Why 3PL with Zambeel?</h2>
               <p className="text-white/90 text-[12px] leading-5 font-light">
-                We sourced high quality products from trusted suppliers in China. Our end-to-end service includes product
-                sourcing, quality control, shipping logistics, and customs clearance, making it easy for you to focus on
-                growing your business.
+                We provide reliable warehousing and fulfillment services. Our end-to-end 3PL solution includes inventory management, order processing, picking, packing, and fast shipping, making it easy for you to focus on growing your business.
               </p>
             </div>
             <div className="py-8 space-y-5 bg-[#92a3b1]">
@@ -412,10 +407,54 @@ const Zambeel360Page = () => {
       <PricingSection 
         title="Our pricing is clear and transparent"
         subtitle="Click on any plan to see full details and features."
+        customPlans={[
+          {
+            tag: "Basic",
+            name: "Starter Pack",
+            monthlyPrice: "$35",
+            yearlyPrice: "$32",
+            description: "Perfect for small businesses starting with 3PL services and basic warehousing needs.",
+            features: [
+              { text: "Basic Storage Space", included: true },
+              { text: "Order Fulfillment", included: true },
+              { text: "Email Support", included: true },
+              { text: "Dedicated Account Manager", included: false },
+              { text: "Advanced Inventory Management", included: false },
+            ],
+          },
+          {
+            tag: "Premium",
+            name: "Business Pack",
+            monthlyPrice: "$85",
+            yearlyPrice: "$79",
+            description: "Advanced features for growing businesses with priority support and comprehensive logistics.",
+            features: [
+              { text: "Extended Storage Space", included: true },
+              { text: "Priority Order Fulfillment", included: true },
+              { text: "Priority Support", included: true },
+              { text: "Dedicated Account Manager", included: true },
+              { text: "Advanced Inventory Management", included: true },
+            ],
+          },
+          {
+            tag: "Advanced",
+            name: "Enterprise Pack",
+            monthlyPrice: "$55",
+            yearlyPrice: "$52",
+            description: "Ideal for established businesses looking to scale with automation and dedicated support.",
+            features: [
+              { text: "Extended Storage Space", included: true },
+              { text: "Priority Order Fulfillment", included: true },
+              { text: "Priority Support", included: true },
+              { text: "Dedicated Account Manager", included: true },
+              { text: "Advanced Inventory Management", included: false },
+            ],
+          },
+        ]}
       />
     </div>
   );
 };
 
-export default Zambeel360Page;
+export default Zambeel3PLPage;
 
