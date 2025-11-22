@@ -50,7 +50,7 @@ export default function HomePage() {
             wordIndex = 0;
             cycleCount++;
             if (cycleCount >= totalCycles) {
-              setNumberText("Three");
+              setNumberText("three");
               return;
             }
           }
@@ -233,6 +233,20 @@ export default function HomePage() {
 
   const selectedCountryData = countries.find((c) => c.name === selectedCountry);
 
+  // Helper function to get route for service
+  const getServiceRoute = (service) => {
+    switch (service) {
+      case "Dropshipping":
+        return "/dropshipping";
+      case "360":
+        return "/zambeel-360";
+      case "3PL":
+        return "/zambeel-3pl";
+      default:
+        return "#";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center overflow-x-hidden">
       <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-24 flex flex-col items-center relative z-10 mx-auto overflow-x-hidden">
@@ -251,7 +265,7 @@ export default function HomePage() {
           <div className="relative inline-block px-4 w-full max-w-full">
             <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal relative">
               One platform.
-              <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block min-w-[80px] text-center">
+              <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block w-[105px] text-center">
                 {numberText}
                 <span className="animate-pulse">|</span>
               </span>
@@ -483,8 +497,9 @@ export default function HomePage() {
               </p>
               <div className="space-y-2">
                 {selectedCountryData?.services.map((service) => (
-                  <button
+                  <Link
                     key={service}
+                    to={getServiceRoute(service)}
                     className="w-full bg-[#2E3B78] hover:bg-[#1a234d] text-white rounded-xl p-3 flex items-center justify-between transition shadow-md group text-left"
                   >
                     <div>
@@ -499,7 +514,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <i className="fa-solid fa-arrow-right text-white text-xs"></i>
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -588,8 +603,9 @@ export default function HomePage() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {selectedCountryData?.services.map((service) => (
-                  <button
+                  <Link
                     key={service}
+                    to={getServiceRoute(service)}
                     className="bg-[#2E3B78] hover:bg-[#1a234d] text-white rounded-xl p-4 flex items-center justify-between transition shadow-md group text-left"
                   >
                     <div>
@@ -604,7 +620,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <i className="fa-solid fa-arrow-right text-white text-sm transform group-hover:translate-x-1 transition"></i>
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -699,17 +715,17 @@ export default function HomePage() {
               >
                 {[
                   {
-                    img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600",
+                    img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
                     title: "Zambeel Dropshipping",
                     desc: "Start your Ecommerce business anywhere without registration.",
                   },
                   {
-                    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=600&fit=crop",
+                    img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
                     title: "Cash on Delivery",
                     desc: "Scale easily with COD—no payment gateway needed.",
                   },
                   {
-                    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=600&fit=crop",
+                    img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
                     title: "AI Enabled Economy",
                     desc: "Use our AI tools to accelerate your work.",
                   },
@@ -744,19 +760,19 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 {
-                  img: "https://picsum.photos/400/600?random=1",
+                  img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
                   title: "Zambeel Dropshipping",
                   desc: "Start your Ecommerce business anywhere without registration.",
                 },
                 {
-                  img: "https://picsum.photos/400/600?random=2",
+                  img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
                   title: "Cash on Delivery",
                   desc: "Scale easily with COD—no payment gateway needed.",
                 },
                 ...(showAllFeatures
                   ? [
                       {
-                        img: "https://picsum.photos/400/600?random=3",
+                        img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
                         title: "AI Enabled Economy",
                         desc: "Use our AI tools to accelerate your work.",
                       },
