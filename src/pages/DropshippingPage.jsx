@@ -31,7 +31,7 @@ const DropshippingPage = () => {
       }}
     >
       {/* ================= HERO SECTION ================= */}
-      <section className="pb-8 md:pb-16 text-center relative pt-24 md:pt-28">
+      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6">Zambeel Dropshipping</h1>
         <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">Start from Anywhere</p>
         <div className="mb-6 md:mb-8">
@@ -54,15 +54,16 @@ const DropshippingPage = () => {
           ))}
         </div>
         {/* UAE/KSA Box */}
-        <div className="mx-auto rounded-[32px] shadow-lg max-w-lg overflow-hidden" style={{boxShadow: '0 8px 32px rgba(36,58,134,0.18)'}}>
+        <div className="px-4 md:px-0">
+          <div className="mx-auto rounded-[32px] shadow-lg max-w-lg overflow-hidden w-full" style={{boxShadow: '0 8px 32px rgba(36,58,134,0.18)'}}>
           {/* Top: Dropshipping available */}
           <div className="bg-[#e3e7f6] px-4 pt-4 pb-2">
             <p className="text-[#243a86] font-bold text-lg mb-6 text-center">Dropshipping currently available in</p>
             <div className="flex items-center justify-center gap-12">
               {/* UAE Flag */}
               <div className="flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-1 shadow-md">
-                  <div className="w-12 h-12 rounded-full overflow-hidden relative">
+                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
+                  <div className="w-16 h-16 rounded-full overflow-hidden relative">
                     <div className="absolute inset-0 flex flex-col">
                       <div className="h-1/3 bg-green-600"></div>
                       <div className="h-1/3 bg-white"></div>
@@ -75,8 +76,8 @@ const DropshippingPage = () => {
               </div>
               {/* KSA Custom Icon */}
               <div className="flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-1 shadow-md">
-                  <svg width="56" height="56" viewBox="0 0 96 96" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
+                  <svg viewBox="0 0 96 96" className="w-[90px] h-[90px]" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="48" cy="48" r="34" fill="#6DA544" />
                     <path d="M34 58C34 60.7614 36.2386 63 39 63H53C53 65.2091 54.7909 67 57 67H61C63.2091 67 65 65.2091 65 63V58H34Z" fill="#F0F0F0" />
                     <path d="M65 36V46C65 47.6569 63.6569 49 62 49V53C65.866 53 69 49.866 69 46V36H65Z" fill="#F0F0F0" />
@@ -142,6 +143,7 @@ const DropshippingPage = () => {
             </div>
           </div>
         </div>
+        </div>
         {/* Decorative shapes (absolute, for visual effect) */}
         <div className="absolute left-0 top-10 w-16 h-16 bg-[#fdd24d] opacity-30 rounded-xl rotate-12" style={{zIndex:1}}></div>
         <div className="absolute left-32 top-40 w-14 h-14 bg-[#fdd24d] opacity-30 rounded-xl rotate-6" style={{zIndex:1}}></div>
@@ -150,7 +152,7 @@ const DropshippingPage = () => {
       </section>
 
       {/* ================= I GRID (Single Large Video Frame) ================= */}
-      <section className="w-full py-4 md:py-10">
+      <section className="w-full py-4 md:py-4">
         <div className="max-w-[1150px] mx-auto px-6 sm:px-10 lg:px-12">
           <div className="rounded-xl overflow-hidden">
             <video

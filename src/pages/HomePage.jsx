@@ -249,11 +249,11 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center overflow-x-hidden">
-      <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-24 flex flex-col items-center relative z-10 mx-auto overflow-x-hidden">
+      <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-8 flex flex-col items-center relative z-10 mx-auto overflow-x-hidden">
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
-        <div className="text-center mb-16 relative">
+        <div className="text-center mb-16 md:mb-8 relative">
           <div className="mb-8 hidden md:flex justify-center relative items-center">
             <img
               src={blue_logoImage}
@@ -427,7 +427,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-0 pb-0 md:py-20 px-4 flex justify-center">
+      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-0 pb-0 md:py-8 px-4 flex justify-center">
         <div className="max-w-[1200px] w-full mx-auto bg-white rounded-[2.5rem] p-6 lg:p-12">
           <div className="flex lg:hidden gap-3 items-center">
             <div className="flex flex-col items-center justify-between py-2">
@@ -628,9 +628,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="why-zambeel" className="w-full bg-[#F8FAFC] py-8 md:py-24 px-4 flex justify-center">
+      <section id="why-zambeel" className="w-full bg-[#F8FAFC] py-8 md:py-8 px-4 flex justify-center">
         <div className="max-w-[1200px] w-full mx-auto">
-          <div className="text-center mb-12 w-full mx-auto">
+          <div className="text-center mb-12 md:mb-6 w-full mx-auto">
             <h2 className="text-[#2E3B78] text-2xl lg:text-3xl font-bold mb-3">
               Why Zambeel?
             </h2>
@@ -833,7 +833,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-between items-center mt-12 lg:mt-10">
+          <div className="hidden lg:flex justify-between items-center mt-6 lg:mt-4">
             {showAllFeatures ? (
               <button
                 onClick={() => setShowAllFeatures(false)}
@@ -855,9 +855,9 @@ export default function HomePage() {
       </section>
 
       <div className="w-full blue-gradient-bg flex justify-center">
-        <div className="max-w-[1400px] w-full mx-auto px-4 py-8 md:py-16 space-y-12 md:space-y-6">
-          <div ref={statsRef} className="max-w-6xl mx-auto bg-white rounded-[2rem] md:rounded-[3rem] px-6 py-10 md:p-16 shadow-2xl text-center">
-            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-12">
+        <div className="max-w-[1400px] w-full mx-auto px-4 py-8 md:py-8 space-y-12 md:space-y-6">
+          <div ref={statsRef} className="max-w-6xl mx-auto bg-white rounded-[2rem] md:rounded-[3rem] px-6 py-10 md:p-8 shadow-2xl text-center">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-6">
               Our Network, Active & Rising
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">

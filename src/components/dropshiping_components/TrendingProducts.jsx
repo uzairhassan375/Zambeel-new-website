@@ -68,9 +68,10 @@ const TrendingProducts = () => {
   return (
     <section
       id="trending-products"
-      className="w-full mx-auto py-8 md:py-20 px-6 sm:px-10 lg:px-12"
+      className="w-full mx-auto py-8 md:py-8 px-6 sm:px-10 lg:px-12"
       style={{
         fontFamily: "Inter, sans-serif",
+        background: "linear-gradient(180deg, rgba(79, 102, 200, 0.3) 0%, rgba(79, 102, 200, 0.1) 100%)",
       }}
     >
       <div className="max-w-[1050px] mx-auto text-center">
@@ -126,14 +127,14 @@ const TrendingProducts = () => {
             ))}
           </div>
 
-          {/* Show More Button */}
+          {/* All Products Button */}
           {!showMore && (
             <button
               onClick={() => setShowMore(true)}
               className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors mb-6"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
-              Show More Products
+              All Products
             </button>
           )}
 
@@ -249,22 +250,27 @@ const TrendingProducts = () => {
           </div>
 
           {/* Desktop Navigation Buttons */}
-          <div className="relative mt-6">
+          <div className="relative mt-6 flex items-center justify-center">
             <button
               onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#243a86] text-white px-6 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors flex items-center gap-2"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#243a86] text-white w-12 h-12 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors flex items-center justify-center"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
               <i className="fa-solid fa-arrow-left"></i>
-              View more
+            </button>
+
+            <button
+              className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors"
+              style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
+            >
+              View All Products
             </button>
 
             <button
               onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#243a86] text-white px-6 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors flex items-center gap-2"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#243a86] text-white w-12 h-12 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors flex items-center justify-center"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
-              View more
               <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>

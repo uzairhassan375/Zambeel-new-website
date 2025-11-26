@@ -25,7 +25,7 @@ function AppContent() {
             <Route path="/dropshipping" element={<DropshippingPage />} />
           </Routes>
         </main>
-        <div className="w-full blue-gradient-bg">
+        <div className="w-full" style={{ backgroundColor: '#4F66C8' }}>
           <Footer />
         </div>
       </div>
