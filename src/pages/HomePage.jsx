@@ -196,8 +196,8 @@ export default function HomePage() {
     { name: "UAE", code: "ae", services: ["360", "3PL", "Dropshipping"] },
     { name: "KSA", code: "sa", services: ["360", "3PL", "Dropshipping"] },
     { name: "Qatar", code: "qa", services: ["3PL", "360"] },
-    { name: "KWT", code: "kw", services: ["3PL", "360"] },
-    { name: "PAK", code: "pk", services: ["3PL", "360"] },
+    { name: "Kuwait", code: "kw", services: ["3PL", "360"] },
+    { name: "Pakistan", code: "pk", services: ["3PL", "360"] },
   ];
 
   const reviews = [
@@ -274,8 +274,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="md:hidden w-full relative mb-4">
-          <div className="relative overflow-hidden px-4 py-6">
+        <div className="md:hidden w-full relative mb-0">
+          <div className="relative overflow-hidden px-4 pt-6 pb-2">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
@@ -311,7 +311,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-4">
             {services.map((_, idx) => (
               <div
                 key={idx}
@@ -325,7 +325,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="flex justify-center gap-2 md:gap-4 mt-6 px-4">
+          <div className="flex justify-center gap-2 md:gap-4 mt-4 mb-2 px-4">
             <button
               onClick={() =>
                 setCurrentServiceIndex(
@@ -427,9 +427,9 @@ export default function HomePage() {
         </div>
       </main>
 
-      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] py-8 md:py-20 px-4 flex justify-center">
+      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-0 pb-0 md:py-20 px-4 flex justify-center">
         <div className="max-w-[1200px] w-full mx-auto bg-white rounded-[2.5rem] p-6 lg:p-12">
-          <div className="flex lg:hidden gap-3 min-h-fit">
+          <div className="flex lg:hidden gap-3 items-center">
             <div className="flex flex-col items-center justify-between py-2">
               <button
                 onClick={() => {
@@ -481,9 +481,9 @@ export default function HomePage() {
                 <i className="fa-solid fa-chevron-down text-[#2E3B78] text-sm"></i>
               </button>
             </div>
-            <div className="flex-1 bg-[#FDE8E9] p-5 flex flex-col rounded-2xl">
+            <div className="bg-[#FDE8E9] p-5 flex flex-col rounded-2xl">
               <div className="mb-4">
-                <h2 className="text-lg font-bold text-[#2E3B78] mb-1">
+                <h2 className="text-sm font-bold text-[#2E3B78] mb-1 whitespace-nowrap">
                   Where do you want to sell?
                 </h2>
                 <h3 className="text-[#B91C1C] font-bold text-xs tracking-widest uppercase">
@@ -769,17 +769,27 @@ export default function HomePage() {
                   title: "Cash on Delivery",
                   desc: "Scale easily with COD—no payment gateway needed.",
                 },
+                {
+                  img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                  title: "AI Enabled Economy",
+                  desc: "Use our AI tools to accelerate your work.",
+                },
+                {
+                  img: "https://picsum.photos/400/600?random=4",
+                  title: "Dedicated Support",
+                  desc: "Get expert support from day one.",
+                },
                 ...(showAllFeatures
                   ? [
                       {
-                        img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                        title: "AI Enabled Economy",
-                        desc: "Use our AI tools to accelerate your work.",
+                        img: "https://picsum.photos/400/600?random=5",
+                        title: "Global Reach",
+                        desc: "Sell to customers worldwide with ease.",
                       },
                       {
-                        img: "https://picsum.photos/400/600?random=4",
-                        title: "Dedicated Support",
-                        desc: "Get expert support from day one.",
+                        img: "https://picsum.photos/400/600?random=6",
+                        title: "Secure Platform",
+                        desc: "Your data and transactions are always protected.",
                       },
                     ]
                   : []),
@@ -845,7 +855,7 @@ export default function HomePage() {
       </section>
 
       <div className="w-full blue-gradient-bg flex justify-center">
-        <div className="max-w-[1400px] w-full mx-auto px-4 py-8 md:py-16 space-y-12 md:space-y-16">
+        <div className="max-w-[1400px] w-full mx-auto px-4 py-8 md:py-16 space-y-12 md:space-y-6">
           <div ref={statsRef} className="max-w-6xl mx-auto bg-white rounded-[2rem] md:rounded-[3rem] px-6 py-10 md:p-16 shadow-2xl text-center">
             <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-12">
               Our Network, Active & Rising
@@ -893,14 +903,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div id="reviews" className="max-w-6xl mx-auto md:bg-white md:rounded-[3rem] px-0 md:py-14 md:shadow-2xl overflow-hidden">
-            <div className="px-4 mb-6 md:mb-10">
+          <div id="reviews" className="max-w-6xl mx-auto md:bg-white md:rounded-[3rem] px-0 md:py-4 md:shadow-2xl overflow-hidden">
+            <div className="px-4 mb-6 md:mb-4">
               <h2 className="text-center text-xl md:text-3xl font-bold text-white md:text-gray-900">
                 What our Customers have to say
               </h2>
             </div>
             <div className="flex flex-col md:block gap-5 px-4 md:px-0">
-              <div className="bg-white md:bg-transparent rounded-[2.5rem] md:rounded-none p-8 md:p-0 shadow-xl md:shadow-none text-center md:mb-10">
+              <div className="bg-white md:bg-transparent rounded-[2.5rem] md:rounded-none p-8 md:p-0 shadow-xl md:shadow-none text-center md:mb-4">
                 <div className="text-[#2E3B78] text-5xl md:text-6xl font-extrabold tracking-tighter mb-2">
                   4.21
                 </div>
@@ -916,7 +926,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <h3 className="hidden md:block text-center text-lg font-bold text-gray-800 mb-12">
+              <h3 className="hidden md:block text-center text-lg font-bold text-gray-800 mb-4">
                 Most recent reviews
               </h3>
 
@@ -933,8 +943,8 @@ export default function HomePage() {
                 </div>
 
                 <div className="w-full md:w-[550px] flex-shrink-0 z-20">
-                  <div className="bg-white border border-gray-100 rounded-[2.5rem] md:rounded-3xl p-6 md:p-8 shadow-xl md:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] h-auto">
-                    <div className="flex justify-between items-start mb-4">
+                  <div className="bg-white border border-gray-100 rounded-[2.5rem] md:rounded-3xl p-6 md:p-6 shadow-xl md:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] h-auto">
+                    <div className="flex justify-between items-start mb-3">
                       <div className="flex gap-3 md:gap-4">
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-blue-50 flex-shrink-0">
                           <img
@@ -990,7 +1000,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex justify-center gap-2 md:gap-3 mt-2 md:mt-10">
+              <div className="flex justify-center gap-2 md:gap-3 mt-2 md:mt-4">
                 {reviews.map((_, idx) => (
                   <div
                     key={idx}
