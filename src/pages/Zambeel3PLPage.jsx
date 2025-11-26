@@ -209,7 +209,7 @@ const Zambeel3PLPage = () => {
                     <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">UAE</span>
                   </div>
                   <div className="flex flex-col items-center transform hover:scale-110 transition-transform">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-2 md:mb-3">
+                    <div className="w-20 h-20 md:w-22 md:h-22 rounded-full flex items-center justify-center mb-2 md:mb-3">
                       <svg width="96" height="96" viewBox="0 0 96 96" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="48" cy="48" r="34" fill="#6DA544" />
                         <path d="M34 58C34 60.7614 36.2386 63 39 63H53C53 65.2091 54.7909 67 57 67H61C63.2091 67 65 65.2091 65 63V58H34Z" fill="#F0F0F0" />
@@ -223,7 +223,7 @@ const Zambeel3PLPage = () => {
                     <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">KSA</span>
                   </div>
                   <div className="flex flex-col items-center transform hover:scale-110 transition-transform">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-2 md:mb-3">
+                    <div className="w-18 h-18 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-2 md:mb-3">
                       <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className="w-full h-full p-1">
                         <g clipPath="url(#clip)">
                           <path d="M48 86C70.0914 86 88 68.0914 88 46C88 23.9086 70.0914 6 48 6C25.9086 6 8 23.9086 8 46C8 68.0914 25.9086 86 48 86Z" fill="#F0F0F0" />
