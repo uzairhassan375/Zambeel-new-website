@@ -54,13 +54,13 @@ const PricingSection = ({
         {/* Billing Switch */}
         {showBillingToggle && (
           <div
-            className="flex items-center justify-center gap-2 mt-4 mb-14 bg-[#1a2d6b] p-1.5 rounded-full w-max mx-auto shadow-inner"
-            style={{ boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3)" }}
+            className="flex items-center justify-center gap-2 mt-4 mb-14 bg-white p-1.5 rounded-full w-max mx-auto shadow-inner"
+            style={{ boxShadow: "inset 0 2px 4px rgba(0,0,0,0.1)" }}
           >
             <button
               onClick={() => setIsMonthly(true)}
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                isMonthly ? "bg-[#ffd24c] text-[#243a86] shadow-md" : "bg-transparent text-white opacity-80 hover:opacity-100"
+                isMonthly ? "bg-[#ffd24c] text-[#243a86] shadow-md" : "bg-white text-[#243a86]"
               }`}
             >
               Monthly
@@ -68,7 +68,7 @@ const PricingSection = ({
             <button
               onClick={() => setIsMonthly(false)}
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                !isMonthly ? "bg-[#ffd24c] text-[#243a86] shadow-md" : "bg-transparent text-white opacity-80 hover:opacity-100"
+                !isMonthly ? "bg-[#ffd24c] text-[#243a86] shadow-md" : "bg-white text-[#243a86]"
               }`}
             >
               Yearly
@@ -77,7 +77,7 @@ const PricingSection = ({
         )}
 
         {/* Card Layout - Vertical on mobile, horizontal on desktop */}
-        <div className="flex flex-col md:flex-row gap-6 items-center justify-center w-full max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-6 items-center justify-center w-full max-w-7xl mx-auto">
           {plans.map((plan, idx) => (
             <PricingCard
               key={idx}

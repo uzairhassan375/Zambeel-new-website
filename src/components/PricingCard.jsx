@@ -9,17 +9,20 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
   const price = isMonthly ? plan.monthlyPrice : plan.yearlyPrice;
 
   // Determine card styling based on active state
-  const cardHeight = isActive ? EXPANDED_HEIGHT : COLLAPSED_HEIGHT;
+  const cardHeight = isActive ? 'auto' : `${COLLAPSED_HEIGHT}px`;
+  const minHeight = isActive ? `${EXPANDED_HEIGHT}px` : 'auto';
   const isPremium = plan.tag === "Premium";
-  const backgroundColor = isActive ? (isPremium ? 'bg-[#ffe4a0]' : 'bg-white') : 'bg-white/95';
-  const borderColor = isActive ? (isPremium ? 'border-[#ffd24c]' : 'border-[#243a86]') : 'border-gray-200';
+  const backgroundColor = 'bg-white';
+  const borderColor = isActive ? (isPremium ? 'border-[#ffd24c] border-2' : 'border-[#243a86] border-2') : 'border-gray-200';
   const tagBg = isPremium ? 'bg-[#ffd24c] text-[#243a86]' : 'bg-[#243a86] text-white';
 
   // Tag positioning
   const OverflowTag = (
     <div
       className={`
-        absolute top-[5px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 
+        absolute top-[5px] left-1/2 -translate-x-1/2 -translate-y-1/2
+        md:left-auto md:right-4 md:translate-x-0 md:translate-y-0 md:top-4
+        z-10 
         font-bold uppercase px-4 py-2 rounded-full shadow-xl whitespace-nowrap 
         ${tagBg}
         ${isActive ? 'text-base' : 'text-sm'} 
@@ -32,17 +35,25 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className={`
+        className={`
         relative w-full md:w-auto mx-auto cursor-pointer
-        rounded-2xl border transition-all duration-500 ease-in-out shadow-xl
+        rounded-3xl border transition-all duration-500 ease-in-out
         flex flex-col justify-start
-        ${backgroundColor} ${borderColor} hover:shadow-2xl
+        ${backgroundColor} ${borderColor}
         ${isPremium ? 'md:flex-[1.15] md:max-w-[360px]' : 'md:flex-1 md:max-w-[320px]'}
+        hover:scale-105 hover:-translate-y-2
       `}
       style={{
-        height: `${cardHeight}px`,
-        transform: isActive ? (isPremium ? 'scale(1.05)' : 'scale(1.02)') : 'scale(1)',
-        boxShadow: isActive ? '0 15px 30px rgba(0,0,0,0.25)' : '0 10px 15px rgba(0,0,0,0.1)',
+        height: cardHeight,
+        minHeight: minHeight,
+        transform: isActive ? (isPremium ? 'scale(1.05) translateY(-8px)' : 'scale(1.02)') : 'scale(1)',
+        boxShadow: isActive 
+          ? (isPremium 
+              ? '0 20px 40px rgba(255, 210, 76, 0.4)' 
+              : '0 15px 30px rgba(36, 58, 134, 0.2)')
+          : (isPremium 
+              ? '0 10px 20px rgba(255, 210, 76, 0.2)' 
+              : '0 10px 15px rgba(0,0,0,0.1)'),
       }}
     >
       {/* RENDER THE OVERFLOW TAG */}
@@ -52,7 +63,7 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
       {!isActive && (
         <div className="flex flex-col items-center justify-center h-full w-full px-4 pt-4">
           {/* 1. Name: Made bigger (text-2xl) and less bold (font-semibold) */}
-          <p className="font-semibold text-2xl text-gray-800 mb-1 mt-6">
+          <p className="font-semibold text-2xl text-[#243a86] mb-1 mt-6" style={{ fontFamily: 'Georgia, serif' }}>
             {plan.name}
           </p>
           {/* 2. Price: Stays after the pack name */}
@@ -65,22 +76,22 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
 
       {/* EXPANDED VIEW (When isActive) - Detailed View */}
       {isActive && (
-        <div className="p-4 flex flex-col flex-grow">
-          {/* COMBINED NAME AND PRICE SECTION (mt-6 to account for the overflowing tag) */}
-          <div className="flex items-baseline justify-between mb-4 mt-6">
-            {/* Name (Plan Name) - text-3xl and font-semibold */}
-            <p className={`font-semibold text-3xl text-gray-800`}>
+        <div className="flex flex-col w-full">
+          {/* TOP SECTION - White Background with Pack Name and Price */}
+          <div className="bg-white px-4 pt-16 pb-6 flex flex-col items-center justify-center rounded-t-3xl">
+            {/* Name (Plan Name) - Centered */}
+            <p className={`font-semibold text-3xl text-[#243a86] mb-2`} style={{ fontFamily: 'Georgia, serif' }}>
               {plan.name}
             </p>
-
-            {/* Price (Money) - Aligned after the pack name */}
+            {/* Price (Money) - Below pack name, centered */}
             <div className={`text-3xl font-extrabold text-[#243a86]`}>
               {price}
               <span className={`text-base font-normal opacity-70`}>/mo</span>
             </div>
           </div>
-          {/* Full Expanded Content Area */}
-          <div className="pt-2 flex flex-col flex-grow text-left">
+          
+          {/* BOTTOM SECTION - Background with Description and Features */}
+          <div className={`px-4 pt-4 pb-4 flex flex-col text-left rounded-b-3xl ${isPremium ? 'bg-[#FFF8DE]' : 'bg-[#DEE2EE]'}`}>
             <p className="text-sm mb-6 text-gray-600">{plan.description}</p>
             <ul className="mb-8 space-y-3 text-gray-700 text-base">
               {plan.features.map((feature, i) => (
@@ -97,7 +108,7 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
               ))}
             </ul>
             <button
-              className={`w-full font-semibold py-3 rounded-full shadow-lg hover:opacity-95 transition-all text-base mt-auto transform hover:scale-[1.01] active:scale-95 ${
+              className={`w-full font-semibold py-3 rounded-xl shadow-lg hover:opacity-95 transition-all text-base mt-auto transform hover:scale-[1.02] active:scale-95 ${
                 isPremium
                   ? 'bg-[#ffd24c] text-[#243a86]'
                   : 'bg-[#243a86] text-white'
@@ -108,7 +119,7 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
                   : '0 4px 15px rgba(36, 58, 134, 0.4)',
               }}
             >
-              {isPremium ? 'Select Premium' : 'Get Started →'}
+              Get Started →
             </button>
           </div>
         </div>
