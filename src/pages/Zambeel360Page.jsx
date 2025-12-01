@@ -12,24 +12,16 @@ const Zambeel360Page = () => {
   
   const carouselTexts = [
     {
-      line1: "Easily launch your white-label product from China.",
-      line2: "We handle the entire process - sourcing, customs",
-      line3: "clearance and delivery to our warehouse."
+      line1: "Sourcing, Custom Clearance & Delivery- All done by Zambeel",
     },
     {
-      line1: "Streamline your supply chain with our end-to-end solution.",
-      line2: "From product sourcing to quality control, we manage",
-      line3: "every step of your business journey."
+      line1: "High Quality Guaranteed",
     },
     {
-      line1: "Scale your business without the complexity.",
-      line2: "Our expert team handles logistics, shipping, and",
-      line3: "customs clearance so you can focus on growth."
+      line1: "All in solution for your E-commerce",
     },
     {
       line1: "Transform your ideas into products with confidence.",
-      line2: "Trusted sourcing, reliable delivery, and dedicated",
-      line3: "support to help your business succeed."
     }
   ];
 
@@ -191,7 +183,7 @@ const Zambeel360Page = () => {
           <div className="max-w-md md:max-w-2xl mx-auto">
             <div className="bg-[#d5dce8]/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10">
               <p className="text-[#2c3e5f] text-center text-xs sm:text-sm md:text-base font-semibold mb-6 md:mb-8">
-                360 currently available in
+                Zambeel 360 currently available in
               </p>
               <div className="flex flex-col gap-4 md:gap-0 md:flex-row md:justify-center md:items-center md:space-x-6 lg:space-x-10">
                 <div className="flex justify-center items-center gap-6 md:contents">
@@ -377,7 +369,7 @@ const Zambeel360Page = () => {
       <Wts
         title="Where to Start?"
         description="Getting started with Zambeel's 360 service is easy. Follow these simple steps to begin your journey with Zambeel."
-        buttonText="Get Started with Zambeel 360"
+        buttonText="Talk to our agent"
         steps={[
           {
             number: 1,

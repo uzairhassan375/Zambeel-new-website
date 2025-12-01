@@ -12,9 +12,7 @@ export default function Footer() {
             className="h-12 md:h-14 object-contain"
           />
           <p className="text-sm leading-relaxed text-blue-50 opacity-90 pr-2">
-            Zambeel helps businesses grow with reliable dropshipping,
-            fulfillment, and 3PL solutions. Sell smarter, scale faster, and
-            reach new markets with ease.
+          One Platform to Learn, Start, Build and Grow your E-commerce Business Profitably.
           </p>
           <div className="flex gap-5 text-sm mt-6">
             <a href="#" className="opacity-80 hover:opacity-100 transition">
@@ -35,7 +33,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-blue-50 opacity-90">
             <li>
               <a href="#" className="hover:text-white hover:underline">
-                Zambeel Dropshipping
+                Dropshipping
               </a>
             </li>
             <li>
@@ -45,7 +43,12 @@ export default function Footer() {
             </li>
             <li>
               <a href="#" className="hover:text-white hover:underline">
-                Zambeel 360
+                China Sourcing
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white hover:underline">
+                Learn E-commerce
               </a>
             </li>
           </ul>
@@ -78,13 +81,13 @@ export default function Footer() {
                 href="mailto:zambeel@help.com"
                 className="hover:text-white hover:underline"
               >
-                zambeel@help.com
+                zambeelsupport@myzambeel.com
               </a>
             </li>
             <li className="flex items-center gap-3">
               <i className="fa-brands fa-whatsapp w-4"></i>
               <a href="#" className="hover:text-white hover:underline">
-                +92 331 0090291
+                +971 56 847 2271
               </a>
             </li>
           </ul>

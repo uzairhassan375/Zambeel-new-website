@@ -18,7 +18,7 @@ export default function HomePage() {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const numbers = ["One", "Two", "Three"];
+    const numbers = ["Learn", "Start", "Build","Grow"];
     let wordIndex = 0;
     let charIndex = 0;
     let cycleCount = 0;
@@ -49,10 +49,7 @@ export default function HomePage() {
           if (wordIndex === numbers.length) {
             wordIndex = 0;
             cycleCount++;
-            if (cycleCount >= totalCycles) {
-              setNumberText("three");
-              return;
-            }
+            
           }
         }
       }
@@ -69,8 +66,8 @@ export default function HomePage() {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
             
-            // Animate COD Delivered (70M+)
-            const codTarget = 70;
+            // Animate orders delivered (1000K+)
+            const codTarget = 1000;
             const codDuration = 2000;
             const codSteps = 60;
             const codIncrement = codTarget / codSteps;
@@ -86,7 +83,7 @@ export default function HomePage() {
             }, codDuration / codSteps);
 
             // Animate Sellers Registered (30K+)
-            const sellersTarget = 30;
+            const sellersTarget = 50;
             const sellersDuration = 2000;
             const sellersSteps = 60;
             const sellersIncrement = sellersTarget / sellersSteps;
@@ -193,38 +190,38 @@ export default function HomePage() {
   ];
 
   const countries = [
-    { name: "UAE", code: "ae", services: ["360", "3PL", "Dropshipping"] },
-    { name: "KSA", code: "sa", services: ["360", "3PL", "Dropshipping"] },
-    { name: "Qatar", code: "qa", services: ["3PL", "360"] },
-    { name: "Kuwait", code: "kw", services: ["3PL", "360"] },
-    { name: "Pakistan", code: "pk", services: ["3PL", "360"] },
+    { name: "UAE", code: "ae", services: ["Dropshipping", "360", "3PL"] },
+    { name: "KSA", code: "sa", services: ["Dropshipping", "360", "3PL"] },
+    { name: "Qatar", code: "qa", services: ["360", "3PL"] },
+    { name: "Kuwait", code: "kw", services: ["360", "3PL"] },
+    { name: "Pakistan", code: "pk", services: ["360", "3PL"] },
   ];
 
   const reviews = [
     {
       name: "Mark Smith",
-      date: "19th September, 2025",
+      date: "19th August, 2022",
       rating: 4,
       text: "Started our dropshipping business with Zambeel and never looked back. The product quality is exceptional and customer support is available 24/7. Amazing experience!",
       image: "https://randomuser.me/api/portraits/men/32.jpg",
     },
     {
       name: "Ibrahim",
-      date: "15th September, 2025",
+      date: "15th September, 2023",
       rating: 5,
       text: "Great panel and never looked back. The team is professional and delivery is always on time.",
       image: "https://randomuser.me/api/portraits/men/45.jpg",
     },
     {
       name: "Sarah Johnson",
-      date: "12th September, 2025",
+      date: "12th January, 2021",
       rating: 5,
-      text: "Zambeel 360 has transformed our business. From design to delivery, everything is handled seamlessly. Highly recommend their services!",
+      text: "Zambeel China sourcing has transformed our business. From design to delivery, everything is handled seamlessly. Highly recommend their services!",
       image: "https://randomuser.me/api/portraits/women/44.jpg",
     },
     {
       name: "Ahmed Hassan",
-      date: "8th September, 2025",
+      date: "8th December, 2025",
       rating: 5,
       text: "The 3PL service is outstanding. Fast shipping, reliable tracking, and excellent customer service. Our customers love the quick delivery times.",
       image: "https://randomuser.me/api/portraits/men/52.jpg",
@@ -247,6 +244,20 @@ export default function HomePage() {
     }
   };
 
+  // Helper function to get display name for service
+  const getServiceDisplayName = (service) => {
+    switch (service) {
+      case "Dropshipping":
+        return "Dropshipping";
+      case "360":
+        return "China Sourcing";
+      case "3PL":
+        return "Zambeel 3PL";
+      default:
+        return service;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center overflow-x-hidden">
       <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-8 flex flex-col items-center relative z-10 mx-auto overflow-x-hidden">
@@ -264,12 +275,12 @@ export default function HomePage() {
           </div>
           <div className="relative inline-block px-4 w-full max-w-full">
             <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal relative">
-              One platform.
+              One Platform,
               <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block w-[105px] text-center">
                 {numberText}
                 <span className="animate-pulse">|</span>
               </span>
-              powerful ways to grow your business.
+              your E-commerce Business Profitably.
             </h1>
           </div>
         </div>
@@ -286,11 +297,11 @@ export default function HomePage() {
                 <div key={service.key} className="w-full flex-shrink-0 px-2">
                   <div className="bg-white rounded-3xl p-6 pt-10 shadow-xl flex flex-col relative">
                     <div className="bg-[#E7EFFC] rounded-full px-6 py-2.5 absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <h3 className="text-[#2E3B78] text-base font-bold whitespace-nowrap">
+                      <h3 className="text-[#2E3B78] text-sm font-bold whitespace-nowrap">
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-[#2E3B78] text-sm leading-relaxed mb-6 text-left mt-2">
+                    <p className="text-[#2E3B78] text-xs leading-relaxed mb-6 text-left mt-2">
                       {service.desc}
                     </p>
                     {service.link ? (
@@ -375,25 +386,31 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
           {[
             {
-              title: "Reliable storage and fast delivery",
-              desc: "Manage inventory and fulfillment effortlessly with Zambeel's logistics network.",
-              cta: "Zambeel 3PL",
+              title: "Learn E-commerce with Zambeel",
+              desc: "Learn to Start, Build & Grow your E-commerce business from scratch",
+              cta: "Learn E-commerce",
               link: "/zambeel-3pl",
             },
             {
-              title: "Build your brand, your way",
-              desc: "Create and scale your own product line with full sourcing and delivery support.",
-              cta: "Zambeel 360",
+              title: "Start E-comm without buying inventory",
+              desc: "Sell winning products from anywhere in the world on Cash on Delivery",
+              cta: "Dropshipping",
+              link: "/dropshipping",
+            },
+            {
+              title: "Build your private label with China sourcing",
+              desc: "We handle the entire process — sourcing, customs clearance, and delivery to our warehouse",
+              cta: "China Sourcing",
               link: "/zambeel-360",
             },
             {
-              title: "Start selling instantly with no stock",
-              desc: "Source trending products and sell globally with zero upfront cost.",
-              cta: "Zambeel Dropshipping",
-              link: "/dropshipping",
+              title: "Grow your E-comm with our 3PL service",
+              desc: "Use our automated system where we take care of storage, call confirmation & last-mile delivery",
+              cta: "Zambeel 3PL",
+              link: "/zambeel-3pl",
             },
           ].map((card) => (
             <div
@@ -401,10 +418,10 @@ export default function HomePage() {
               className="group card-hover bg-[#E7EFFC] rounded-[32px] p-8 pb-10 flex flex-col h-full transition-all duration-300 hover:scale-[1.02]"
             >
               <div className="flex-grow">
-                <h2 className="text-[#2E3B78] text-[1.6rem] font-semibold mb-4 leading-tight">
+                <h2 className="text-[#2E3B78] text-xl font-semibold mb-4 leading-tight">
                   {card.title}
                 </h2>
-                <p className="text-[#4A5568] group-hover:text-[#2E3B78] text-[15px] leading-relaxed mb-8">
+                <p className="text-[#4A5568] group-hover:text-[#2E3B78] text-sm leading-relaxed mb-8">
                   {card.desc}
                 </p>
               </div>
@@ -491,7 +508,7 @@ export default function HomePage() {
                 </h3>
               </div>
               <p className="text-[#4A5568] text-xs leading-relaxed mb-5">
-                Selling from {selectedCountry} gives you access to{" "}
+                Selling in {selectedCountry} gives you access to{" "}
                 {selectedCountryData?.services.join(" and ")}. Look into more
                 countries for more services.
               </p>
@@ -504,13 +521,13 @@ export default function HomePage() {
                   >
                     <div>
                       <div className="font-bold text-sm">
-                        Zambeel {service}
+                        {getServiceDisplayName(service)}
                       </div>
                       <div className="text-[10px] text-gray-300 font-light mt-0.5">
-                        {service === "3PL" && "Fast, Reliable 3PL Solutions"}
-                        {service === "360" && "Launch Your Own Product"}
+                        {service === "3PL" && "Fast, reliable and fully automated"}
+                        {service === "360" && "Build your private label"}
                         {service === "Dropshipping" &&
-                          "Start selling with no stock"}
+                          "Start selling without buying inventory"}
                       </div>
                     </div>
                     <i className="fa-solid fa-arrow-right text-white text-xs"></i>
@@ -610,13 +627,13 @@ export default function HomePage() {
                   >
                     <div>
                       <div className="font-bold text-base">
-                        Zambeel {service}
+                        {getServiceDisplayName(service)}
                       </div>
                       <div className="text-xs text-gray-300 font-light mt-1">
-                        {service === "3PL" && "Fast, Reliable 3PL Solutions"}
-                        {service === "360" && "Launch Your Own Product"}
+                        {service === "3PL" && "Fast, reliable and fully automated"}
+                        {service === "360" && "Build your private label"}
                         {service === "Dropshipping" &&
-                          "Start selling with no stock"}
+                          "Start selling without buying inventory"}
                       </div>
                     </div>
                     <i className="fa-solid fa-arrow-right text-white text-sm transform group-hover:translate-x-1 transition"></i>
@@ -650,9 +667,9 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      5 countries
+                      5 
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">covered</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Countries covered</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -661,9 +678,9 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      80% Delivery
+                      80%
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Success</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">COD Delivery Ratio</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -672,9 +689,9 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      10K+ Products
+                      Biggest
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Listed</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Product Catalog</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -683,9 +700,9 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      5-Day Payment
+                      Weekly 
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Guarantee</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Payments Guaranteed</span>
                   </div>
                 </div>
               </div>
@@ -716,17 +733,22 @@ export default function HomePage() {
                 {[
                   {
                     img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
-                    title: "Zambeel Dropshipping",
+                    title: "Dropshipping",
                     desc: "Start your Ecommerce business anywhere without registration.",
                   },
                   {
                     img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
-                    title: "Cash on Delivery",
+                    title: "China Sourcing",
                     desc: "Scale easily with COD—no payment gateway needed.",
                   },
                   {
                     img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                    title: "AI Enabled Economy",
+                    title: "3PL Service",
+                    desc: "Use our AI tools to accelerate your work.",
+                  },
+                  {
+                    img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                    title: "Learn E-commerce",
                     desc: "Use our AI tools to accelerate your work.",
                   },
                 ].map((card) => (
@@ -867,10 +889,10 @@ export default function HomePage() {
                 </div>
                 <div className="text-left md:text-center">
                   <div className="text-2xl md:text-3xl font-bold text-[#1F2937] md:mb-1">
-                    {codCount}M+
+                    {codCount}K+
                   </div>
                   <div className="text-[#4B5563] text-sm font-medium">
-                    COD Delivered
+                    orders delivered
                   </div>
                 </div>
               </div>
@@ -912,7 +934,7 @@ export default function HomePage() {
             <div className="flex flex-col md:block gap-5 px-4 md:px-0">
               <div className="bg-white md:bg-transparent rounded-[2.5rem] md:rounded-none p-8 md:p-0 shadow-xl md:shadow-none text-center md:mb-4">
                 <div className="text-[#2E3B78] text-5xl md:text-6xl font-extrabold tracking-tighter mb-2">
-                  4.21
+                  4.89
                 </div>
                 <div className="flex justify-center gap-1.5 text-2xl md:text-3xl text-[#FFC107] mb-2">
                   <i className="fa-solid fa-star"></i>
@@ -922,7 +944,7 @@ export default function HomePage() {
                   <i className="fa-solid fa-star-half-stroke"></i>
                 </div>
                 <div className="text-xs md:text-sm font-medium text-gray-500">
-                  (281 reviews)
+                  (1076 reviews)
                 </div>
               </div>
 

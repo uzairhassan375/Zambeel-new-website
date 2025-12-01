@@ -10,9 +10,9 @@ const DropshippingPage = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   const carouselTexts = [
-    "Start your Ecommerce business from anywhere in the world without business registration.",
-    "Launch your online store instantly with zero inventory investment and global reach.",
-    "Access thousands of trending products and start selling with AI-powered insights."
+    "Without buying inventory",
+    "From anywhere in the world",
+    "No business registration required"
   ];
 
   // Auto-rotate text every 3.5 seconds
@@ -32,10 +32,10 @@ const DropshippingPage = () => {
     >
       {/* ================= HERO SECTION ================= */}
       <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6">Zambeel Dropshipping</h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">Start from Anywhere</p>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">Zambeel Dropshipping</h3>
+        <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">Start Dropshipping in Largest COD Markets</p>
         <div className="mb-6 md:mb-8">
-          <p className="text-xs sm:text-sm md:text-base text-white/95 max-w-3xl mx-auto leading-relaxed px-2 min-h-[60px] md:min-h-[72px] transition-opacity duration-500">
+          <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-3xl mx-auto leading-relaxed px-2 min-h-[60px] md:min-h-[72px] transition-opacity duration-500">
             {carouselTexts[currentTextIndex]}
           </p>
         </div>
@@ -59,7 +59,7 @@ const DropshippingPage = () => {
           {/* Top: Dropshipping available */}
           <div className="bg-[#e3e7f6] px-4 pt-4 pb-2">
             <p className="text-[#243a86] font-bold text-lg mb-6 text-center">Dropshipping currently available in</p>
-            <div className="flex items-center justify-center gap-12">
+            <div className="flex items-center justify-center gap-8 md:gap-12">
               {/* UAE Flag */}
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
@@ -89,6 +89,26 @@ const DropshippingPage = () => {
                 </div>
                 <span className="mt-1 text-[#243a86] font-semibold text-sm">KSA</span>
               </div>
+              {/* Pakistan */}
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
+                  <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className="w-[90px] h-[90px]">
+                    <g clipPath="url(#clip-pk-top)">
+                      <path d="M48 86C70.0914 86 88 68.0914 88 46C88 23.9086 70.0914 6 48 6C25.9086 6 8 23.9086 8 46C8 68.0914 25.9086 86 48 86Z" fill="#F0F0F0" />
+                      <path d="M8 45.9997C8 61.1614 16.4358 74.3519 28.8695 81.1361V10.8633C16.4358 17.6475 8 30.838 8 45.9997Z" fill="#F0F0F0" />
+                      <path d="M48.0035 6C41.0738 6 34.556 7.76297 28.873 10.8636V81.1363C34.556 84.237 41.0738 86 48.0035 86C70.0948 86 88.0035 68.0913 88.0035 46C88.0035 23.9087 70.0948 6 48.0035 6Z" fill="#496E2D" />
+                      <path d="M65.1017 52.6155C60.0412 56.2719 52.9746 55.1338 49.3184 50.0735C45.6618 45.0129 46.8001 37.9465 51.8606 34.2902C53.4384 33.1502 55.2112 32.4763 57.0148 32.2421C53.5449 31.7232 49.877 32.5051 46.8087 34.7221C40.5806 39.2224 39.1795 47.9194 43.6796 54.1479C48.1798 60.3758 56.877 61.7771 63.1054 57.2765C66.174 55.0594 68.0679 51.823 68.6645 48.3654C67.876 50.0038 66.6796 51.4754 65.1017 52.6155Z" fill="#F0F0F0" />
+                      <path d="M64.8824 32.0879L67.733 35.1599L71.5355 33.3987L69.4945 37.0587L72.3449 40.131L68.233 39.3209L66.1921 42.9812L65.692 38.8202L61.5801 38.0101L65.3827 36.2488L64.8824 32.0879Z" fill="#F0F0F0" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip-pk-top">
+                        <rect width="80" height="80" transform="translate(8 6)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <span className="mt-1 text-[#243a86] font-semibold text-sm">Pakistan</span>
+              </div>
             </div>
           </div>
           {/* Divider */}
@@ -97,26 +117,6 @@ const DropshippingPage = () => {
           <div className="bg-gray-100 px-4 pt-2 pb-4 rounded-b-[32px]" style={{ filter: 'grayscale(100%)', opacity: 0.6 }}>
             <p className="text-gray-500 font-bold text-lg mb-6 text-center">Other Zambeel services available in</p>
             <div className="flex items-center justify-center gap-10">
-              {/* Pakistan */}
-              <div className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center mb-1 shadow" style={{ filter: 'grayscale(100%)' }}>
-                  <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className="w-full h-full p-1" style={{ filter: 'grayscale(100%)' }}>
-                    <g clipPath="url(#clip-pk)">
-                      <path d="M48 86C70.0914 86 88 68.0914 88 46C88 23.9086 70.0914 6 48 6C25.9086 6 8 23.9086 8 46C8 68.0914 25.9086 86 48 86Z" fill="#F0F0F0" />
-                      <path d="M8 45.9997C8 61.1614 16.4358 74.3519 28.8695 81.1361V10.8633C16.4358 17.6475 8 30.838 8 45.9997Z" fill="#F0F0F0" />
-                      <path d="M48.0035 6C41.0738 6 34.556 7.76297 28.873 10.8636V81.1363C34.556 84.237 41.0738 86 48.0035 86C70.0948 86 88.0035 68.0913 88.0035 46C88.0035 23.9087 70.0948 6 48.0035 6Z" fill="#496E2D" />
-                      <path d="M65.1017 52.6155C60.0412 56.2719 52.9746 55.1338 49.3184 50.0735C45.6618 45.0129 46.8001 37.9465 51.8606 34.2902C53.4384 33.1502 55.2112 32.4763 57.0148 32.2421C53.5449 31.7232 49.877 32.5051 46.8087 34.7221C40.5806 39.2224 39.1795 47.9194 43.6796 54.1479C48.1798 60.3758 56.877 61.7771 63.1054 57.2765C66.174 55.0594 68.0679 51.823 68.6645 48.3654C67.876 50.0038 66.6796 51.4754 65.1017 52.6155Z" fill="#F0F0F0" />
-                      <path d="M64.8824 32.0879L67.733 35.1599L71.5355 33.3987L69.4945 37.0587L72.3449 40.131L68.233 39.3209L66.1921 42.9812L65.692 38.8202L61.5801 38.0101L65.3827 36.2488L64.8824 32.0879Z" fill="#F0F0F0" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip-pk">
-                        <rect width="80" height="80" transform="translate(8 6)" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-                <span className="text-gray-500 font-semibold text-xs">Pakistan</span>
-              </div>
               {/* Qatar */}
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center mb-1 shadow" style={{ filter: 'grayscale(100%)' }}>
@@ -140,9 +140,9 @@ const DropshippingPage = () => {
                 </div>
                 <span className="text-gray-500 font-semibold text-xs">Kuwait</span>
               </div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
         {/* Decorative shapes (absolute, for visual effect) */}
         <div className="absolute left-0 top-10 w-16 h-16 bg-[#fdd24d] opacity-30 rounded-xl rotate-12" style={{zIndex:1}}></div>
@@ -177,7 +177,9 @@ const DropshippingPage = () => {
 
       {/* ================= WHY DROPSHIPPING ================= */}
       <section>
-        <WhyZambeel />
+        <WhyZambeel 
+          description="Start selling without inventory or business registration hassles. Launch your AI-powered store in under 3 minutes, get personalised guidance, and access 20K+ winning products to succeed in UAE & KSA with Zambeel Dropshipping."
+        />
       </section>
 
       {/* ================= WHERE TO START ================= */}

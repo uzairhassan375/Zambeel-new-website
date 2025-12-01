@@ -35,7 +35,7 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
   return (
     <div
       onClick={onClick}
-        className={`
+      className={`
         relative w-full md:w-auto mx-auto cursor-pointer
         rounded-3xl border transition-all duration-500 ease-in-out
         flex flex-col justify-start

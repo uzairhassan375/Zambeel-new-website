@@ -12,24 +12,17 @@ const Zambeel3PLPage = () => {
   
   const carouselTexts = [
     {
-      line1: "Reliable storage and fast delivery for your business.",
-      line2: "We handle inventory management, fulfillment, and",
-      line3: "shipping logistics to our warehouse network."
+      line1: "FREE warehousing for first 2 months",
     },
     {
-      line1: "Streamline your fulfillment with our 3PL solution.",
-      line2: "From warehousing to order processing, we manage",
-      line3: "every step of your logistics journey."
+      line1: "Fast delivery and smooth business operations",
+
     },
     {
       line1: "Scale your business without the complexity.",
-      line2: "Our expert team handles storage, picking, packing, and",
-      line3: "shipping so you can focus on growth."
     },
     {
       line1: "Transform your logistics with confidence.",
-      line2: "Trusted warehousing, reliable delivery, and dedicated",
-      line3: "support to help your business succeed."
     }
   ];
 
@@ -164,7 +157,7 @@ const Zambeel3PLPage = () => {
               Zambeel 3PL
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">
-              Reliable storage and fast delivery
+              Get warehousing, inventory management, and efficient fulfillment
             </p>
             <div className="mb-6 md:mb-8">
               <p className="text-xs sm:text-sm md:text-base text-white/95 max-w-3xl mx-auto leading-relaxed px-2 min-h-[60px] md:min-h-[72px] transition-opacity duration-500">
@@ -191,7 +184,7 @@ const Zambeel3PLPage = () => {
           <div className="max-w-md md:max-w-2xl mx-auto">
             <div className="bg-[#d5dce8]/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10">
               <p className="text-[#2c3e5f] text-center text-xs sm:text-sm md:text-base font-semibold mb-6 md:mb-8">
-                3PL currently available in
+                Zambeel 3PL currently available in
               </p>
               <div className="flex flex-col gap-4 md:gap-0 md:flex-row md:justify-center md:items-center md:space-x-6 lg:space-x-10">
                 <div className="flex justify-center items-center gap-6 md:contents">
