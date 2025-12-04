@@ -16,13 +16,9 @@ const Zambeel3PLPage = () => {
     },
     {
       line1: "Fast delivery and smooth business operations",
-
     },
     {
       line1: "Scale your business without the complexity.",
-    },
-    {
-      line1: "Transform your logistics with confidence.",
     }
   ];
 
@@ -150,38 +146,36 @@ const Zambeel3PLPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-12 md:py-28 overflow-hidden">
+      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 md:mb-12">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
+          <div className="text-center">
+            <h3 className="text-[44px] font-[800] leading-[100%] tracking-[0.02em] text-center text-white mb-4 md:mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Zambeel 3PL
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">
+            </h3>
+            <p className="text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Get warehousing, inventory management, and efficient fulfillment
             </p>
-            <div className="mb-6 md:mb-8">
-              <p className="text-xs sm:text-sm md:text-base text-white/95 max-w-3xl mx-auto leading-relaxed px-2 min-h-[60px] md:min-h-[72px] transition-opacity duration-500">
+            <div>
+              <p className="text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[60px] md:min-h-[40px] transition-opacity duration-500 mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
                 {carouselTexts[currentTextIndex].line1}
-                <br />
-                {carouselTexts[currentTextIndex].line2}
-                <br className="hidden sm:block" />
-                {carouselTexts[currentTextIndex].line3}
               </p>
             </div>
-            <div className="flex justify-center items-center space-x-2 mb-4">
+            {/* Carousel dots */}
+            <div className="flex justify-center gap-2 mb-4 -mt-2">
               {carouselTexts.map((_, index) => (
                 <div
                   key={index}
-                  className={`transition-all duration-300 rounded-full ${
+                  onClick={() => setCurrentTextIndex(index)}
+                  className={`transition-all duration-300 rounded-full cursor-pointer ${
                     index === currentTextIndex
-                      ? 'w-7 md:w-8 h-2 bg-[#fbbf24]'
-                      : 'w-2 h-2 bg-white'
+                      ? 'w-7 md:w-8 h-2 bg-[#ffd24c]'
+                      : 'w-2 h-2 bg-white/40'
                   }`}
                 ></div>
               ))}
             </div>
             {/* Get Started Button */}
-            <div className="flex justify-center mb-8 md:mb-10">
+            <div className="flex justify-center mb-8">
               <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
                 Get Started
               </button>
@@ -271,11 +265,11 @@ const Zambeel3PLPage = () => {
       </section>
 
       {/* Video Section */}
-      <section className="relative py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="rounded-3xl overflow-hidden">
+      <section className="w-full py-4 md:py-4">
+        <div className="max-w-[1150px] mx-auto px-6 sm:px-10 lg:px-12">
+          <div className="rounded-xl overflow-hidden">
             <video
-              className="w-full h-72 md:h-96 object-cover pointer-events-none"
+              className="w-full h-64 md:h-96 object-cover pointer-events-none"
               autoPlay
               muted
               loop
@@ -423,7 +417,7 @@ const Zambeel3PLPage = () => {
             name: "For Experts",
             monthlyPrice: "$0",
             yearlyPrice: "$0",
-            description: "Essential tools to kickstart your marketing presence and grow online.",
+            description: "",
             features: [
               { text: "Junior Account Manager", included: true },
               { text: "Response time: Within 4 hours", included: true },
@@ -441,7 +435,7 @@ const Zambeel3PLPage = () => {
             name: "For Beginners",
             monthlyPrice: "$69",
             yearlyPrice: "$207",
-            description: "Advanced features to scale campaigns and for wider audiences, including priority support.",
+            description: "",
             features: [
               { text: "Senior Dedicated Account Manager", included: true },
               { text: "Response time: Within 30 minutes", included: true },
@@ -460,7 +454,7 @@ const Zambeel3PLPage = () => {
             name: "Super Saver",
             monthlyPrice: "$199",
             yearlyPrice: "$447",
-            description: "Perfect for growing brands looking for support and smart automation and scaling.",
+            description: "",
             features: [
               { text: "Senior Dedicated Account Manager", included: true },
               { text: "Response time: Within 30 minutes", included: true },

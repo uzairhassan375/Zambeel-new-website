@@ -5,7 +5,7 @@ export const pricingPlans = [
     name: "For Experts",
     monthlyPrice: "$0",
     yearlyPrice: "$0",
-    description: "Essential tools to kickstart your marketing presence and grow online.",
+    description: "",
     features: [
       { text: "Junior Account Manager", included: true },
       { text: "Response time: Within 4 hours", included: true },
@@ -23,7 +23,7 @@ export const pricingPlans = [
     name: "For Beginners",
     monthlyPrice: "$69",
     yearlyPrice: "$207",
-    description: "Advanced features to scale campaigns and for wider audiences, including priority support.",
+    description: "",
     features: [
       { text: "Senior Dedicated Account Manager", included: true },
       { text: "Response time: Within 30 minutes", included: true },
@@ -42,7 +42,7 @@ export const pricingPlans = [
     name: "Super Saver",
     monthlyPrice: "$199",
     yearlyPrice: "$447",
-    description: "Perfect for growing brands looking for support and smart automation and scaling.",
+    description: "",
     features: [
       { text: "Senior Dedicated Account Manager", included: true },
       { text: "Response time: Within 30 minutes", included: true },

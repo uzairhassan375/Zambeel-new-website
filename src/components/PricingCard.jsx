@@ -99,9 +99,9 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick, isLast = false, isMid
           </div>
           
           {/* BOTTOM SECTION - Background with Description and Features */}
-          <div className={`px-4 pt-4 pb-4 flex flex-col text-left rounded-b-3xl ${isPremium ? 'bg-[#FFF8DE]' : 'bg-[#DEE2EE]'}`}>
-            <p className="text-sm mb-6 text-gray-600">{plan.description}</p>
-            <ul className="mb-8 space-y-3 text-gray-700 text-base">
+          <div className={`px-4 pt-2 pb-4 flex flex-col text-left rounded-b-3xl ${isPremium ? 'bg-[#FFF8DE]' : 'bg-[#DEE2EE]'}`}>
+            {plan.description && <p className="text-sm mb-6 text-gray-600">{plan.description}</p>}
+            <ul className={`mb-8 space-y-3 ${plan.description ? 'pt-2' : 'pt-2'}`}>
               {plan.features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
                   {feature.included ? (
@@ -109,7 +109,7 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick, isLast = false, isMid
                   ) : (
                     <X className="w-5 h-5 text-red-400 shrink-0" />
                   )}
-                  <span className={!feature.included ? 'text-gray-400 line-through' : ''}>
+                  <span className={`font-medium leading-[100%] tracking-[0] ${!feature.included ? 'text-gray-400 line-through' : ''}`} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px' }}>
                     {feature.text}
                   </span>
                 </li>
