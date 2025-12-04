@@ -51,42 +51,24 @@ const PricingSection = ({
           {subtitle}
         </p>
 
-        {/* Billing Switch */}
-        {showBillingToggle && (
-          <div
-            className="flex items-center justify-center gap-2 mt-4 mb-14 bg-white p-1.5 rounded-full w-max mx-auto shadow-inner"
-            style={{ boxShadow: "inset 0 2px 4px rgba(0,0,0,0.1)" }}
-          >
-            <button
-              onClick={() => setIsMonthly(true)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                isMonthly ? "bg-[#ffd24c] text-[#243a86] shadow-md" : "bg-white text-[#243a86]"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setIsMonthly(false)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                !isMonthly ? "bg-[#ffd24c] text-[#243a86] shadow-md" : "bg-white text-[#243a86]"
-              }`}
-            >
-              Yearly
-            </button>
-          </div>
-        )}
-
         {/* Card Layout - Vertical on mobile, horizontal on desktop */}
         <div className="flex flex-col md:flex-row gap-12 md:gap-6 items-center justify-center w-full max-w-7xl mx-auto">
-          {plans.map((plan, idx) => (
-            <PricingCard
-              key={idx}
-              plan={plan}
-              isMonthly={isMonthly}
-              isActive={isDesktop ? true : activeIndex === idx}
-              onClick={() => setActiveIndex(idx)}
-            />
-          ))}
+          {plans.map((plan, idx) => {
+            const middleIndex = Math.floor(plans.length / 2);
+            const isMiddle = idx === middleIndex;
+            return (
+              <PricingCard
+                key={idx}
+                plan={plan}
+                isMonthly={isMonthly}
+                isActive={isDesktop ? true : activeIndex === idx}
+                onClick={() => setActiveIndex(idx)}
+                isLast={idx === plans.length - 1}
+                isMiddle={isMiddle}
+                cardIndex={idx}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

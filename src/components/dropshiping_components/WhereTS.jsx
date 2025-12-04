@@ -66,7 +66,7 @@ const Wts = ({
         }}
       >
         {/* Title */}
-        <h2 className="text-3xl font-bold mb-3 md:mb-4 text-[#243a86]">
+        <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-black mb-3 md:mb-4" style={{ fontFamily: 'DM Sans, sans-serif' }}>
           {title}
         </h2>
 

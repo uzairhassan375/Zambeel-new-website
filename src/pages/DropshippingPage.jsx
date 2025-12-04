@@ -32,15 +32,15 @@ const DropshippingPage = () => {
     >
       {/* ================= HERO SECTION ================= */}
       <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">Zambeel Dropshipping</h3>
-        <p className="text-lg sm:text-xl md:text-2xl text-white font-normal mb-2 md:mb-3 italic">Start Dropshipping in Largest COD Markets</p>
-        <div className="mb-6 md:mb-8">
-          <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-3xl mx-auto leading-relaxed px-2 min-h-[60px] md:min-h-[72px] transition-opacity duration-500">
+        <h3 className="text-[44px] font-[800] leading-[100%] tracking-[0.02em] text-center text-white mb-4 md:mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>Zambeel Dropshipping</h3>
+        <p className="text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Start Dropshipping in Largest COD Markets</p>
+        <div>
+          <p className="text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[60px] md:min-h-[40px] transition-opacity duration-500 mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
             {carouselTexts[currentTextIndex]}
           </p>
         </div>
         {/* Carousel dots */}
-        <div className="flex justify-center gap-2 mb-8">
+        <div className="flex justify-center gap-2 mb-4 -mt-2">
           {carouselTexts.map((_, index) => (
             <div
               key={index}
@@ -53,17 +53,23 @@ const DropshippingPage = () => {
             ></div>
           ))}
         </div>
+        {/* Get Started Button */}
+        <div className="flex justify-center mb-8">
+          <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
+            Get Started
+          </button>
+        </div>
         {/* UAE/KSA Box */}
         <div className="px-4 md:px-0">
           <div className="mx-auto rounded-[32px] shadow-lg max-w-lg overflow-hidden w-full" style={{boxShadow: '0 8px 32px rgba(36,58,134,0.18)'}}>
           {/* Top: Dropshipping available */}
-          <div className="bg-[#e3e7f6] px-4 pt-4 pb-2">
-            <p className="text-[#243a86] font-bold text-lg mb-6 text-center">Dropshipping currently available in</p>
-            <div className="flex items-center justify-center gap-8 md:gap-12">
+          <div className="bg-[#e3e7f6] px-4 pt-3 pb-2">
+            <p className="text-[#243a86] font-bold text-lg mb-3 text-center">Dropshipping currently available in</p>
+            <div className="flex items-center justify-center gap-6 md:gap-8">
               {/* UAE Flag */}
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
-                  <div className="w-16 h-16 rounded-full overflow-hidden relative">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-1 shadow-md">
+                  <div className="w-14 h-14 rounded-full overflow-hidden relative">
                     <div className="absolute inset-0 flex flex-col">
                       <div className="h-1/3 bg-green-600"></div>
                       <div className="h-1/3 bg-white"></div>
@@ -76,8 +82,8 @@ const DropshippingPage = () => {
               </div>
               {/* KSA Custom Icon */}
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
-                  <svg viewBox="0 0 96 96" className="w-[90px] h-[90px]" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-1 shadow-md">
+                  <svg viewBox="0 0 96 96" className="w-[75px] h-[75px]" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="48" cy="48" r="34" fill="#6DA544" />
                     <path d="M34 58C34 60.7614 36.2386 63 39 63H53C53 65.2091 54.7909 67 57 67H61C63.2091 67 65 65.2091 65 63V58H34Z" fill="#F0F0F0" />
                     <path d="M65 36V46C65 47.6569 63.6569 49 62 49V53C65.866 53 69 49.866 69 46V36H65Z" fill="#F0F0F0" />
@@ -91,8 +97,8 @@ const DropshippingPage = () => {
               </div>
               {/* Pakistan */}
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-1 shadow-md">
-                  <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className="w-[90px] h-[90px]">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-1 shadow-md">
+                  <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" className="w-[75px] h-[75px]">
                     <g clipPath="url(#clip-pk-top)">
                       <path d="M48 86C70.0914 86 88 68.0914 88 46C88 23.9086 70.0914 6 48 6C25.9086 6 8 23.9086 8 46C8 68.0914 25.9086 86 48 86Z" fill="#F0F0F0" />
                       <path d="M8 45.9997C8 61.1614 16.4358 74.3519 28.8695 81.1361V10.8633C16.4358 17.6475 8 30.838 8 45.9997Z" fill="#F0F0F0" />
@@ -114,9 +120,9 @@ const DropshippingPage = () => {
           {/* Divider */}
           <div className="bg-[#e3e7f6] h-2"></div>
           {/* Bottom: Other services available */}
-          <div className="bg-gray-100 px-4 pt-2 pb-4 rounded-b-[32px]" style={{ filter: 'grayscale(100%)', opacity: 0.6 }}>
-            <p className="text-gray-500 font-bold text-lg mb-6 text-center">Other Zambeel services available in</p>
-            <div className="flex items-center justify-center gap-10">
+          <div className="bg-gray-100 px-4 pt-2 pb-3 rounded-b-[32px]" style={{ filter: 'grayscale(100%)', opacity: 0.6 }}>
+            <p className="text-gray-500 font-bold text-lg mb-3 text-center">Other Zambeel services available in</p>
+            <div className="flex items-center justify-center gap-6">
               {/* Qatar */}
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center mb-1 shadow" style={{ filter: 'grayscale(100%)' }}>
@@ -144,11 +150,6 @@ const DropshippingPage = () => {
             </div>
           </div>
         </div>
-        {/* Decorative shapes (absolute, for visual effect) */}
-        <div className="absolute left-0 top-10 w-16 h-16 bg-[#fdd24d] opacity-30 rounded-xl rotate-12" style={{zIndex:1}}></div>
-        <div className="absolute left-32 top-40 w-14 h-14 bg-[#fdd24d] opacity-30 rounded-xl rotate-6" style={{zIndex:1}}></div>
-        <div className="absolute right-0 top-20 w-20 h-20 bg-[#fdd24d] opacity-30 rounded-xl -rotate-12" style={{zIndex:1}}></div>
-        <div className="absolute right-32 top-56 w-16 h-16 bg-[#fdd24d] opacity-30 rounded-xl rotate-3" style={{zIndex:1}}></div>
       </section>
 
       {/* ================= I GRID (Single Large Video Frame) ================= */}
@@ -193,45 +194,59 @@ const DropshippingPage = () => {
         subtitle="Click on any plan to see full details and features."
         customPlans={[
           {
-            tag: "Basic",
-            name: "Starter Pack",
-            monthlyPrice: "$25",
-            yearlyPrice: "$22",
-            description: "Perfect for beginners starting their dropshipping journey with essential features.",
+            tag: "FREE",
+            name: "For Experts",
+            monthlyPrice: "$0",
+            yearlyPrice: "$0",
+            description: "Essential tools to kickstart your marketing presence and grow online.",
             features: [
-              { text: "Access to Product Catalog", included: true },
-              { text: "Basic Order Management", included: true },
-              { text: "Email Support", included: true },
-              { text: "Dedicated Account Manager", included: false },
-              { text: "Advanced Analytics & Reports", included: false },
+              { text: "Junior Account Manager", included: true },
+              { text: "Response time: Within 4 hours", included: true },
+              { text: "Whatsapp Group Access", included: false },
+              { text: "Winning Creativity & Strategy", included: false },
+              { text: "Bumper Trending Products", included: false },
+              { text: "Senior Business & market consultant", included: false },
+              { text: "Winning Creatived and Strategy", included: false },
+              { text: "Customised Packaging*", included: false },
+              { text: "Product Financing", included: false },
             ],
           },
           {
-            tag: "Premium",
-            name: "Business Pack",
-            monthlyPrice: "$75",
-            yearlyPrice: "$69",
-            description: "Advanced features for growing businesses with priority support and analytics.",
+            tag: "GOLD",
+            name: "For Beginners",
+            monthlyPrice: "$69",
+            yearlyPrice: "$207",
+            description: "Advanced features to scale campaigns and for wider audiences, including priority support.",
             features: [
-              { text: "Access to Product Catalog", included: true },
-              { text: "Advanced Order Management", included: true },
-              { text: "Priority Support", included: true },
-              { text: "Dedicated Account Manager", included: true },
-              { text: "Advanced Analytics & Reports", included: true },
+              { text: "Senior Dedicated Account Manager", included: true },
+              { text: "Response time: Within 30 minutes", included: true },
+              { text: "Whatsapp Group Access", included: true },
+              { text: "Exclusive Winning Product", included: true },
+              { text: "Winning Creatived & Strategy", included: true },
+              { text: "Bumper Trending Products", included: true },
+              { text: "Senior Business & market consultant", included: true },
+              { text: "Winning Creatived and Strategy", included: true },
+              { text: "Customised Packaging*", included: true },
+              { text: "Product Financing", included: true },
             ],
           },
           {
-            tag: "Advanced",
-            name: "Enterprise Pack",
-            monthlyPrice: "$45",
-            yearlyPrice: "$42",
-            description: "Ideal for established sellers looking to scale with automation and support.",
+            tag: "Diomand",
+            name: "Super Saver",
+            monthlyPrice: "$199",
+            yearlyPrice: "$447",
+            description: "Perfect for growing brands looking for support and smart automation and scaling.",
             features: [
-              { text: "Access to Product Catalog", included: true },
-              { text: "Advanced Order Management", included: true },
-              { text: "Priority Support", included: true },
-              { text: "Dedicated Account Manager", included: true },
-              { text: "Advanced Analytics & Reports", included: false },
+              { text: "Senior Dedicated Account Manager", included: true },
+              { text: "Response time: Within 30 minutes", included: true },
+              { text: "Whatsapp Group Access", included: true },
+              { text: "Exclusive Winning Product", included: true },
+              { text: "Winning Creatived & Strategy", included: true },
+              { text: "Bumper Trending Products", included: true },
+              { text: "Senior Business & market consultant", included: true },
+              { text: "Winning Creatived and Strategy", included: true },
+              { text: "Customised Packaging*", included: true },
+              { text: "Product Financing", included: true },
             ],
           },
         ]}

@@ -167,7 +167,7 @@ const Zambeel360Page = () => {
                 {carouselTexts[currentTextIndex].line3}
               </p>
             </div>
-            <div className="flex justify-center items-center space-x-2 mb-8 md:mb-10">
+            <div className="flex justify-center items-center space-x-2 mb-4">
               {carouselTexts.map((_, index) => (
                 <div
                   key={index}
@@ -178,6 +178,12 @@ const Zambeel360Page = () => {
                   }`}
                 ></div>
               ))}
+            </div>
+            {/* Get Started Button */}
+            <div className="flex justify-center mb-8 md:mb-10">
+              <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
+                Get Started
+              </button>
             </div>
           </div>
           <div className="max-w-md md:max-w-2xl mx-auto">

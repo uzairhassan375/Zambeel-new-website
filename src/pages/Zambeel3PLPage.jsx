@@ -168,7 +168,7 @@ const Zambeel3PLPage = () => {
                 {carouselTexts[currentTextIndex].line3}
               </p>
             </div>
-            <div className="flex justify-center items-center space-x-2 mb-8 md:mb-10">
+            <div className="flex justify-center items-center space-x-2 mb-4">
               {carouselTexts.map((_, index) => (
                 <div
                   key={index}
@@ -179,6 +179,12 @@ const Zambeel3PLPage = () => {
                   }`}
                 ></div>
               ))}
+            </div>
+            {/* Get Started Button */}
+            <div className="flex justify-center mb-8 md:mb-10">
+              <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
+                Get Started
+              </button>
             </div>
           </div>
           <div className="max-w-md md:max-w-2xl mx-auto">
@@ -413,45 +419,59 @@ const Zambeel3PLPage = () => {
         subtitle="Click on any plan to see full details and features."
         customPlans={[
           {
-            tag: "Basic",
-            name: "Starter Pack",
-            monthlyPrice: "$35",
-            yearlyPrice: "$32",
-            description: "Perfect for small businesses starting with 3PL services and basic warehousing needs.",
+            tag: "FREE",
+            name: "For Experts",
+            monthlyPrice: "$0",
+            yearlyPrice: "$0",
+            description: "Essential tools to kickstart your marketing presence and grow online.",
             features: [
-              { text: "Basic Storage Space", included: true },
-              { text: "Order Fulfillment", included: true },
-              { text: "Email Support", included: true },
-              { text: "Dedicated Account Manager", included: false },
-              { text: "Advanced Inventory Management", included: false },
+              { text: "Junior Account Manager", included: true },
+              { text: "Response time: Within 4 hours", included: true },
+              { text: "Whatsapp Group Access", included: false },
+              { text: "Winning Creativity & Strategy", included: false },
+              { text: "Bumper Trending Products", included: false },
+              { text: "Senior Business & market consultant", included: false },
+              { text: "Winning Creatived and Strategy", included: false },
+              { text: "Customised Packaging*", included: false },
+              { text: "Product Financing", included: false },
             ],
           },
           {
-            tag: "Premium",
-            name: "Business Pack",
-            monthlyPrice: "$85",
-            yearlyPrice: "$79",
-            description: "Advanced features for growing businesses with priority support and comprehensive logistics.",
+            tag: "GOLD",
+            name: "For Beginners",
+            monthlyPrice: "$69",
+            yearlyPrice: "$207",
+            description: "Advanced features to scale campaigns and for wider audiences, including priority support.",
             features: [
-              { text: "Extended Storage Space", included: true },
-              { text: "Priority Order Fulfillment", included: true },
-              { text: "Priority Support", included: true },
-              { text: "Dedicated Account Manager", included: true },
-              { text: "Advanced Inventory Management", included: true },
+              { text: "Senior Dedicated Account Manager", included: true },
+              { text: "Response time: Within 30 minutes", included: true },
+              { text: "Whatsapp Group Access", included: true },
+              { text: "Exclusive Winning Product", included: true },
+              { text: "Winning Creatived & Strategy", included: true },
+              { text: "Bumper Trending Products", included: true },
+              { text: "Senior Business & market consultant", included: true },
+              { text: "Winning Creatived and Strategy", included: true },
+              { text: "Customised Packaging*", included: true },
+              { text: "Product Financing", included: true },
             ],
           },
           {
-            tag: "Advanced",
-            name: "Enterprise Pack",
-            monthlyPrice: "$55",
-            yearlyPrice: "$52",
-            description: "Ideal for established businesses looking to scale with automation and dedicated support.",
+            tag: "Diomand",
+            name: "Super Saver",
+            monthlyPrice: "$199",
+            yearlyPrice: "$447",
+            description: "Perfect for growing brands looking for support and smart automation and scaling.",
             features: [
-              { text: "Extended Storage Space", included: true },
-              { text: "Priority Order Fulfillment", included: true },
-              { text: "Priority Support", included: true },
-              { text: "Dedicated Account Manager", included: true },
-              { text: "Advanced Inventory Management", included: false },
+              { text: "Senior Dedicated Account Manager", included: true },
+              { text: "Response time: Within 30 minutes", included: true },
+              { text: "Whatsapp Group Access", included: true },
+              { text: "Exclusive Winning Product", included: true },
+              { text: "Winning Creatived & Strategy", included: true },
+              { text: "Bumper Trending Products", included: true },
+              { text: "Senior Business & market consultant", included: true },
+              { text: "Winning Creatived and Strategy", included: true },
+              { text: "Customised Packaging*", included: true },
+              { text: "Product Financing", included: true },
             ],
           },
         ]}

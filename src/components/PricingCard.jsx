@@ -5,7 +5,7 @@ const COLLAPSED_HEIGHT = 120; // Height for the collapsed state
 const EXPANDED_HEIGHT = 500; // Fixed height when the card is fully expanded
 
 // --- Pricing Card Component ---
-const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
+const PricingCard = ({ plan, isMonthly, isActive, onClick, isLast = false, isMiddle = false, cardIndex = 0 }) => {
   const price = isMonthly ? plan.monthlyPrice : plan.yearlyPrice;
 
   // Determine card styling based on active state
@@ -41,19 +41,27 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
         flex flex-col justify-start
         ${backgroundColor} ${borderColor}
         ${isPremium ? 'md:flex-[1.15] md:max-w-[360px]' : 'md:flex-1 md:max-w-[320px]'}
-        hover:scale-105 hover:-translate-y-2
+        md:hover:scale-105 md:hover:-translate-y-2
       `}
       style={{
         height: cardHeight,
         minHeight: minHeight,
         transform: isActive ? (isPremium ? 'scale(1.05) translateY(-8px)' : 'scale(1.02)') : 'scale(1)',
-        boxShadow: isActive 
-          ? (isPremium 
-              ? '0 20px 40px rgba(255, 210, 76, 0.4)' 
-              : '0 15px 30px rgba(36, 58, 134, 0.2)')
+        boxShadow: isMiddle 
+          ? '0px 0px 6px 6px #F4D03F99'
           : (isPremium 
               ? '0 10px 20px rgba(255, 210, 76, 0.2)' 
               : '0 10px 15px rgba(0,0,0,0.1)'),
+      }}
+      onMouseEnter={(e) => {
+        if (window.innerWidth >= 768 && isMiddle) {
+          e.currentTarget.style.boxShadow = '0px 0px 6px 6px #F4D03F99';
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (window.innerWidth >= 768 && isMiddle) {
+          e.currentTarget.style.boxShadow = '0px 0px 6px 6px #F4D03F99';
+        }
       }}
     >
       {/* RENDER THE OVERFLOW TAG */}
@@ -63,13 +71,13 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
       {!isActive && (
         <div className="flex flex-col items-center justify-center h-full w-full px-4 pt-4">
           {/* 1. Name: Made bigger (text-2xl) and less bold (font-semibold) */}
-          <p className="font-semibold text-2xl text-[#243a86] mb-1 mt-6" style={{ fontFamily: 'Georgia, serif' }}>
+          <p className="font-normal text-[#243a86] mb-1 mt-6 leading-[100%] tracking-[0] text-center" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '32.44px' }}>
             {plan.name}
           </p>
           {/* 2. Price: Stays after the pack name */}
           <div className={`text-2xl font-extrabold text-[#243a86]`}>
             {price}
-            <span className="text-base font-normal opacity-100">/mo</span>
+            <span className="text-base font-normal opacity-100">{isLast ? '/6 mo' : '/mo'}</span>
           </div>
         </div>
       )}
@@ -80,13 +88,13 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
           {/* TOP SECTION - White Background with Pack Name and Price */}
           <div className="bg-white px-4 pt-16 pb-6 flex flex-col items-center justify-center rounded-t-3xl">
             {/* Name (Plan Name) - Centered */}
-            <p className={`font-semibold text-3xl text-[#243a86] mb-2`} style={{ fontFamily: 'Georgia, serif' }}>
+            <p className={`font-normal text-[#243a86] mb-2 leading-[100%] tracking-[0] text-center`} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '32.44px' }}>
               {plan.name}
             </p>
             {/* Price (Money) - Below pack name, centered */}
             <div className={`text-3xl font-extrabold text-[#243a86]`}>
               {price}
-              <span className={`text-base font-normal opacity-70`}>/mo</span>
+              <span className={`text-base font-normal opacity-70`}>{isLast ? '/6 mo' : '/mo'}</span>
             </div>
           </div>
           
@@ -119,7 +127,7 @@ const PricingCard = ({ plan, isMonthly, isActive, onClick }) => {
                   : '0 4px 15px rgba(36, 58, 134, 0.4)',
               }}
             >
-              Get Started →
+              {cardIndex === 0 ? 'Get Started' : cardIndex === 1 ? 'Buy Gold plan' : cardIndex === 2 ? 'Buy Diamond plan' : 'Get Started'} →
             </button>
           </div>
         </div>
