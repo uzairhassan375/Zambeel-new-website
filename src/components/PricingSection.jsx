@@ -6,11 +6,9 @@ import { pricingPlans as defaultPricingPlans } from "../data/pricingPlans";
 const PricingSection = ({ 
   title = "Clear Pricing. Great Value.",
   subtitle = "Click on any plan to see full details and features.",
-  showBillingToggle = true,
   defaultActiveIndex = null,
   customPlans = null 
 }) => {
-  const [isMonthly, setIsMonthly] = useState(true);
   const [isDesktop, setIsDesktop] = useState(false);
   
   // Use custom plans if provided, otherwise use default
@@ -60,7 +58,6 @@ const PricingSection = ({
               <PricingCard
                 key={idx}
                 plan={plan}
-                isMonthly={isMonthly}
                 isActive={isDesktop ? true : activeIndex === idx}
                 onClick={() => setActiveIndex(idx)}
                 isLast={idx === plans.length - 1}

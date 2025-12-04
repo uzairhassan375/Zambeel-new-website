@@ -33,77 +33,80 @@ const Zambeel3PLPage = () => {
   const features = [
     {
       id: 1,
-      text: "Dedicated Account Managers",
+      text: "Smart Warehousing solutions",
       lineWidth: "md:w-[15%]",
       mobileLineW: "w-[12%]",
       mobileCardMl: "ml-[12%]",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 stroke-[#1e3a8a] stroke-2 fill-none stroke-linecap-round stroke-linejoin-round">
-          <rect x="3" y="3" width="7" height="7"></rect>
-          <rect x="14" y="3" width="7" height="7"></rect>
-          <rect x="14" y="14" width="7" height="7"></rect>
-          <rect x="3" y="14" width="7" height="7"></rect>
+        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="4" width="8" height="9" rx="1" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 14H15C15.5304 14 16.0391 14.2107 16.4142 14.5858C16.7893 14.9609 17 15.4696 17 16V19C17 19.5304 16.7893 20.0391 16.4142 20.4142C16.0391 20.7893 15.5304 21 15 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V9C3 8.46957 3.21071 7.96086 3.58579 7.58579C3.96086 7.21071 4.46957 7 5 7H8C8.53043 7 9.03914 7.21071 9.41421 7.58579C9.78929 7.96086 10 8.46957 10 9V21" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     },
     {
       id: 2,
-      text: "Highest Delivery Rates",
+      text: "Fast Order fullfilment",
       lineWidth: "md:w-[25%]",
       mobileLineW: "w-[22%]",
       mobileCardMl: "ml-[22%]",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 stroke-[#1e3a8a] stroke-2 fill-none stroke-linecap-round stroke-linejoin-round">
-          <rect x="1" y="3" width="15" height="13"></rect>
-          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-          <circle cx="5.5" cy="18.5" r="2.5"></circle>
-          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 17C5 17.5304 5.21071 18.0391 5.58579 18.4142C5.96086 18.7893 6.46957 19 7 19C7.53043 19 8.03914 18.7893 8.41421 18.4142C8.78929 18.0391 9 17.5304 9 17C9 16.4696 8.78929 15.9609 8.41421 15.5858C8.03914 15.2107 7.53043 15 7 15C6.46957 15 5.96086 15.2107 5.58579 15.5858C5.21071 15.9609 5 16.4696 5 17Z" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M15 17C15 17.5304 15.2107 18.0391 15.5858 18.4142C15.9609 18.7893 16.4696 19 17 19C17.5304 19 18.0391 18.7893 18.4142 18.4142C18.7893 18.0391 19 17.5304 19 17C19 16.4696 18.7893 15.9609 18.4142 15.5858C18.0391 15.2107 17.5304 15 17 15C16.4696 15 15.9609 15.2107 15.5858 15.5858C15.2107 15.9609 15 16.4696 15 17Z" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M5 17H3V6C3 5.73478 3.10536 5.48043 3.29289 5.29289C3.48043 5.10536 3.73478 5 4 5H13V17M9 17H15M19 17H21V11M21 11H13M21 11L18 6H13" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     },
     {
       id: 3,
-      text: "Biggest Catalog of Winning Products",
+      text: "Secure Inventory management",
       lineWidth: "md:w-[35%]",
       mobileLineW: "w-[32%]",
       mobileCardMl: "ml-[32%]",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 stroke-[#1e3a8a] stroke-2 fill-none stroke-linecap-round stroke-linejoin-round">
-          <path d="M12 2v10h4l2 5h4"></path>
-          <path d="M2 17h10v-8h-6l-2 3v5"></path>
-          <circle cx="5" cy="19" r="2"></circle>
-          <circle cx="14" cy="19" r="2"></circle>
-          <line x1="18" y1="17" x2="22" y2="17"></line>
+        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19C5.53043 19 6.03914 18.7893 6.41421 18.4142C6.78929 18.0391 7 17.5304 7 17C7 16.4696 6.78929 15.9609 6.41421 15.5858C6.03914 15.2107 5.53043 15 5 15C4.46957 15 3.96086 15.2107 3.58579 15.5858C3.21071 15.9609 3 16.4696 3 17Z" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M12 17C12 17.5304 12.2107 18.0391 12.5858 18.4142C12.9609 18.7893 13.4696 19 14 19C14.5304 19 15.0391 18.7893 15.4142 18.4142C15.7893 18.0391 16 17.5304 16 17C16 16.4696 15.7893 15.9609 15.4142 15.5858C15.0391 15.2107 14.5304 15 14 15C13.4696 15 12.9609 15.2107 12.5858 15.5858C12.2107 15.9609 12 16.4696 12 17Z" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M7 17H12" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 17V11H16V17" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M5 11V7H9" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M9 11V5H13L16 11" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M22 15H19V5" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M16 13H19" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     },
     {
       id: 4,
-      text: "No need to purchase Inventory",
+      text: "Global Shipping network",
       lineWidth: "md:w-[20%]",
       mobileLineW: "w-[18%]",
       mobileCardMl: "ml-[18%]",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 stroke-[#1e3a8a] stroke-2 fill-none stroke-linecap-round stroke-linejoin-round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-          <line x1="12" y1="22.08" x2="12" y2="12"></line>
-          <polyline points="3.27 16 12 11 20.73 16"></polyline>
+        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M12 2C15.31 2 18.31 3.5 20.31 5.9" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M12 22C8.69 22 5.69 20.5 3.69 18.1" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 12H22" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M12 2C9.24 2 6.8 3.5 5.2 5.6" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M12 22C14.76 22 17.2 20.5 18.8 18.4" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="12" cy="12" r="2" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     },
     {
       id: 5,
-      text: "Receive timely payments weekly",
+      text: "Real time tracking",
       lineWidth: "md:w-[10%]",
       mobileLineW: "w-[8%]",
       mobileCardMl: "ml-[8%]",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 stroke-[#1e3a8a] stroke-2 fill-none stroke-linecap-round stroke-linejoin-round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="8" y1="16" x2="16" y2="8"></line>
-          <circle cx="9" cy="9" r="0.5" fill="currentColor"></circle>
-          <circle cx="15" cy="15" r="0.5" fill="currentColor"></circle>
+        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 15L12 12L15 15" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M15 9C15 9.53043 14.7893 10.0391 14.4142 10.4142C14.0391 10.7893 13.5304 11 13 11C12.4696 11 11.9609 10.7893 11.5858 10.4142C11.2107 10.0391 11 9.53043 11 9C11 8.46957 11.2107 7.96086 11.5858 7.58579C11.9609 7.21071 12.4696 7 13 7C13.5304 7 14.0391 7.21071 14.4142 7.58579C14.7893 7.96086 15 8.46957 15 9Z" fill="#1e3a8a" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M9 9C9 9.53043 8.78929 10.0391 8.41421 10.4142C8.03914 10.7893 7.53043 11 7 11C6.46957 11 5.96086 10.7893 5.58579 10.4142C5.21071 10.0391 5 9.53043 5 9C5 8.46957 5.21071 7.96086 5.58579 7.58579C5.96086 7.21071 6.46957 7 7 7C7.53043 7 8.03914 7.21071 8.41421 7.58579C8.78929 7.96086 9 8.46957 9 9Z" fill="#1e3a8a" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="12" cy="12" r="10" stroke="#1e3a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     }
@@ -287,81 +290,81 @@ const Zambeel3PLPage = () => {
       <WhyZambeel
         title="Why 3PL with Zambeel?"
         mobileTitle="Why 3PL with Zambeel?"
-        description="We provide reliable warehousing and fulfillment services. Our end-to-end 3PL solution includes inventory management, order processing, picking, packing, and fast shipping, making it easy for you to focus on growing your business."
+        description="From warehousing to last-mile delivery, Zambeel's 3PL service ensures live tracking of your orders and inventory, faster shipping and smoother operations."
         features={features}
         desktopFeatures={[
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#d_hq)">
-                  <path d="M28 8C28 7.46957 28.2107 6.96086 28.5858 6.58579C28.9609 6.21071 29.4696 6 30 6H40C40.5304 6 41.0391 6.21071 41.4142 6.58579C41.7893 6.96086 42 7.46957 42 8V18C42 18.5304 41.7893 19.0391 41.4142 19.4142C41.0391 19.7893 40.5304 20 40 20H30C29.4696 20 28.9609 19.7893 28.5858 19.4142C28.2107 19.0391 28 18.5304 28 18V8Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6 28H30C31.0609 28 32.0783 28.4214 32.8284 29.1716C33.5786 29.9217 34 30.9391 34 32V38C34 39.0609 33.5786 40.0783 32.8284 40.8284C32.0783 41.5786 31.0609 42 30 42H10C8.93913 42 7.92172 41.5786 7.17157 40.8284C6.42143 40.0783 6 39.0609 6 38V18C6 16.9391 6.42143 15.9217 7.17157 15.1716C7.92172 14.4214 8.93913 14 10 14H16C17.0609 14 18.0783 14.4214 18.8284 15.1716C19.5786 15.9217 20 16.9391 20 18V42" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <defs><clipPath id="d_hq"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clipPath="url(#d_hq)">
+                  <path d="M28 8C28 7.46957 28.2107 6.96086 28.5858 6.58579C28.9609 6.21071 29.4696 6 30 6H40C40.5304 6 41.0391 6.21071 41.4142 6.58579C41.7893 6.96086 42 7.46957 42 8V18C42 18.5304 41.7893 19.0391 41.4142 19.4142C41.0391 19.7893 40.5304 20 40 20H30C29.4696 20 28.9609 19.7893 28.5858 19.4142C28.2107 19.0391 28 18.5304 28 18V8Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6 28H30C31.0609 28 32.0783 28.4214 32.8284 29.1716C33.5786 29.9217 34 30.9391 34 32V38C34 39.0609 33.5786 40.0783 32.8284 40.8284C32.0783 41.5786 31.0609 42 30 42H10C8.93913 42 7.92172 41.5786 7.17157 40.8284C6.42143 40.0783 6 39.0609 6 38V18C6 16.9391 6.42143 15.9217 7.17157 15.1716C7.92172 14.4214 8.93913 14 10 14H16C17.0609 14 18.0783 14.4214 18.8284 15.1716C19.5786 15.9217 20 16.9391 20 18V42" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                      </g>
+                      <defs><clipPath id="d_hq"><rect width="48" height="48" fill="white" /></clipPath></defs>
+                    </svg>
             ),
-            label: "Secure\nWarehousing"
+            label: "Smart Warehousing\nsolutions"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#d_ship)">
-                  <path d="M10 34C10 35.0609 10.4214 36.0783 11.1716 36.8284C11.9217 37.5786 12.9391 38 14 38C15.0609 38 16.0783 37.5786 16.8284 36.8284C17.5786 36.0783 18 35.0609 18 34C18 32.9391 17.5786 31.9217 16.8284 31.1716C16.0783 30.4214 15.0609 30 14 30C12.9391 30 11.9217 30.4214 11.1716 31.1716C10.4214 31.9217 10 32.9391 10 34Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M30 34C30 35.0609 30.4214 36.0783 31.1716 36.8284C31.9217 37.5786 32.9391 38 34 38C35.0609 38 36.0783 37.5786 36.8284 36.8284C37.5786 36.0783 38 35.0609 38 34C38 32.9391 37.5786 31.9217 36.8284 31.1716C36.0783 30.4214 35.0609 30 34 30C32.9391 30 31.9217 30.4214 31.1716 31.1716C30.4214 31.9217 30 32.9391 30 34Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M10 34H6V12C6 11.4696 6.21071 10.9609 6.58579 10.5858C6.96086 10.2107 7.46957 10 8 10H26V34M18 34H30M38 34H42V22M42 22H26M42 22L36 12H26" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <defs><clipPath id="d_ship"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clipPath="url(#d_ship)">
+                  <path d="M10 34C10 35.0609 10.4214 36.0783 11.1716 36.8284C11.9217 37.5786 12.9391 38 14 38C15.0609 38 16.0783 37.5786 16.8284 36.8284C17.5786 36.0783 18 35.0609 18 34C18 32.9391 17.5786 31.9217 16.8284 31.1716C16.0783 30.4214 15.0609 30 14 30C12.9391 30 11.9217 30.4214 11.1716 31.1716C10.4214 31.9217 10 32.9391 10 34Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M30 34C30 35.0609 30.4214 36.0783 31.1716 36.8284C31.9217 37.5786 32.9391 38 34 38C35.0609 38 36.0783 37.5786 36.8284 36.8284C37.5786 36.0783 38 35.0609 38 34C38 32.9391 37.5786 31.9217 36.8284 31.1716C36.0783 30.4214 35.0609 30 34 30C32.9391 30 31.9217 30.4214 31.1716 31.1716C30.4214 31.9217 30 32.9391 30 34Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M10 34H6V12C6 11.4696 6.21071 10.9609 6.58579 10.5858C6.96086 10.2107 7.46957 10 8 10H26V34M18 34H30M38 34H42V22M42 22H26M42 22L36 12H26" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                      </g>
+                      <defs><clipPath id="d_ship"><rect width="48" height="48" fill="white" /></clipPath></defs>
+                    </svg>
             ),
-            label: "Fast Shipping\n& Delivery"
+            label: "Fast Order\nfullfilment"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#d_src)">
-                  <path d="M6 34C6 35.0609 6.42143 36.0783 7.17157 36.8284C7.92172 37.5786 8.93913 38 10 38C11.0609 38 12.0783 37.5786 12.8284 36.8284C13.5786 36.0783 14 35.0609 14 34C14 32.9391 13.5786 31.9217 12.8284 31.1716C12.0783 30.4214 11.0609 30 10 30C8.93913 30 7.92172 30.4214 7.17157 31.1716C6.42143 31.9217 6 32.9391 6 34Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M24 34C24 35.0609 24.4214 36.0783 25.1716 36.8284C25.9217 37.5786 26.9391 38 28 38C29.0609 38 30.0783 37.5786 30.8284 36.8284C31.5786 36.0783 32 35.0609 32 34C32 32.9391 31.5786 31.9217 30.8284 31.1716C30.0783 30.4214 29.0609 30 28 30C26.9391 30 25.9217 30.4214 25.1716 31.1716C24.4214 31.9217 24 32.9391 24 34Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M14 34H24" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6 34V22H32V34" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M10 22V14H18" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M18 22V10H26L32 22" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M44 30H38V10" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M32 26H38" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <defs><clipPath id="d_src"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clipPath="url(#d_src)">
+                  <path d="M6 34C6 35.0609 6.42143 36.0783 7.17157 36.8284C7.92172 37.5786 8.93913 38 10 38C11.0609 38 12.0783 37.5786 12.8284 36.8284C13.5786 36.0783 14 35.0609 14 34C14 32.9391 13.5786 31.9217 12.8284 31.1716C12.0783 30.4214 11.0609 30 10 30C8.93913 30 7.92172 30.4214 7.17157 31.1716C6.42143 31.9217 6 32.9391 6 34Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M24 34C24 35.0609 24.4214 36.0783 25.1716 36.8284C25.9217 37.5786 26.9391 38 28 38C29.0609 38 30.0783 37.5786 30.8284 36.8284C31.5786 36.0783 32 35.0609 32 34C32 32.9391 31.5786 31.9217 30.8284 31.1716C30.0783 30.4214 29.0609 30 28 30C26.9391 30 25.9217 30.4214 25.1716 31.1716C24.4214 31.9217 24 32.9391 24 34Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M14 34H24" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6 34V22H32V34" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M10 22V14H18" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M18 22V10H26L32 22" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M44 30H38V10" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M32 26H38" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                      </g>
+                      <defs><clipPath id="d_src"><rect width="48" height="48" fill="white" /></clipPath></defs>
+                    </svg>
             ),
-            label: "Order\nProcessing"
+            label: "Secure Inventory\nmanagement"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#d_pkg)">
-                  <path d="M42 32.015V15.979C41.9988 15.2812 41.8132 14.596 41.4619 13.993C41.1107 13.39 40.6064 12.8904 40 12.545L26 4.52904C25.3909 4.18107 24.7015 3.99805 24 3.99805C23.2985 3.99805 22.6091 4.18107 22 4.52904L8 12.545C6.762 13.255 6 14.565 6 15.981V32.017C6 33.435 6.762 34.743 8 35.451L22 43.467C23.24 44.175 24.76 44.175 26 43.467L40 35.451C41.238 34.741 42 33.431 42 32.015Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M24 44V24" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M24 23.9999L41.46 13.9199" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6.53906 13.9199L23.9991 23.9999" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M30.006 30.664L24 34L6 24M36.006 27.33L42 24" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M30 34.0002L36 30.6602V24.6602L30 28.0002V34.0002Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <defs><clipPath id="d_pkg"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clipPath="url(#d_pkg)">
+                        <path d="M42 32.015V15.979C41.9988 15.2812 41.8132 14.596 41.4619 13.993C41.1107 13.39 40.6064 12.8904 40 12.545L26 4.52904C25.3909 4.18107 24.7015 3.99805 24 3.99805C23.2985 3.99805 22.6091 4.18107 22 4.52904L8 12.545C6.762 13.255 6 14.565 6 15.981V32.017C6 33.435 6.762 34.743 8 35.451L22 43.467C23.24 44.175 24.76 44.175 26 43.467L40 35.451C41.238 34.741 42 33.431 42 32.015Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M24 44V24" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M24 23.9999L41.46 13.9199" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6.53906 13.9199L23.9991 23.9999" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M30.006 30.664L24 34L6 24M36.006 27.33L42 24" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M30 34.0002L36 30.6602V24.6602L30 28.0002V34.0002Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                      </g>
+                      <defs><clipPath id="d_pkg"><rect width="48" height="48" fill="white" /></clipPath></defs>
+                    </svg>
             ),
-            label: "Customize\nPackaging"
+            label: "Global Shipping\nnetwork"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#d_low)">
-                  <path d="M18 30L30 18" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M29 27C30.1046 27 31 27.8954 31 29C31 30.1046 30.1046 31 29 31C27.8954 31 27 30.1046 27 29C27 27.8954 27.8954 27 29 27Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M19 17C20.1046 17 21 17.8954 21 19C21 20.1046 20.1046 21 19 21C17.8954 21 17 20.1046 17 19C17 17.8954 17.8954 17 19 17Z" fill="#F4D03F" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6 24C6 26.3638 6.46558 28.7044 7.37017 30.8883C8.27475 33.0722 9.60062 35.0565 11.2721 36.7279C12.9435 38.3994 14.9278 39.7252 17.1117 40.6298C19.2956 41.5344 21.6362 42 24 42C26.3638 42 28.7044 41.5344 30.8883 40.6298C33.0722 39.7252 35.0565 38.3994 36.7279 36.7279C38.3994 35.0565 39.7252 33.0722 40.6298 30.8883C41.5344 28.7044 42 26.3638 42 24C42 21.6362 41.5344 19.2956 40.6298 17.1117C39.7252 14.9278 38.3994 12.9435 36.7279 11.2721C35.0565 9.60062 33.0722 8.27475 30.8883 7.37017C28.7044 6.46558 26.3638 6 24 6C21.6362 6 19.2956 6.46558 17.1117 7.37017C14.9278 8.27475 12.9435 9.60062 11.2721 11.2721C9.60062 12.9435 8.27475 14.9278 7.37017 17.1117C6.46558 19.2956 6 21.6362 6 24Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <defs><clipPath id="d_low"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clipPath="url(#d_low)">
+                        <path d="M18 30L30 18" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M29 27C30.1046 27 31 27.8954 31 29C31 30.1046 30.1046 31 29 31C27.8954 31 27 30.1046 27 29C27 27.8954 27.8954 27 29 27Z" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M19 17C20.1046 17 21 17.8954 21 19C21 20.1046 20.1046 21 19 21C17.8954 21 17 20.1046 17 19C17 17.8954 17.8954 17 19 17Z" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6 24C6 26.3638 6.46558 28.7044 7.37017 30.8883C8.27475 33.0722 9.60062 35.0565 11.2721 36.7279C12.9435 38.3994 14.9278 39.7252 17.1117 40.6298C19.2956 41.5344 21.6362 42 24 42C26.3638 42 28.7044 41.5344 30.8883 40.6298C33.0722 39.7252 35.0565 38.3994 36.7279 36.7279C38.3994 35.0565 39.7252 33.0722 40.6298 30.8883C41.5344 28.7044 42 26.3638 42 24C42 21.6362 41.5344 19.2956 40.6298 17.1117C39.7252 14.9278 38.3994 12.9435 36.7279 11.2721C35.0565 9.60062 33.0722 8.27475 30.8883 7.37017C28.7044 6.46558 26.3638 6 24 6C21.6362 6 19.2956 6.46558 17.1117 7.37017C14.9278 8.27475 12.9435 9.60062 11.2721 11.2721C9.60062 12.9435 8.27475 14.9278 7.37017 17.1117C6.46558 19.2956 6 21.6362 6 24Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                      </g>
+                      <defs><clipPath id="d_low"><rect width="48" height="48" fill="white" /></clipPath></defs>
+                    </svg>
             ),
-            label: "Competitive\nPricing"
+            label: "Real time\ntracking"
           }
         ]}
       />
