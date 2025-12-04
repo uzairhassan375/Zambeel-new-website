@@ -4,7 +4,7 @@ import blue_logoImage from "../blue_logo.png";
 
 export default function HomePage() {
   const location = useLocation();
-  const [selectedCountry, setSelectedCountry] = useState("Qatar");
+  const [selectedCountry, setSelectedCountry] = useState("UAE");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
 
@@ -21,22 +21,22 @@ export default function HomePage() {
     const numbers = ["Learn", "Start", "Build", "Grow"];
     let wordIndex = 0;
     let charIndex = 0;
-    let cycleCount = 0;
-    const totalCycles = 2;
     let isDeleting = false;
-    const typeSpeed = 120;
-    const deleteSpeed = 150;
-    const pauseAfterWord = 500;
+    let timeoutId = null;
+    const typeSpeed = 100;
+    const deleteSpeed = 80;
+    const pauseAfterWord = 1000;
 
     const type = () => {
       const currentWord = numbers[wordIndex];
+      
       if (!isDeleting) {
         setNumberText(currentWord.substring(0, charIndex + 1));
         charIndex++;
         if (charIndex === currentWord.length) {
-          setTimeout(() => {
+          timeoutId = setTimeout(() => {
             isDeleting = true;
-            setTimeout(type, deleteSpeed);
+            timeoutId = setTimeout(type, deleteSpeed);
           }, pauseAfterWord);
           return;
         }
@@ -48,14 +48,19 @@ export default function HomePage() {
           wordIndex++;
           if (wordIndex === numbers.length) {
             wordIndex = 0;
-            cycleCount++;
-
           }
         }
       }
-      setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
+      timeoutId = setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
     };
+    
     type();
+    
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   // Statistics counting animation
@@ -194,7 +199,7 @@ export default function HomePage() {
       name: "Sarah Johnson",
       date: "12th January, 2021",
       rating: 5,
-      text: "Zambeel China sourcing has transformed our business. From design to delivery, everything is handled seamlessly. Highly recommend their services!",
+      text: "Zambeel 360 has transformed our business. From design to delivery, everything is handled seamlessly. Highly recommend their services!",
       image: "https://randomuser.me/api/portraits/women/44.jpg",
     },
     {
@@ -202,7 +207,7 @@ export default function HomePage() {
       date: "8th December, 2025",
       rating: 5,
       text: "The 3PL service is outstanding. Fast shipping, reliable tracking, and excellent customer service. Our customers love the quick delivery times.",
-      image: "https://randomuser.me/api/portraits/men/52.jpg",
+      image: "https://randomuser.me/api/portraits/men/89.jpg",
     },
   ];
 
@@ -220,9 +225,9 @@ export default function HomePage() {
       link: "/dropshipping",
     },
     {
-      title: "Build your private label with China sourcing",
+      title: "Build your private label with Zambeel 360",
       desc: "We handle the entire process — sourcing, customs clearance, and delivery to our warehouse",
-      cta: "China Sourcing",
+      cta: "Zambeel 360",
       link: "/zambeel-360",
     },
     {
@@ -363,7 +368,7 @@ export default function HomePage() {
       case "Dropshipping":
         return "Dropshipping";
       case "360":
-        return "China Sourcing";
+        return "Zambeel 360";
       case "3PL":
         return "Zambeel 3PL";
       default:
@@ -387,7 +392,7 @@ export default function HomePage() {
             />
           </div>
           <div className="relative inline-block px-4 w-full max-w-full">
-            <h1 className="text-[#2E3B78] text-2xl md:text-[1.75rem] font-bold leading-normal relative">
+            <h1 className="text-[#2E3B78] text-xl md:text-lg font-bold leading-normal relative">
               One Platform,
               <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block w-[105px] text-center">
                 {numberText}
@@ -476,16 +481,24 @@ export default function HomePage() {
 
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6 w-full p-2">
-          {featureCards.map((card) => (
+          {featureCards.map((card) => {
+            const titleWords = card.title.split(' ');
+            const firstWord = titleWords[0];
+            const restOfTitle = titleWords.slice(1).join(' ');
+            
+            return (
             <div
               key={card.cta}
-              className="group card-hover bg-[#E7EFFC] rounded-[32px] p-8 pb-10 flex flex-col h-full transition-all duration-300 hover:scale-[1.02]"
+              className="group card-hover bg-[#E7EFFC] rounded-[32px] px-6 py-4 flex flex-col h-full transition-all duration-300 hover:scale-[1.02]"
             >
               <div className="flex-grow">
-                <h2 className="text-[#2E3B78] text-xl font-semibold mb-4 leading-tight">
-                  {card.title}
+                <h2 className="text-[#2E3B78] text-xl font-semibold mb-2 leading-tight">
+                  <span className="font-bold">
+                    {firstWord}
+                  </span>
+                  {restOfTitle && ` ${restOfTitle}`}
                 </h2>
-                <p className="text-[#4A5568] group-hover:text-[#2E3B78] text-sm leading-relaxed mb-8">
+                <p className="text-[#4A5568] group-hover:text-[#2E3B78] text-sm leading-relaxed mb-4">
                   {card.desc}
                 </p>
               </div>
@@ -504,12 +517,13 @@ export default function HomePage() {
                 </button>
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
       </main>
 
       <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-0 pb-0 md:py-8 px-4 flex justify-center">
-        <div className="max-w-[1200px] w-full mx-auto bg-white rounded-[2.5rem] p-6 lg:p-12">
+        <div className="max-w-[1200px] w-full mx-auto bg-white rounded-[2.5rem] p-6 lg:px-12 lg:py-6">
           <div className="flex lg:hidden gap-3 items-center">
             <div className="flex flex-col items-center justify-between py-2">
               <button
@@ -675,7 +689,7 @@ export default function HomePage() {
                 {selectedCountry}
               </h3>
               <p className="text-[#4A5568] text-sm lg:text-base leading-relaxed mb-8">
-                Selling from {selectedCountry} gives you full access to all our
+                Selling in {selectedCountry} gives you full access to all our
                 services. If you want to know more about our services and how
                 you can benefit from them click on one of the three services to
                 begin.
@@ -800,7 +814,7 @@ export default function HomePage() {
                     },
                     {
                       img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
-                      title: "China Sourcing",
+                      title: "Zambeel 360",
                       desc: "Scale easily with COD—no payment gateway needed.",
                     },
                     {
@@ -1015,16 +1029,41 @@ export default function HomePage() {
               </h3>
 
               <div className="flex items-center justify-center w-full md:px-8 gap-4 md:gap-8">
-                <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
-                  <div className="flex text-[#FFC107] text-xs mb-3 opacity-70">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
-                  </div>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    "Great panel and never looked back..."
-                  </p>
-                </div>
+                {(() => {
+                  const prevIndex = currentReviewIndex === 0 ? reviews.length - 1 : currentReviewIndex - 1;
+                  const prevReview = reviews[prevIndex];
+                  return (
+                    <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
+                      <div className="flex items-center gap-2 mb-3 opacity-70">
+                        <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
+                          <img
+                            src={prevReview.image}
+                            className="w-full h-full object-cover"
+                            alt={prevReview.name}
+                          />
+                        </div>
+                        <span className="font-bold text-xs text-gray-700">
+                          {prevReview.name}
+                        </span>
+                      </div>
+                      <div className="flex text-[#FFC107] text-xs mb-2 opacity-70">
+                        {[...Array(5)].map((_, i) => (
+                          <i
+                            key={i}
+                            className={
+                              i < prevReview.rating
+                                ? "fa-solid fa-star"
+                                : "fa-regular fa-star"
+                            }
+                          ></i>
+                        ))}
+                      </div>
+                      <p className="text-xs text-gray-400 leading-relaxed">
+                        "{prevReview.text.substring(0, 40)}..."
+                      </p>
+                    </div>
+                  );
+                })()}
 
                 <div className="w-full md:w-[550px] flex-shrink-0 z-20">
                   <div className="bg-white border border-gray-100 rounded-[2.5rem] md:rounded-3xl p-6 md:p-6 shadow-xl md:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] h-auto">
@@ -1065,23 +1104,41 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
-                  <div className="flex items-center gap-2 mb-3 opacity-70">
-                    <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
-                      <img
-                        src="https://randomuser.me/api/portraits/men/45.jpg"
-                        className="w-full h-full object-cover"
-                        alt="Ibrahim"
-                      />
+                {(() => {
+                  const nextIndex = currentReviewIndex === reviews.length - 1 ? 0 : currentReviewIndex + 1;
+                  const nextReview = reviews[nextIndex];
+                  return (
+                    <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
+                      <div className="flex items-center gap-2 mb-3 opacity-70">
+                        <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
+                          <img
+                            src={nextReview.image}
+                            className="w-full h-full object-cover"
+                            alt={nextReview.name}
+                          />
+                        </div>
+                        <span className="font-bold text-xs text-gray-700">
+                          {nextReview.name}
+                        </span>
+                      </div>
+                      <div className="flex text-[#FFC107] text-xs mb-2 opacity-70">
+                        {[...Array(5)].map((_, i) => (
+                          <i
+                            key={i}
+                            className={
+                              i < nextReview.rating
+                                ? "fa-solid fa-star"
+                                : "fa-regular fa-star"
+                            }
+                          ></i>
+                        ))}
+                      </div>
+                      <p className="text-xs text-gray-400 leading-relaxed">
+                        "{nextReview.text.substring(0, 40)}..."
+                      </p>
                     </div>
-                    <span className="font-bold text-xs text-gray-700">
-                      Ibrahim
-                    </span>
-                  </div>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    "Started our dropshipping business..."
-                  </p>
-                </div>
+                  );
+                })()}
               </div>
 
               <div className="flex justify-center gap-2 md:gap-3 mt-2 md:mt-4">
