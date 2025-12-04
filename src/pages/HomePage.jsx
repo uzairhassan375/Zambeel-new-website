@@ -7,9 +7,9 @@ export default function HomePage() {
   const [selectedCountry, setSelectedCountry] = useState("Qatar");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+
   const [numberText, setNumberText] = useState("");
-  
+
   // Statistics animation
   const statsRef = useRef(null);
   const [codCount, setCodCount] = useState(0);
@@ -18,7 +18,7 @@ export default function HomePage() {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const numbers = ["Learn", "Start", "Build","Grow"];
+    const numbers = ["Learn", "Start", "Build", "Grow"];
     let wordIndex = 0;
     let charIndex = 0;
     let cycleCount = 0;
@@ -49,7 +49,7 @@ export default function HomePage() {
           if (wordIndex === numbers.length) {
             wordIndex = 0;
             cycleCount++;
-            
+
           }
         }
       }
@@ -65,7 +65,7 @@ export default function HomePage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
-            
+
             // Animate orders delivered (1000K+)
             const codTarget = 1000;
             const codDuration = 2000;
@@ -134,7 +134,7 @@ export default function HomePage() {
   // Auto-rotate reviews carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentReviewIndex((prevIndex) => 
+      setCurrentReviewIndex((prevIndex) =>
         prevIndex === 3 ? 0 : prevIndex + 1
       );
     }, 3500); // Change every 3.5 seconds
@@ -165,29 +165,7 @@ export default function HomePage() {
     }
   }, [location]);
 
-  const services = [
-    {
-      title: "Dropshipping",
-      desc: "Start selling instantly with no stock. Utilize AI for product evaluation and start selling from anywhere",
-      cta: "Get started",
-      key: "dropshipping",
-      link: "/dropshipping",
-    },
-    {
-      title: "360",
-      desc: "Build your brand, your way. Complete solution from design, manufacturing to delivery for your growth.",
-      cta: "Get started",
-      key: "360",
-      link: "/zambeel-360",
-    },
-    {
-      title: "3PL",
-      desc: "Reliable storage and fast delivery. Manage and deliver fast with our logistics network for business growth.",
-      cta: "Get started",
-      key: "3pl",
-      link: "/zambeel-3pl",
-    },
-  ];
+
 
   const countries = [
     { name: "UAE", code: "ae", services: ["Dropshipping", "360", "3PL"] },
@@ -228,6 +206,141 @@ export default function HomePage() {
     },
   ];
 
+  const featureCards = [
+    {
+      title: "Learn E-commerce with Zambeel",
+      desc: "Learn to Start, Build & Grow your E-commerce business from scratch",
+      cta: "Learn E-commerce",
+      link: "/",
+    },
+    {
+      title: "Start E-comm without buying inventory",
+      desc: "Sell winning products from anywhere in the world on Cash on Delivery",
+      cta: "Dropshipping",
+      link: "/dropshipping",
+    },
+    {
+      title: "Build your private label with China sourcing",
+      desc: "We handle the entire process — sourcing, customs clearance, and delivery to our warehouse",
+      cta: "China Sourcing",
+      link: "/zambeel-360",
+    },
+    {
+      title: "Grow your E-comm with our 3PL service",
+      desc: "Use our automated system where we take care of storage, call confirmation & last-mile delivery",
+      cta: "Zambeel 3PL",
+      link: "/zambeel-3pl",
+    },
+  ];
+
+  // Mobile cards scroll-driven expansion
+  const mobileCardsRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [expandedCards, setExpandedCards] = useState([false, false, false, false]); // All cards closed by default
+  const [activeCardIndex, setActiveCardIndex] = useState(null); // Track which card is on top
+  const isUserTapping = useRef(false);
+
+  // Scroll-based expansion logic
+  useEffect(() => {
+    if (window.innerWidth >= 768) return; // Only for mobile
+
+    const handleScroll = () => {
+      if (isUserTapping.current) return; // Don't interfere with tap interactions
+
+      // Position viewport center higher (at 35% from top) so cards expand earlier
+      const viewportCenter = window.innerHeight * 0.35;
+      let closestCardIndex = null;
+      let closestDistance = Infinity;
+
+      cardRefs.current.forEach((cardRef, index) => {
+        if (!cardRef) return;
+        
+        const rect = cardRef.getBoundingClientRect();
+        const cardTop = rect.top;
+        const cardBottom = rect.bottom;
+        const cardCenter = rect.top + rect.height / 2;
+        
+        // Check if card is in viewport
+        const isInViewport = cardBottom > 0 && cardTop < window.innerHeight;
+        
+        if (isInViewport) {
+          const distance = Math.abs(viewportCenter - cardCenter);
+          
+          // Prefer cards that are closer to center and have their top visible
+          if (distance < closestDistance && cardTop < viewportCenter + 100) {
+            closestDistance = distance;
+            closestCardIndex = index;
+          }
+        }
+      });
+
+      if (closestCardIndex !== null && closestDistance < window.innerHeight * 0.7) {
+        setExpandedCards(prev => {
+          // Only update if different to avoid unnecessary re-renders
+          if (prev[closestCardIndex]) return prev;
+          
+          const newExpanded = [false, false, false, false];
+          newExpanded[closestCardIndex] = true;
+          return newExpanded;
+        });
+        setActiveCardIndex(closestCardIndex);
+      }
+    };
+
+    // Initial check after a short delay to ensure refs are set
+    const initialTimeout = setTimeout(() => {
+      handleScroll();
+    }, 100);
+
+    // Throttle scroll events
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  const toggleCard = (index) => {
+    isUserTapping.current = true;
+    
+    setExpandedCards(prev => {
+      const newExpanded = [...prev];
+      const isCurrentlyExpanded = newExpanded[index];
+      
+      // If clicking on an expanded card, collapse it
+      if (isCurrentlyExpanded) {
+        newExpanded[index] = false;
+        setActiveCardIndex(null);
+      } else {
+        // If clicking on a collapsed card, expand it and collapse others
+        newExpanded.fill(false);
+        newExpanded[index] = true;
+        setActiveCardIndex(index);
+      }
+      
+      return newExpanded;
+    });
+    
+    // Reset tap flag after animation
+    setTimeout(() => {
+      isUserTapping.current = false;
+    }, 700);
+  };
+
   const selectedCountryData = countries.find((c) => c.name === selectedCountry);
 
   // Helper function to get route for service
@@ -260,7 +373,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center overflow-x-hidden">
-      <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-8 flex flex-col items-center relative z-10 mx-auto overflow-x-hidden">
+      <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-8 flex flex-col items-center relative z-10 mx-auto">
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
@@ -285,134 +398,85 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="md:hidden w-full relative mb-0">
-          <div className="relative overflow-hidden px-4 pt-6 pb-2">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentServiceIndex * 100}%)`,
-              }}
-            >
-              {services.map((service) => (
-                <div key={service.key} className="w-full flex-shrink-0 px-2">
-                  <div className="bg-white rounded-3xl p-6 pt-10 shadow-xl flex flex-col relative">
-                    <div className="bg-[#E7EFFC] rounded-full px-6 py-2.5 absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <h3 className="text-[#2E3B78] text-sm font-bold whitespace-nowrap">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <p className="text-[#2E3B78] text-xs leading-relaxed mb-6 text-left mt-2">
-                      {service.desc}
+
+
+        {/* Mobile Card Stack (Scroll-Driven Wallet) */}
+        <div ref={mobileCardsRef} className="md:hidden w-full relative">
+          <div className="w-full px-4 pb-8 flex flex-col items-center">
+            {featureCards.map((card, index) => (
+              <div
+                key={card.title}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleCard(index);
+                }}
+                style={{
+                  zIndex: activeCardIndex === index ? 100 : index + 1,
+                  marginTop: index === 0 ? 0 : expandedCards[index] || expandedCards[index - 1] ? '20px' : '-20px',
+                }}
+                className={`w-full rounded-3xl overflow-hidden transition-all duration-700 ease-out border border-white/60 cursor-pointer ${expandedCards[index] ? "shadow-2xl" : "shadow-lg"
+                  } ${index === 0 ? 'bg-[#E7EFFC]' :
+                    index === 1 ? 'bg-[#FFF9E6]' :
+                      index === 2 ? 'bg-[#FDE8E9]' :
+                        'bg-[#E6F7F5]'
+                  }`}
+              >
+                <div className={`w-full flex items-center justify-center p-6 text-center relative z-10 ${index === 0 ? 'bg-[#E7EFFC]' :
+                  index === 1 ? 'bg-[#FFF9E6]' :
+                    index === 2 ? 'bg-[#FDE8E9]' :
+                      'bg-[#E6F7F5]'
+                  }`}>
+                  <h2 className="text-[#2E3B78] text-lg font-bold leading-tight">
+                    {index === 0 ? 'Learn' :
+                      index === 1 ? 'Dropshipping' :
+                        index === 2 ? 'Zambeel 360' :
+                          'Zambeel 3PL'}
+                  </h2>
+
+                </div>
+                <div
+                  className={`transition-all duration-700 ease-in-out overflow-hidden ${expandedCards[index] ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    } ${index === 0 ? 'bg-[#E7EFFC]' :
+                      index === 1 ? 'bg-[#FFF9E6]' :
+                        index === 2 ? 'bg-[#FDE8E9]' :
+                          'bg-[#E6F7F5]'
+                    }`}
+                >
+                  <div className="px-6 pb-8 pt-0">
+                    <p className="text-[#4A5568] text-sm leading-relaxed mb-6">
+                      {card.desc}
                     </p>
-                    {service.link ? (
+                    {card.link ? (
                       <Link
-                        to={service.link}
-                        className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#1a234d] transition w-fit mx-auto"
+                        to={card.link}
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-full bg-[#2E3B78] text-white font-bold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-md hover:bg-[#1a234d]"
                       >
-                        {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
+                        <span>{card.cta}</span>
+                        <i className="fa-solid fa-arrow-right text-[#FCD64C]"></i>
                       </Link>
                     ) : (
-                      <button className="bg-[#2E3B78] text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#1a234d] transition w-fit mx-auto">
-                        {service.cta} <i className="fa-solid fa-arrow-right text-white"></i>
+                      <button 
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-full bg-[#2E3B78] text-white font-bold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-md hover:bg-[#1a234d]"
+                      >
+                        <span>{card.cta}</span>
+                        <i className="fa-solid fa-arrow-right text-[#FCD64C]"></i>
                       </button>
                     )}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex justify-center gap-2 mt-4">
-            {services.map((_, idx) => (
-              <div
-                key={idx}
-                onClick={() => setCurrentServiceIndex(idx)}
-                className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all ${
-                  idx === currentServiceIndex
-                    ? "bg-[#FCD64C]"
-                    : "bg-[#2E3B78]"
-                }`}
-              ></div>
+              </div>
             ))}
-          </div>
-
-          <div className="flex justify-center gap-2 md:gap-4 mt-4 mb-2 px-4">
-            <button
-              onClick={() =>
-                setCurrentServiceIndex(
-                  currentServiceIndex === 0
-                    ? services.length - 1
-                    : currentServiceIndex - 1
-                )
-              }
-              className="bg-white text-[#2E3B78] px-6 py-2.5 md:px-8 md:py-3 rounded-full text-xs md:text-sm font-bold transition flex items-center justify-between flex-1 min-w-0 relative"
-              style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)' }}
-              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
-            >
-              <i className="fa-solid fa-arrow-left text-xs md:text-sm flex-shrink-0"></i>
-              <span className="absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap truncate max-w-[80px] md:max-w-none text-center">
-                {services[
-                  currentServiceIndex === 0
-                    ? services.length - 1
-                    : currentServiceIndex - 1
-                ].title}
-              </span>
-              <div className="flex-shrink-0 w-4"></div>
-            </button>
-            <button
-              onClick={() =>
-                setCurrentServiceIndex(
-                  currentServiceIndex === services.length - 1
-                    ? 0
-                    : currentServiceIndex + 1
-                )
-              }
-              className="bg-white text-[#2E3B78] px-6 py-2.5 md:px-8 md:py-3 rounded-full text-xs md:text-sm font-bold transition flex items-center justify-between flex-1 min-w-0 relative"
-              style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)' }}
-              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)'}
-            >
-              <div className="flex-shrink-0 w-4"></div>
-              <span className="absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap truncate max-w-[80px] md:max-w-none text-center">
-                {services[
-                  currentServiceIndex === services.length - 1
-                    ? 0
-                    : currentServiceIndex + 1
-                ].title}
-              </span>
-              <i className="fa-solid fa-arrow-right text-xs md:text-sm flex-shrink-0"></i>
-            </button>
           </div>
         </div>
 
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
-          {[
-            {
-              title: "Learn E-commerce with Zambeel",
-              desc: "Learn to Start, Build & Grow your E-commerce business from scratch",
-              cta: "Learn E-commerce",
-              link: "/zambeel-3pl",
-            },
-            {
-              title: "Start E-comm without buying inventory",
-              desc: "Sell winning products from anywhere in the world on Cash on Delivery",
-              cta: "Dropshipping",
-              link: "/dropshipping",
-            },
-            {
-              title: "Build your private label with China sourcing",
-              desc: "We handle the entire process — sourcing, customs clearance, and delivery to our warehouse",
-              cta: "China Sourcing",
-              link: "/zambeel-360",
-            },
-            {
-              title: "Grow your E-comm with our 3PL service",
-              desc: "Use our automated system where we take care of storage, call confirmation & last-mile delivery",
-              cta: "Zambeel 3PL",
-              link: "/zambeel-3pl",
-            },
-          ].map((card) => (
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6 w-full p-2">
+          {featureCards.map((card) => (
             <div
               key={card.cta}
               className="group card-hover bg-[#E7EFFC] rounded-[32px] p-8 pb-10 flex flex-col h-full transition-all duration-300 hover:scale-[1.02]"
@@ -468,11 +532,10 @@ export default function HomePage() {
                   <div
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
-                    className={`w-16 h-12 rounded-xl flex items-center justify-center cursor-pointer transition overflow-hidden shadow-md ${
-                      country.name === selectedCountry
-                        ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
-                        : "border-2 border-gray-200 hover:border-gray-300"
-                    }`}
+                    className={`w-16 h-12 rounded-xl flex items-center justify-center cursor-pointer transition overflow-hidden shadow-md ${country.name === selectedCountry
+                      ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
+                      : "border-2 border-gray-200 hover:border-gray-300"
+                      }`}
                   >
                     <img
                       src={`https://flagcdn.com/w160/${country.code}.png`}
@@ -585,11 +648,10 @@ export default function HomePage() {
                   <div
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
-                    className={`flex flex-col items-center gap-2 cursor-pointer transition p-3 rounded-xl ${
-                      country.name === selectedCountry
-                        ? "bg-[#FFF9E6] shadow-md"
-                        : "hover:bg-gray-50"
-                    }`}
+                    className={`flex flex-col items-center gap-2 cursor-pointer transition p-3 rounded-xl ${country.name === selectedCountry
+                      ? "bg-[#FFF9E6] shadow-md"
+                      : "hover:bg-gray-50"
+                      }`}
                   >
                     <div className="w-12 h-8 rounded shadow-sm overflow-hidden border border-gray-200">
                       <img
@@ -667,7 +729,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      5 
+                      5
                     </h4>
                     <span className="text-xs md:text-sm lg:text-base text-gray-500">Countries covered</span>
                   </div>
@@ -700,7 +762,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      Weekly 
+                      Weekly
                     </h4>
                     <span className="text-xs md:text-sm lg:text-base text-gray-500">Payments Guaranteed</span>
                   </div>
@@ -711,70 +773,70 @@ export default function HomePage() {
             {/* Carousel - Desktop only */}
             <div className="hidden lg:flex gap-4 h-[500px] justify-center">
 
-            <div
-              className="relative overflow-hidden h-full mx-auto"
-              style={{ width: "830px" }}
-            >
               <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, white 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 94%, white 100%)",
-                }}
-              />
-              <div
-                className="flex h-full gap-4 transition-transform duration-700 ease-in-out"
-                style={{
-                  transform: showAllFeatures
-                    ? "translateX(-165px)"
-                    : "translateX(0)",
-                }}
+                className="relative overflow-hidden h-full mx-auto"
+                style={{ width: "830px" }}
               >
-                {[
-                  {
-                    img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
-                    title: "Dropshipping",
-                    desc: "Start your Ecommerce business anywhere without registration.",
-                  },
-                  {
-                    img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
-                    title: "China Sourcing",
-                    desc: "Scale easily with COD—no payment gateway needed.",
-                  },
-                  {
-                    img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                    title: "3PL Service",
-                    desc: "Use our AI tools to accelerate your work.",
-                  },
-                  {
-                    img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                    title: "Learn E-commerce",
-                    desc: "Use our AI tools to accelerate your work.",
-                  },
-                ].map((card) => (
-                  <div
-                    key={card.title}
-                    className="group relative rounded-[32px] overflow-hidden cursor-pointer h-full shrink-0"
-                    style={{ width: "320px" }}
-                  >
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-8 z-10">
-                      <h3 className="text-white text-xl font-bold mb-1">
-                        {card.title}
-                      </h3>
-                      <p className="text-gray-200 text-sm leading-snug">
-                        {card.desc}
-                      </p>
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(to right, white 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 94%, white 100%)",
+                  }}
+                />
+                <div
+                  className="flex h-full gap-4 transition-transform duration-700 ease-in-out"
+                  style={{
+                    transform: showAllFeatures
+                      ? "translateX(-165px)"
+                      : "translateX(0)",
+                  }}
+                >
+                  {[
+                    {
+                      img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
+                      title: "Dropshipping",
+                      desc: "Start your Ecommerce business anywhere without registration.",
+                    },
+                    {
+                      img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
+                      title: "China Sourcing",
+                      desc: "Scale easily with COD—no payment gateway needed.",
+                    },
+                    {
+                      img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                      title: "3PL Service",
+                      desc: "Use our AI tools to accelerate your work.",
+                    },
+                    {
+                      img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                      title: "Learn E-commerce",
+                      desc: "Use our AI tools to accelerate your work.",
+                    },
+                  ].map((card) => (
+                    <div
+                      key={card.title}
+                      className="group relative rounded-[32px] overflow-hidden cursor-pointer h-full shrink-0"
+                      style={{ width: "320px" }}
+                    >
+                      <img
+                        src={card.img}
+                        alt={card.title}
+                        className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-8 z-10">
+                        <h3 className="text-white text-xl font-bold mb-1">
+                          {card.title}
+                        </h3>
+                        <p className="text-gray-200 text-sm leading-snug">
+                          {card.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
             </div>
           </div>
 
@@ -803,17 +865,17 @@ export default function HomePage() {
                 },
                 ...(showAllFeatures
                   ? [
-                      {
-                        img: "https://picsum.photos/400/600?random=5",
-                        title: "Global Reach",
-                        desc: "Sell to customers worldwide with ease.",
-                      },
-                      {
-                        img: "https://picsum.photos/400/600?random=6",
-                        title: "Secure Platform",
-                        desc: "Your data and transactions are always protected.",
-                      },
-                    ]
+                    {
+                      img: "https://picsum.photos/400/600?random=5",
+                      title: "Global Reach",
+                      desc: "Sell to customers worldwide with ease.",
+                    },
+                    {
+                      img: "https://picsum.photos/400/600?random=6",
+                      title: "Secure Platform",
+                      desc: "Your data and transactions are always protected.",
+                    },
+                  ]
                   : []),
               ].map((card) => (
                 <div
@@ -1027,11 +1089,10 @@ export default function HomePage() {
                   <div
                     key={idx}
                     onClick={() => setCurrentReviewIndex(idx)}
-                    className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full cursor-pointer transition-all ${
-                      idx === currentReviewIndex
-                        ? "bg-[#FFD700]"
-                        : "bg-white opacity-40 md:bg-[#2E3B78] md:opacity-80"
-                    }`}
+                    className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full cursor-pointer transition-all ${idx === currentReviewIndex
+                      ? "bg-[#FFD700]"
+                      : "bg-white opacity-40 md:bg-[#2E3B78] md:opacity-80"
+                      }`}
                   ></div>
                 ))}
               </div>
