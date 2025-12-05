@@ -43,10 +43,10 @@ const PricingSection = ({
       <div className="max-w-[1050px] mx-auto text-center">
         {/* Title */}
         <h2 className="text-3xl font-bold mb-4 text-white">
-          {title}
+          {isDesktop ? title : (title === "Clear Pricing. Great Value." || title === "Our pricing is clear and transparent" ? "Choose your plan" : title)}
         </h2>
         <p className="text-white text-opacity-80 mb-8 text-sm sm:text-base">
-          {subtitle}
+          {isDesktop ? subtitle : (subtitle === "Click on any plan to see full details and features." ? "Swipe or Tap to explore our pricing options" : subtitle)}
         </p>
 
         {/* Card Layout - Vertical on mobile, horizontal on desktop */}

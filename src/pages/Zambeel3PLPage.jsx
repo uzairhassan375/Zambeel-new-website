@@ -152,19 +152,19 @@ const Zambeel3PLPage = () => {
       <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h3 className="text-[44px] font-[800] leading-[100%] tracking-[0.02em] text-center text-white mb-4 md:mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+            <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Zambeel 3PL
             </h3>
-            <p className="text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Get warehousing, inventory management, and efficient fulfillment
             </p>
             <div>
-              <p className="text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[60px] md:min-h-[40px] transition-opacity duration-500 mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              <p className="text-[14px] md:text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[30px] md:min-h-[40px] transition-opacity duration-500 mb-2 md:mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
                 {carouselTexts[currentTextIndex].line1}
               </p>
             </div>
             {/* Carousel dots */}
-            <div className="flex justify-center gap-2 mb-4 -mt-2">
+            <div className="flex justify-center gap-2 mb-4 md:-mt-2">
               {carouselTexts.map((_, index) => (
                 <div
                   key={index}

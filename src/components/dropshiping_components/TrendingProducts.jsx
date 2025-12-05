@@ -75,7 +75,7 @@ const TrendingProducts = () => {
       }}
     >
       <div className="max-w-[1050px] mx-auto text-center">
-        <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-white mb-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+        <h2 className="text-[20px] md:text-[36px] font-[700] leading-[100%] tracking-[0] text-center text-white mb-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
           Trending Dropshipping Products this week
         </h2>
 
