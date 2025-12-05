@@ -241,8 +241,8 @@ export default function HomePage() {
   // Mobile cards scroll-driven expansion
   const mobileCardsRef = useRef(null);
   const cardRefs = useRef([]);
-  const [expandedCards, setExpandedCards] = useState([false, false, false, false]); // All cards closed by default
-  const [activeCardIndex, setActiveCardIndex] = useState(null); // Track which card is on top
+  const [expandedCards, setExpandedCards] = useState([false, true, false, false]); // Dropshipping card open by default
+  const [activeCardIndex, setActiveCardIndex] = useState(1); // Track which card is on top (dropshipping card)
   const isUserTapping = useRef(false);
 
   // Scroll-based expansion logic
@@ -252,8 +252,8 @@ export default function HomePage() {
     const handleScroll = () => {
       if (isUserTapping.current) return; // Don't interfere with tap interactions
 
-      // Position viewport center higher (at 35% from top) so cards expand earlier
-      const viewportCenter = window.innerHeight * 0.35;
+      // Position viewport center at half height (h/2)
+      const viewportCenter = window.innerHeight / 2;
       let closestCardIndex = null;
       let closestDistance = Infinity;
 
@@ -435,7 +435,7 @@ export default function HomePage() {
                       'bg-[#E6F7F5]'
                   }`}>
                   <h2 className="text-[#2E3B78] text-lg font-bold leading-tight">
-                    {index === 0 ? 'Learn' :
+                    {index === 0 ? 'Learn E-comm' :
                       index === 1 ? 'Dropshipping' :
                         index === 2 ? 'Zambeel 360' :
                           'Zambeel 3PL'}

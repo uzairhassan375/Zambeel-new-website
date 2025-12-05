@@ -5,7 +5,7 @@ const COLLAPSED_HEIGHT = 120; // Height for the collapsed state
 const EXPANDED_HEIGHT = 500; // Fixed height when the card is fully expanded
 
 // --- Pricing Card Component ---
-const PricingCard = ({ plan, isMonthly, isActive, onClick, isLast = false, isMiddle = false, cardIndex = 0 }) => {
+const PricingCard = ({ plan, isMonthly = true, isActive, onClick, isLast = false, isMiddle = false, cardIndex = 0 }) => {
   const price = isMonthly ? plan.monthlyPrice : plan.yearlyPrice;
 
   // Determine card styling based on active state

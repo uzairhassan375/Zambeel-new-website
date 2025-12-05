@@ -43,7 +43,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="#" className="hover:text-white hover:underline">
-                China Sourcing
+                Zambeel 360
               </a>
             </li>
             <li>
