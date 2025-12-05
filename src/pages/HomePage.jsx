@@ -177,7 +177,7 @@ export default function HomePage() {
     { name: "KSA", code: "sa", services: ["Dropshipping", "360", "3PL"] },
     { name: "Qatar", code: "qa", services: ["360", "3PL"] },
     { name: "Kuwait", code: "kw", services: ["360", "3PL"] },
-    { name: "Pakistan", code: "pk", services: ["360", "3PL"] },
+    { name: "Pakistan", code: "pk", services: ["Dropshipping", "360", "3PL"] },
   ];
 
   const reviews = [
@@ -585,9 +585,12 @@ export default function HomePage() {
                 </h3>
               </div>
               <p className="text-[#4A5568] text-xs leading-relaxed mb-5">
-                Selling in {selectedCountry} gives you access to{" "}
-                {selectedCountryData?.services.join(" and ")}. Look into more
-                countries for more services.
+                {selectedCountry === "Pakistan" 
+                  ? `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
+                  ? `Selling in ${selectedCountry} gives you access to all our services except dropshipping. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  : `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                }
               </p>
               <div className="space-y-2">
                 {selectedCountryData?.services.map((service) => (
@@ -689,10 +692,12 @@ export default function HomePage() {
                 {selectedCountry}
               </h3>
               <p className="text-[#4A5568] text-sm lg:text-base leading-relaxed mb-8">
-                Selling in {selectedCountry} gives you full access to all our
-                services. If you want to know more about our services and how
-                you can benefit from them click on one of the three services to
-                begin.
+                {selectedCountry === "Pakistan" 
+                  ? `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
+                  ? `Selling in ${selectedCountry} gives you access to all our services except dropshipping. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  : `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                }
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {selectedCountryData?.services.map((service) => (
