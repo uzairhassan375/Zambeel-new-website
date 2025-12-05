@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import PricingSection from '../components/PricingSection';
 import WhyZambeel from '../components/dropshiping_components/WhyZambeel';
 import Wts from '../components/dropshiping_components/WhereTS';
+import DeliveryCharges from '../components/DeliveryCharges';
 import connectionImg from '../assets/images/connection.png';
 import databaseImg from '../assets/images/database.png';
 import frameImg from '../assets/images/frame1.png';
@@ -419,6 +420,67 @@ const Zambeel360Page = () => {
       <PricingSection 
         title="Our pricing is clear and transparent"
         subtitle="Click on any plan to see full details and features."
+      />
+
+      {/* ================= DELIVERY CHARGES ================= */}
+      <DeliveryCharges
+        title="Zambeel 360 Delivery Charges"
+        subtitle="Comprehensive pricing across all supported regions"
+        countries={[
+          { code: "UAE", name: "UAE", currency: "AED" },
+          { code: "KSA", name: "KSA", currency: "SAR" },
+          { code: "Kuwait", name: "Kuwait", currency: "AED" },
+          { code: "Qatar", name: "Qatar", currency: "AED" },
+          { code: "Pakistan", name: "Pakistan", currency: "PKR" }
+        ]}
+        charges={[
+          {
+            label: "Order Confirmation + Followup / Order Packing / Delivery",
+            values: {
+              UAE: "18 AED",
+              KSA: "26 SAR",
+              Kuwait: "30 AED",
+              Qatar: "25 AED",
+              Pakistan: "300 PKR"
+            }
+          },
+          {
+            label: "Return",
+            values: {
+              UAE: "5 AED",
+              KSA: "7.5 SAR",
+              Kuwait: "15 AED",
+              Qatar: "5 AED",
+              Pakistan: "300 PKR"
+            }
+          },
+          {
+            label: "COD Tax",
+            values: {
+              UAE: "0%",
+              KSA: "0%",
+              Kuwait: "0%",
+              Qatar: "0%",
+              Pakistan: "4%"
+            }
+          },
+          {
+            label: "Delivery Time",
+            icon: "⚡",
+            values: {
+              UAE: "1-2 Days",
+              KSA: "1-3 Days",
+              Kuwait: "1-2 Days",
+              Qatar: "1-2 Days",
+              Pakistan: "1-3 Days"
+            }
+          }
+        ]}
+        importantInfo={[
+          "Warehousing is FREE for first 2 months, after this 1AED/item/Month will be charged on unsold inventory",
+          "In case of failed delivery, only 'Return' will be charged",
+          "In some outskirt areas, delivery charges can be greater too. This happens on 3% of the orders only."
+        ]}
       />
     </div>
   );

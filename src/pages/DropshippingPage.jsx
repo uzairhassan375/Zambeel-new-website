@@ -3,6 +3,7 @@ import PricingSection from "../components/PricingSection.jsx";
 import TrendingProducts from "../components/dropshiping_components/TrendingProducts.jsx"; 
 import Wts from "../components/dropshiping_components/WhereTS.jsx";
 import WhyZambeel from "../components/dropshiping_components/WhyZambeel.jsx";
+import DeliveryCharges from "../components/DeliveryCharges.jsx";
 
 
 const DropshippingPage = () => {
@@ -249,6 +250,56 @@ const DropshippingPage = () => {
               { text: "Product Financing", included: true },
             ],
           },
+        ]}
+      />
+
+      {/* ================= DELIVERY CHARGES ================= */}
+      <DeliveryCharges
+        title="Dropshipping Delivery Charges"
+        subtitle="Transparent pricing for all your dropshipping deliveries"
+        countries={[
+          { code: "Pakistan", name: "Pakistan", currency: "PKR" },
+          { code: "UAE", name: "UAE", currency: "AED" },
+          { code: "KSA", name: "KSA", currency: "SAR" }
+        ]}
+        charges={[
+          {
+            label: "Order Confirmation + Followup / Order Packing / Delivery",
+            values: {
+              Pakistan: "200 PKR",
+              UAE: "18 AED",
+              KSA: "26 SAR"
+            }
+          },
+          {
+            label: "Return",
+            values: {
+              Pakistan: "200 PKR",
+              UAE: "5 AED",
+              KSA: "7.5 SAR"
+            }
+          },
+          {
+            label: "COD Tax",
+            values: {
+              Pakistan: "4%",
+              UAE: "0%",
+              KSA: "0%"
+            }
+          },
+          {
+            label: "Delivery Time",
+            icon: "⚡",
+            values: {
+              Pakistan: "2-4 Days",
+              UAE: "1-2 Days",
+              KSA: "1-3 Days"
+            }
+          }
+        ]}
+        importantInfo={[
+          "In case of failed delivery, only 'Return' will be charged",
+          "In some outskirt areas, delivery charges can be greater too. This happens on 3% of the orders only."
         ]}
       />
     </div>
