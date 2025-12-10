@@ -117,45 +117,43 @@ const Zambeel360Page = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden relative -mt-20 pt-20" style={{ background: 'linear-gradient(186.57deg, rgba(18, 75, 61, 0.75) 5.1%, rgba(31, 46, 100, 0.958277) 12.51%, rgba(28, 54, 89, 0.911419) 31.95%, rgba(22, 81, 66, 0.793286) 47.98%, rgba(51, 88, 140, 0.913498) 70.93%, #4A61C4 81.76%)' }}>
-      {/* Decorative SVG Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg className="absolute top-32 left-12 w-20 h-24 opacity-30" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3" />
-        </svg>
-        <svg className="absolute top-48 left-8 w-24 h-28 opacity-25 transform -rotate-12" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.25" />
-        </svg>
-        <svg className="absolute top-16 right-16 w-28 h-32 opacity-30 transform rotate-45" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3" />
-        </svg>
-        <svg className="absolute top-52 right-24 w-24 h-28 opacity-25 transform rotate-12" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.25" />
-        </svg>
-        <svg className="absolute top-[40%] left-8 w-32 h-36 opacity-25 transform -rotate-6" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.25" />
-        </svg>
-        <svg className="absolute top-[48%] left-16 w-28 h-32 opacity-20 transform rotate-15" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.2" />
-        </svg>
-        <svg className="absolute top-[45%] right-12 w-28 h-32 opacity-25 transform -rotate-12" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.25" />
-        </svg>
-        <svg className="absolute bottom-64 left-10 w-24 h-28 opacity-20 transform rotate-20" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.2" />
-        </svg>
-        <svg className="absolute bottom-40 left-16 w-28 h-32 opacity-25 transform -rotate-8" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.25" />
-        </svg>
-        <svg className="absolute bottom-56 right-14 w-26 h-30 opacity-20 transform rotate-30" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.2" />
-        </svg>
-      </div>
 
       {/* Hero Section */}
-      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
+      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28 overflow-hidden">
+        {/* Left side SVGs */}
+        <div className="absolute left-[3%] top-[50%] hidden md:block">
+          <svg width="80" height="93" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+        <div className="absolute left-[3%] top-[64%] hidden md:block">
+          <svg width="80" height="93" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+
+        {/* Right side SVGs */}
+        <div className="absolute right-[4%] top-[10%] hidden md:block">
+          <svg width="80" height="93" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+        <div className="absolute right-[4%] top-[25%] hidden md:block">
+          <svg width="80" height="93" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+
+        {/* Center SVG */}
+        <div className="absolute left-1/2 top-[50%] transform -translate-x-1/2 hidden md:block">
+          <svg width="80" height="93" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+            <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6 relative z-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Zambeel 360
             </h3>
             <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>

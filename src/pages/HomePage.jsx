@@ -284,7 +284,27 @@ export default function HomePage() {
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
-        <div className="text-center mb-0 md:mb-8 relative">
+ {/* Left side SVGs */}
+ <div className="absolute left-30 top-[20%] hidden md:block">
+          <svg width="106" height="124" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F9D849" fillOpacity="0.1"/>
+          </svg>
+        </div>
+        <div className="absolute left-0 top-[20%] hidden md:block">
+          <svg width="106" height="124" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F9D849" fillOpacity="0.1"/>
+          </svg>
+        </div>
+
+        {/* Right side SVG */}
+        <div className="absolute right-0 top-[1%] hidden md:block">
+          <svg width="305" height="260" viewBox="0 0 305 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M137.642 260C208.026 260 305 209.948 305 203.489C261.206 185.729 234.616 -3.07658e-06 183 -5.33277e-06C118.873 -8.13585e-06 -2.3301e-06 53.3065 -2.3301e-06 53.3065C73.5126 129.193 81.3337 260 137.642 260Z" fill="#F9D849" fillOpacity="0.1"/>
+          </svg>
+        </div>
+
+
+        <div className="text-center mb-16 md:mb-8 relative">
           <div className="mb-8 hidden md:flex justify-center relative items-center">
             <img
               src={blue_logoImage}
@@ -308,7 +328,7 @@ export default function HomePage() {
 
 
         {/* Mobile Staking Cards */}
-        <div className="md:hidden w-full relative">
+        <div className="md:hidden w-full relative min-h-[100vh]">
           <StackedCards />
         </div>
 

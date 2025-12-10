@@ -32,8 +32,30 @@ const DropshippingPage = () => {
       }}
     >
       {/* ================= HERO SECTION ================= */}
-      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28">
-        <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>Zambeel Dropshipping</h3>
+      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28 overflow-hidden">
+        {/* Left side SVGs (smaller, flipped) */}
+        <div className="absolute left-[15%] top-[35%] hidden md:block">
+          <svg width="90" height="76" viewBox="0 0 255 217" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scaleX(-1)' }}>
+            <path d="M115.078 217C173.923 217 255 175.225 255 169.835C218.385 155.012 196.154 -2.57223e-06 153 -4.45854e-06C99.386 -6.80211e-06 1.33141e-05 44.4904 1.33141e-05 44.4904C61.4613 107.826 68.0003 217 115.078 217Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+        <div className="absolute left-[15%] top-[50%] hidden md:block">
+          <svg width="90" height="76" viewBox="0 0 255 217" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scaleX(-1)' }}>
+            <path d="M115.078 217C173.923 217 255 175.225 255 169.835C218.385 155.012 196.154 -2.57223e-06 153 -4.45854e-06C99.386 -6.80211e-06 1.33141e-05 44.4904 1.33141e-05 44.4904C61.4613 107.826 68.0003 217 115.078 217Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+        {/* Right side SVGs (bigger) */}
+        <div className="absolute right-[10%] top-[20%] hidden md:block">
+          <svg width="200" height="150" viewBox="0 0 255 217" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M115.078 217C173.923 217 255 175.225 255 169.835C218.385 155.012 196.154 -2.57223e-06 153 -4.45854e-06C99.386 -6.80211e-06 1.33141e-05 44.4904 1.33141e-05 44.4904C61.4613 107.826 68.0003 217 115.078 217Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+        <div className="absolute right-[10%] top-[50%] hidden md:block">
+          <svg width="200" height="150" viewBox="0 0 255 217" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M115.078 217C173.923 217 255 175.225 255 169.835C218.385 155.012 196.154 -2.57223e-06 153 -4.45854e-06C99.386 -6.80211e-06 1.33141e-05 44.4904 1.33141e-05 44.4904C61.4613 107.826 68.0003 217 115.078 217Z" fill="#F4D03F" fillOpacity="0.3"/>
+          </svg>
+        </div>
+        <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6 relative z-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>Zambeel Dropshipping</h3>
         <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Start Dropshipping in Largest COD Markets</p>
         <div>
           <p className="text-[14px] md:text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[30px] md:min-h-[40px] transition-opacity duration-500 mb-2 md:mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
@@ -61,7 +83,7 @@ const DropshippingPage = () => {
           </button>
         </div>
         {/* UAE/KSA Box */}
-        <div className="px-4 md:px-0">
+        <div className="px-4 md:px-0 relative z-10">
           <div className="mx-auto rounded-[32px] shadow-lg max-w-lg overflow-hidden w-full" style={{boxShadow: '0 8px 32px rgba(36,58,134,0.18)'}}>
           {/* Top: Dropshipping available */}
           <div className="bg-[#e3e7f6] px-4 pt-3 pb-2">
