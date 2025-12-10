@@ -875,7 +875,7 @@ export default function HomePage() {
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star-half-stroke"></i>
+                  <i className="fa-solid fa-star"></i>
                 </div>
                 <div className="text-xs md:text-sm font-medium text-gray-500">
                   (1076 reviews)

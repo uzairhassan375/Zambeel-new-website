@@ -99,7 +99,7 @@ const PricingCard = ({ plan, isMonthly = true, isActive, onClick, isLast = false
           </div>
           
           {/* BOTTOM SECTION - Background with Description and Features */}
-          <div className={`px-4 pt-2 pb-4 flex flex-col text-left rounded-b-3xl ${isPremium ? 'bg-[#FFF8DE]' : 'bg-[#DEE2EE]'}`}>
+          <div className={`px-4 pt-2 pb-4 flex flex-col text-left rounded-b-3xl ${isPremium || plan.tag === "GOLD" ? 'bg-[#FFF8DE]' : 'bg-[#DEE2EE]'}`}>
             {plan.description && <p className="text-sm mb-6 text-gray-600">{plan.description}</p>}
             <ul className={`mb-8 space-y-3 ${plan.description ? 'pt-2' : 'pt-2'}`}>
               {plan.features.map((feature, i) => (

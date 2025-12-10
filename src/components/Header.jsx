@@ -69,16 +69,16 @@ export default function Header({ theme = "dark" }) {
                   Dropshipping
                 </Link>
                 <Link
-                  to="/zambeel-3pl"
-                  className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
-                >
-                  Zambeel 3PL
-                </Link>
-                <Link
                   to="/zambeel-360"
                   className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
                 >
                   Zambeel 360
+                </Link>
+                <Link
+                  to="/zambeel-3pl"
+                  className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
+                >
+                  Zambeel 3PL
                 </Link>
               </div>
             </div>
@@ -184,18 +184,18 @@ export default function Header({ theme = "dark" }) {
                     Dropshipping
                   </Link>
                   <Link
-                    to="/zambeel-3pl"
-                    className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
-                    onClick={() => setShowMobileMenu(false)}
-                  >
-                    Zambeel 3PL
-                  </Link>
-                  <Link
                     to="/zambeel-360"
                     className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Zambeel 360
+                  </Link>
+                  <Link
+                    to="/zambeel-3pl"
+                    className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
+                    onClick={() => setShowMobileMenu(false)}
+                  >
+                    Zambeel 3PL
                   </Link>
                 </div>
               )}

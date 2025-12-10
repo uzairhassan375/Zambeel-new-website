@@ -4,8 +4,7 @@ const DeliveryCharges = ({
   title, 
   subtitle, 
   countries, 
-  charges, 
-  importantInfo 
+  charges
 }) => {
   // Helper function to get country flag SVG
   const getCountryFlag = (countryCode) => {
@@ -128,32 +127,6 @@ const DeliveryCharges = ({
             </div>
           </div>
         </div>
-
-        {/* Important Info Section */}
-        {importantInfo && importantInfo.length > 0 && (
-          <div className="bg-[#E8F0FE] rounded-lg md:rounded-xl p-2 md:p-4 lg:p-6 border-l-4 border-[#243a86]">
-            <div className="flex items-start gap-1.5 md:gap-2 lg:gap-3 mb-2 md:mb-3 lg:mb-4">
-              <svg className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-[#243a86] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-              </svg>
-              <h3 className="text-xs md:text-base lg:text-lg font-bold text-[#243a86]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-                Important Info
-              </h3>
-            </div>
-            <ul className="space-y-1.5 md:space-y-2 lg:space-y-3">
-              {importantInfo.map((info, index) => (
-                <li key={index} className="flex items-start gap-1.5 md:gap-2 lg:gap-3">
-                  <svg className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-[9px] md:text-xs lg:text-base text-gray-700 leading-tight" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-                    {info}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </section>
   );

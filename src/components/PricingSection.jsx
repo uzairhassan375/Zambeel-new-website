@@ -14,11 +14,12 @@ const PricingSection = ({
   // Use custom plans if provided, otherwise use default
   const plans = customPlans || defaultPricingPlans;
   
-  // Find the index of "Premium" to set it as the default active card, or use provided default
+  // Find the index of "GOLD" to set it as the default active card on mobile, or use provided default
+  const goldIndex = plans.findIndex(plan => plan.tag === "GOLD");
   const premiumIndex = plans.findIndex(plan => plan.tag === "Premium");
   const initialActiveIndex = defaultActiveIndex !== null 
     ? defaultActiveIndex 
-    : (premiumIndex !== -1 ? premiumIndex : 0);
+    : (goldIndex !== -1 ? goldIndex : (premiumIndex !== -1 ? premiumIndex : 0));
   
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
 
