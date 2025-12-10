@@ -6,7 +6,7 @@ import { cardData } from '../../lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Card = ({ title, description, index, totalCards, color, cta, link }) => {
+const Card = ({ title, description, index, totalCards, cta, link }) => {
     const cardRef = useRef(null);
     const containerRef = useRef(null);
 
@@ -27,13 +27,13 @@ const Card = ({ title, description, index, totalCards, color, cta, link }) => {
 
         const targetScale = 1 - (totalCards - index) * 0.05;
 
-        // Set initial state
+        // Set initial state - center origin for center-based stacking
         gsap.set(card, {
             scale: 1,
-            transformOrigin: "center top"
+            transformOrigin: "center center"
         });
 
-        // Create scroll trigger for stacking effect (similar to the reference component)
+        // Create scroll trigger for stacking effect - centered in viewport
         ScrollTrigger.create({
             trigger: container,
             start: "top center",
@@ -45,7 +45,7 @@ const Card = ({ title, description, index, totalCards, color, cta, link }) => {
 
                 gsap.set(card, {
                     scale: Math.max(scale, targetScale),
-                    transformOrigin: "center top"
+                    transformOrigin: "center center"
                 });
             }
         });
@@ -55,16 +55,23 @@ const Card = ({ title, description, index, totalCards, color, cta, link }) => {
         };
     }, [index, totalCards]);
 
+    // Calculate container height for center-based stacking
+    const cardHeight = 350;
+    const cardHalfHeight = cardHeight / 2;
+    const viewportCenter = '30%';
+    // All containers need enough height for the scroll animation
+    const containerHeight = 400;
+    
     return (
         <div
             ref={containerRef}
             style={{
-                height: '100vh',
+                height: `${containerHeight}px`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 position: 'sticky',
-                top: 0
+                top: `calc(${viewportCenter} - ${cardHalfHeight}px)`
             }}
         >
             <div
@@ -74,8 +81,8 @@ const Card = ({ title, description, index, totalCards, color, cta, link }) => {
                     width: '100%',
                     height: '350px',
                     borderRadius: '24px',
-                    top: `calc(-5vh + ${index * 25}px)`,
-                    transformOrigin: 'top'
+                    top: `${index * 25}px`,
+                    transformOrigin: 'center center'
                 }}
                 className="card-content"
             >
@@ -204,7 +211,6 @@ export const StackedCards = () => {
                 width: '100%'
             }}>
                 {cardData.map((card, index) => {
-                    const targetScale = 1 - (cardData.length - index) * 0.05;
                     return (
                         <Card
                             key={card.id}
@@ -213,7 +219,6 @@ export const StackedCards = () => {
                             description={card.description}
                             index={index}
                             totalCards={cardData.length}
-                            color={card.color}
                             cta={card.cta}
                             link={card.link}
                         />
