@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 import blue_logoImage from "../blue_logo.png";
+import { StackedCards } from "../components/UI/staking-cards";
 
 export default function HomePage() {
   const location = useLocation();
@@ -255,120 +256,13 @@ export default function HomePage() {
         "Store your inventory in our secure warehouses",
         "Real-time inventory tracking and automated order processing",
         "Fast last-mile delivery to your customers",
-        "Scale your business effortlessly while we manage logistics"
+        "Scale your business effortlessly while we manage logistics",
       ],
       cta: "Zambeel 3PL",
       link: "/zambeel-3pl",
     },
   ];
 
-  // Mobile cards scroll-driven expansion
-  const mobileCardsRef = useRef(null);
-  const cardRefs = useRef([]);
-  const [expandedCards, setExpandedCards] = useState([false, true, false, false]); // Dropshipping card open by default
-  const [activeCardIndex, setActiveCardIndex] = useState(1); // Track which card is on top (dropshipping card)
-  const isUserTapping = useRef(false);
-
-  // Scroll-based expansion logic
-  useEffect(() => {
-    if (window.innerWidth >= 768) return; // Only for mobile
-
-    const handleScroll = () => {
-      if (isUserTapping.current) return; // Don't interfere with tap interactions
-
-      // Position viewport trigger at 80% from top (20% from bottom)
-      const viewportTrigger = window.innerHeight * 0.8;
-      let closestCardIndex = null;
-      let closestDistance = Infinity;
-
-      cardRefs.current.forEach((cardRef, index) => {
-        if (!cardRef) return;
-        
-        const rect = cardRef.getBoundingClientRect();
-        const cardTop = rect.top;
-        const cardBottom = rect.bottom;
-        const cardCenter = rect.top + rect.height / 2;
-        
-        // Check if card is in viewport
-        const isInViewport = cardBottom > 0 && cardTop < window.innerHeight;
-        
-        if (isInViewport) {
-          const distance = Math.abs(viewportTrigger - cardCenter);
-          
-          // Prefer cards that are closer to the trigger point (80% from top)
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestCardIndex = index;
-          }
-        }
-      });
-
-      if (closestCardIndex !== null && closestDistance < window.innerHeight * 0.4) {
-        setExpandedCards(prev => {
-          // Only update if different to avoid unnecessary re-renders
-          if (prev[closestCardIndex]) return prev;
-          
-          const newExpanded = [false, false, false, false];
-          newExpanded[closestCardIndex] = true;
-          return newExpanded;
-        });
-        setActiveCardIndex(closestCardIndex);
-      }
-    };
-
-    // Initial check after a short delay to ensure refs are set
-    const initialTimeout = setTimeout(() => {
-      handleScroll();
-    }, 100);
-
-    // Throttle scroll events with smoother handling
-    let ticking = false;
-    const throttledScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', throttledScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-
-    return () => {
-      clearTimeout(initialTimeout);
-      window.removeEventListener('scroll', throttledScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, []);
-
-  const toggleCard = (index) => {
-    isUserTapping.current = true;
-    
-    setExpandedCards(prev => {
-      const newExpanded = [...prev];
-      const isCurrentlyExpanded = newExpanded[index];
-      
-      // If clicking on an expanded card, collapse it
-      if (isCurrentlyExpanded) {
-        newExpanded[index] = false;
-        setActiveCardIndex(null);
-      } else {
-        // If clicking on a collapsed card, expand it and collapse others
-        newExpanded.fill(false);
-        newExpanded[index] = true;
-        setActiveCardIndex(index);
-      }
-      
-      return newExpanded;
-    });
-    
-    // Reset tap flag after animation
-    setTimeout(() => {
-      isUserTapping.current = false;
-    }, 1500);
-  };
 
   const selectedCountryData = countries.find((c) => c.name === selectedCountry);
 
@@ -401,7 +295,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] font-sans flex flex-col items-center overflow-x-hidden">
+    <div className="min-h-[100vh] bg-[#FBFCFE] font-sans flex flex-col items-center ">
       <main className="w-full max-w-[1200px] px-4 mt-16 mb-8 md:mb-8 flex flex-col items-center relative z-10 mx-auto">
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
@@ -429,79 +323,9 @@ export default function HomePage() {
 
 
 
-        {/* Mobile Card Stack (Scroll-Driven Wallet) */}
-        <div ref={mobileCardsRef} className="md:hidden w-full relative">
-          <div className="w-full px-4 pb-8 flex flex-col items-center">
-            {featureCards.map((card, index) => (
-              <div
-                key={card.title}
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleCard(index);
-                }}
-              style={{
-                  zIndex: activeCardIndex === index ? 100 : index + 1,
-                  marginTop: index === 0 ? 0 : expandedCards[index] || expandedCards[index - 1] ? '20px' : '-20px',
-                }}
-                className={`w-full rounded-3xl overflow-hidden transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] border border-white/60 cursor-pointer ${expandedCards[index] ? "shadow-2xl" : "shadow-lg"
-                  } ${index === 0 ? 'bg-[#E7EFFC]' :
-                    index === 1 ? 'bg-[#FFF9E6]' :
-                      index === 2 ? 'bg-[#FDE8E9]' :
-                        'bg-[#E6F7F5]'
-                  }`}
-              >
-                <div className={`w-full flex items-center justify-center p-6 text-center relative z-10 ${index === 0 ? 'bg-[#E7EFFC]' :
-                  index === 1 ? 'bg-[#FFF9E6]' :
-                    index === 2 ? 'bg-[#FDE8E9]' :
-                      'bg-[#E6F7F5]'
-                  }`}>
-                  <h2 className="text-[#2E3B78] text-lg font-bold leading-tight">
-                    {index === 0 ? 'Learn E-comm' :
-                      index === 1 ? 'Dropshipping' :
-                        index === 2 ? 'Zambeel 360' :
-                          'Zambeel 3PL'}
-                  </h2>
-                </div>
-                <div
-                  className={`transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${expandedCards[index] ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
-                    } ${index === 0 ? 'bg-[#E7EFFC]' :
-                      index === 1 ? 'bg-[#FFF9E6]' :
-                        index === 2 ? 'bg-[#FDE8E9]' :
-                          'bg-[#E6F7F5]'
-                    }`}
-                >
-                  <div className="px-6 pb-8 pt-0">
-                    <ul className="text-[#4A5568] text-sm leading-relaxed mb-6 space-y-2 list-disc list-inside">
-                      {card.desc.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                      ))}
-                    </ul>
-                    {card.link ? (
-                      <Link
-                        to={card.link}
-                        onClick={(e) => e.stopPropagation()}
-                        className="w-full bg-[#2E3B78] text-white font-bold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-md hover:bg-[#1a234d]"
-                      >
-                        <span>{card.cta}</span>
-                        <i className="fa-solid fa-arrow-right text-[#FCD64C]"></i>
-                      </Link>
-                    ) : (
-                      <button 
-                        onClick={(e) => e.stopPropagation()}
-                        className="w-full bg-[#2E3B78] text-white font-bold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-md hover:bg-[#1a234d]"
-                      >
-                        <span>{card.cta}</span>
-                        <i className="fa-solid fa-arrow-right text-[#FCD64C]"></i>
-                      </button>
-                    )}
-                  </div>
-                </div>
-            </div>
-            ))}
-          </div>
+        {/* Mobile Staking Cards */}
+        <div className="md:hidden w-full relative min-h-[100vh]">
+          <StackedCards />
         </div>
 
         {/* Desktop Grid */}

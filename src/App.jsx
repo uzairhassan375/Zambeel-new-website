@@ -7,6 +7,7 @@ import TeamPage from "./pages/TeamPage";
 import Zambeel360Page from "./pages/Zambeel360Page";
 import Zambeel3PLPage from "./pages/Zambeel3PLPage";
 import DropshippingPage from "./pages/DropshippingPage";
+import StakingCardsDemo from "./pages/StakingCardsDemo";
 
 function AppContent() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function AppContent() {
             <Route path="/zambeel-360" element={<Zambeel360Page />} />
             <Route path="/zambeel-3pl" element={<Zambeel3PLPage />} />
             <Route path="/dropshipping" element={<DropshippingPage />} />
+            <Route path="/staking-cards-demo" element={<StakingCardsDemo />} />
           </Routes>
         </main>
         <div className="w-full" style={{ backgroundColor: '#4F66C8' }}>
