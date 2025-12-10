@@ -88,7 +88,7 @@ const DeliveryCharges = ({
                 className="grid gap-0.5 md:gap-2 lg:gap-4 items-center p-1 md:p-3 lg:p-6"
                 style={{ gridTemplateColumns: `minmax(75px, 1.2fr) repeat(${countries.length}, minmax(45px, 1fr))` }}
               >
-                <div className="font-bold text-[8px] md:text-xs lg:text-base leading-tight">Delivery Charges Breakdown</div>
+                <div className="font-bold text-[8px] md:text-xs lg:text-base leading-tight text-center">Delivery Charges Breakdown</div>
                 {countries.map((country) => (
                   <div key={country.code} className="flex flex-col items-center gap-0">
                     <div className="w-4 h-4 md:w-8 md:h-8 lg:w-12 lg:h-12 rounded-full overflow-hidden flex items-center justify-center bg-white p-0.5 md:p-1">
@@ -111,14 +111,22 @@ const DeliveryCharges = ({
                   }`}
                   style={{ gridTemplateColumns: `minmax(75px, 1.2fr) repeat(${countries.length}, minmax(45px, 1fr))` }}
                 >
-                  <div className="flex items-center gap-0.5 md:gap-1 lg:gap-2">
+                  <div className="flex items-center justify-center gap-0.5 md:gap-1 lg:gap-2">
                     {charge.icon && <span className="text-yellow-500 text-[10px] md:text-sm lg:text-lg">{charge.icon}</span>}
-                    <span className="text-[8px] md:text-xs lg:text-base font-medium text-gray-800 leading-tight">
-                      {charge.label}
-                    </span>
+                    <div className="flex flex-col items-center font-medium text-gray-800 leading-tight">
+                      {charge.label.includes(' / ') ? (
+                        charge.label.split(' / ').map((part, partIndex) => (
+                          <span key={partIndex} className="text-[8px] md:text-xs lg:text-base text-center">
+                            {part}
+                          </span>
+                        ))
+                      ) : (
+                        <span className="text-[8px] md:text-xs lg:text-base text-center">{charge.label}</span>
+                      )}
+                    </div>
                   </div>
                   {countries.map((country) => (
-                    <div key={country.code} className="text-center text-[8px] md:text-xs lg:text-base text-gray-700 leading-tight">
+                    <div key={country.code} className="text-center text-[8px] md:text-xs lg:text-base text-gray-700 leading-tight font-bold">
                       {charge.values[country.code] || '-'}
                     </div>
                   ))}
