@@ -1,13 +1,24 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cardData } from '../../lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Card = ({ title, description, index, totalCards, color }) => {
+const Card = ({ title, description, index, totalCards, color, cta, link }) => {
     const cardRef = useRef(null);
     const containerRef = useRef(null);
+
+    // Card background colors based on index
+    const cardColors = [
+        'rgb(231, 239, 252)',  // First card
+        'rgb(255, 249, 230)',  // Second card
+        'rgb(253, 232, 233)',  // Third card
+        'rgb(230, 247, 245)'   // Fourth card
+    ];
+
+    const cardBackgroundColor = cardColors[index] || cardColors[0];
 
     useEffect(() => {
         const card = cardRef.current;
@@ -60,35 +71,14 @@ const Card = ({ title, description, index, totalCards, color }) => {
                 ref={cardRef}
                 style={{
                     position: 'relative',
-                    width: '70%',
-                    height: '450px',
+                    width: '100%',
+                    height: '350px',
                     borderRadius: '24px',
-                    isolation: 'isolate',
                     top: `calc(-5vh + ${index * 25}px)`,
                     transformOrigin: 'top'
                 }}
                 className="card-content"
             >
-                {/* Electric Border Effect */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: '-3px',
-                        borderRadius: '27px',
-                        padding: '3px',
-                        background: `conic-gradient(
-                            from 0deg,
-                            transparent 0deg,
-                            ${color} 60deg,
-                            ${color.replace('0.8', '0.6')} 120deg,
-                            transparent 180deg,
-                            ${color.replace('0.8', '0.4')} 240deg,
-                            transparent 360deg
-                        )`,
-                        zIndex: -1
-                    }}
-                />
-
                 {/* Main Card Content */}
                 <div style={{
                     position: 'relative',
@@ -98,105 +88,91 @@ const Card = ({ title, description, index, totalCards, color }) => {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     borderRadius: '24px',
-                    background: `
-                        linear-gradient(145deg, 
-                            rgba(255, 255, 255, 0.1), 
-                            rgba(255, 255, 255, 0.05)
-                        )
-                    `,
-                    backdropFilter: 'blur(25px) saturate(180%)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    boxShadow: `
-                        0 8px 32px rgba(0, 0, 0, 0.3),
-                        0 2px 8px rgba(0, 0, 0, 0.2),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                        inset 0 -1px 0 rgba(255, 255, 255, 0.1)
-                    `,
+                    background: cardBackgroundColor,
+                    border: '1px solid rgba(0, 0, 0, 0.1)',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                     overflow: 'hidden'
                 }}>
-                    {/* Enhanced Glass reflection overlay */}
-                    <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '60%',
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%)',
-                        pointerEvents: 'none',
-                        borderRadius: '24px 24px 0 0'
-                    }} />
-
-                    {/* Glass shine effect */}
-                    <div style={{
-                        position: 'absolute',
-                        top: '10px',
-                        left: '10px',
-                        right: '10px',
-                        height: '2px',
-                        background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%)',
-                        borderRadius: '1px',
-                        pointerEvents: 'none'
-                    }} />
-
-                    {/* Side glass reflection */}
-                    <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '2px',
-                        height: '100%',
-                        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%)',
-                        borderRadius: '24px 0 0 24px',
-                        pointerEvents: 'none'
-                    }} />
-
-                    {/* Frosted glass texture */}
-                    <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        backgroundImage: `
-                            radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 1px, transparent 2px),
-                            radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 1px, transparent 2px),
-                            radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 1px, transparent 2px)
-                        `,
-                        backgroundSize: '30px 30px, 25px 25px, 35px 35px',
-                        pointerEvents: 'none',
-                        borderRadius: '24px',
-                        opacity: 0.7
-                    }} />
-
                     {/* Card Content */}
                     <div style={{
                         position: 'relative',
                         zIndex: 1,
-                        padding: '3rem',
+                        padding: '10px 20px',
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        alignItems: 'flex-start'
+                        alignItems: 'center'
                     }}>
                         <h2 style={{
-                            fontSize: '2.5rem',
+                            fontSize: '1.5rem',
                             fontWeight: '700',
-                            color: '#ffffff',
+                            color: '#1e3a8a',
                             marginBottom: '1.5rem',
                             lineHeight: '1.2',
-                            textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+                            textAlign: 'center',
+                            width: '100%'
                         }}>
                             {title}
                         </h2>
                         <p style={{
-                            fontSize: '1.125rem',
-                            color: 'rgba(255, 255, 255, 0.9)',
+                            fontSize: '1rem',
+                            color: '#4a5568',
                             lineHeight: '1.6',
-                            textShadow: '0 1px 5px rgba(0, 0, 0, 0.2)'
+                            marginBottom: '1.5rem',
+                            textAlign: 'center',
+                            width: '100%'
                         }}>
                             {description}
                         </p>
+                        {link ? (
+                            <Link
+                                to={link}
+                                style={{
+                                    backgroundColor: '#1e3a8a',
+                                    color: '#ffffff',
+                                    border: 'none',
+                                    borderRadius: '8px',
+                                    padding: '12px 24px',
+                                    fontSize: '1rem',
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    transition: 'opacity 0.2s',
+                                    fontFamily: 'inherit',
+                                    textDecoration: 'none'
+                                }}
+                                onMouseEnter={(e) => e.target.style.opacity = '0.9'}
+                                onMouseLeave={(e) => e.target.style.opacity = '1'}
+                            >
+                                {cta || title}
+                                <span style={{ fontSize: '1rem', color: '#FCD64C' }}>→</span>
+                            </Link>
+                        ) : (
+                            <button style={{
+                                backgroundColor: '#1e3a8a',
+                                color: '#ffffff',
+                                border: 'none',
+                                borderRadius: '8px',
+                                padding: '12px 24px',
+                                fontSize: '1rem',
+                                fontWeight: '700',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                transition: 'opacity 0.2s',
+                                fontFamily: 'inherit'
+                            }}
+                            onMouseEnter={(e) => e.target.style.opacity = '0.9'}
+                            onMouseLeave={(e) => e.target.style.opacity = '1'}
+                            >
+                                {cta || title}
+                                <span style={{ fontSize: '1rem', color: '#FCD64C' }}>→</span>
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
@@ -238,6 +214,8 @@ export const StackedCards = () => {
                             index={index}
                             totalCards={cardData.length}
                             color={card.color}
+                            cta={card.cta}
+                            link={card.link}
                         />
                     );
                 })}
