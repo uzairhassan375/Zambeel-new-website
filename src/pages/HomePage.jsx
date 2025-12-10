@@ -375,7 +375,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-0 pb-0 md:py-8 px-4 flex justify-center">
+      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-8 pb-0 md:pt-0 md:py-8 px-4 flex justify-center">
         <div className="max-w-[1200px] w-full mx-auto bg-white rounded-[2.5rem] p-6 lg:px-12 lg:py-6">
           <div className="flex lg:hidden gap-3 items-center">
             <div className="flex flex-col items-center justify-between py-2">
