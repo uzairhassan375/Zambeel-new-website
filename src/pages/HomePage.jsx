@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import blue_logoImage from "../blue_logo.png";
 import { StackedCards } from "../components/UI/staking-cards";
 
 export default function HomePage() {
+  const { t } = useTranslation();
   const location = useLocation();
   const [selectedCountry, setSelectedCountry] = useState("UAE");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -19,7 +21,7 @@ export default function HomePage() {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const numbers = ["Learn", "Start", "Build", "Grow"];
+    const numbers = [t('homepage.hero.learn'), t('homepage.hero.start'), t('homepage.hero.build'), t('homepage.hero.grow')];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -62,7 +64,7 @@ export default function HomePage() {
         clearTimeout(timeoutId);
       }
     };
-  }, []);
+  }, [t]);
 
   // Statistics counting animation
   useEffect(() => {
@@ -214,35 +216,35 @@ export default function HomePage() {
 
   const featureCards = [
     {
-      title: "Learn E-commerce with Zambeel",
+      title: t('homepage.featureCards.learnEcommerce.title'),
       desc: [
-        "Learn to Start, Build & Grow your E-commerce business from scratch"
+        t('homepage.featureCards.learnEcommerce.desc')
       ],
-      cta: "Learn E-commerce",
+      cta: t('homepage.featureCards.learnEcommerce.cta'),
       link: "/",
     },
     {
-      title: "Start E-comm without buying inventory",
+      title: t('homepage.featureCards.dropshipping.title'),
       desc: [
-        "Sell winning products from anywhere in the world on Cash on Delivery"
+        t('homepage.featureCards.dropshipping.desc')
       ],
-      cta: "Dropshipping",
+      cta: t('homepage.featureCards.dropshipping.cta'),
       link: "/dropshipping",
     },
     {
-      title: "Build your private label with Zambeel 360",
+      title: t('homepage.featureCards.zambeel360.title'),
       desc: [
-        "We handle the entire process — sourcing, customs clearance, and delivery"
+        t('homepage.featureCards.zambeel360.desc')
       ],
-      cta: "Zambeel 360",
+      cta: t('homepage.featureCards.zambeel360.cta'),
       link: "/zambeel-360",
     },
     {
-      title: "Grow your E-comm with our 3PL service",
+      title: t('homepage.featureCards.zambeel3PL.title'),
       desc: [
-        "Use our automated system for storage and order fulfillment"
+        t('homepage.featureCards.zambeel3PL.desc')
       ],
-      cta: "Zambeel 3PL",
+      cta: t('homepage.featureCards.zambeel3PL.cta'),
       link: "/zambeel-3pl",
     },
   ];
@@ -315,12 +317,12 @@ export default function HomePage() {
           </div>
           <div className="relative inline-block px-4 w-full max-w-full">
             <h1 className="text-[#2E3B78] text-xl md:text-lg font-bold leading-normal relative">
-              One Platform,
+              {t('homepage.hero.title')}
               <span className="bg-[#FCD64C] px-5 py-1 rounded-full mx-1 inline-block w-[105px] text-center">
                 {numberText}
                 <span className="animate-pulse">|</span>
               </span>
-              your E-commerce Business Profitably.
+              {t('homepage.hero.subtitle')}
             </h1>
           </div>
         </div>
@@ -431,7 +433,7 @@ export default function HomePage() {
             <div className="bg-[#FDE8E9] p-5 flex flex-col rounded-2xl">
               <div className="mb-4">
                 <h2 className="text-sm font-bold text-[#2E3B78] mb-1 whitespace-nowrap">
-                  Where do you want to sell?
+                  {t('homepage.whereToSell.title')}
                 </h2>
                 <h3 className="text-[#B91C1C] font-bold text-xs tracking-widest uppercase">
                   {selectedCountry}
@@ -439,10 +441,10 @@ export default function HomePage() {
               </div>
               <p className="text-[#4A5568] text-xs leading-relaxed mb-5">
                 {selectedCountry === "Pakistan" 
-                  ? `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  ? t('homepage.whereToSell.description.full', { country: selectedCountry })
                   : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
-                  ? `Selling in ${selectedCountry} gives you access to all our services except dropshipping. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
-                  : `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
+                  : t('homepage.whereToSell.description.full', { country: selectedCountry })
                 }
               </p>
               <div className="space-y-2">
@@ -457,10 +459,9 @@ export default function HomePage() {
                         {getServiceDisplayName(service)}
                       </div>
                       <div className="text-[10px] text-gray-300 font-light mt-0.5">
-                        {service === "3PL" && "Fast, reliable and fully automated"}
-                        {service === "360" && "Build your private label"}
-                        {service === "Dropshipping" &&
-                          "Start selling without buying inventory"}
+                        {service === "3PL" && t('homepage.whereToSell.serviceDescriptions.3PL')}
+                        {service === "360" && t('homepage.whereToSell.serviceDescriptions.360')}
+                        {service === "Dropshipping" && t('homepage.whereToSell.serviceDescriptions.dropshipping')}
                       </div>
                     </div>
                     <i className="fa-solid fa-arrow-right text-white text-xs"></i>
@@ -539,17 +540,17 @@ export default function HomePage() {
             </div>
             <div className="w-full lg:w-[55%] flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#2E3B78] mb-3">
-                Where do you want to sell?
+                {t('homepage.whereToSell.title')}
               </h2>
               <h3 className="text-[#B91C1C] font-bold text-sm tracking-widest uppercase mb-4">
                 {selectedCountry}
               </h3>
               <p className="text-[#4A5568] text-sm lg:text-base leading-relaxed mb-8">
                 {selectedCountry === "Pakistan" 
-                  ? `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  ? t('homepage.whereToSell.description.full', { country: selectedCountry })
                   : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
-                  ? `Selling in ${selectedCountry} gives you access to all our services except dropshipping. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
-                  : `Selling in ${selectedCountry} gives you full access to all our services. If you want to know more about our services and how you can benefit from them click on one of the three services to begin.`
+                  ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
+                  : t('homepage.whereToSell.description.full', { country: selectedCountry })
                 }
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -564,10 +565,9 @@ export default function HomePage() {
                         {getServiceDisplayName(service)}
                       </div>
                       <div className="text-xs text-gray-300 font-light mt-1">
-                        {service === "3PL" && "Fast, reliable and fully automated"}
-                        {service === "360" && "Build your private label"}
-                        {service === "Dropshipping" &&
-                          "Start selling without buying inventory"}
+                        {service === "3PL" && t('homepage.whereToSell.serviceDescriptions.3PL')}
+                        {service === "360" && t('homepage.whereToSell.serviceDescriptions.360')}
+                        {service === "Dropshipping" && t('homepage.whereToSell.serviceDescriptions.dropshipping')}
                       </div>
                     </div>
                     <i className="fa-solid fa-arrow-right text-white text-sm transform group-hover:translate-x-1 transition"></i>
@@ -583,11 +583,10 @@ export default function HomePage() {
         <div className="max-w-[1200px] w-full mx-auto">
           <div className="text-center mb-12 md:mb-6 w-full mx-auto">
             <h2 className="text-[#2E3B78] text-2xl lg:text-3xl font-bold mb-3">
-              Why Zambeel?
+              {t('homepage.whyZambeel.title')}
             </h2>
             <p className="text-gray-500 text-sm lg:text-base italic leading-relaxed">
-              Start your Ecommerce business from anywhere in the world without
-              business registration.
+              {t('homepage.whyZambeel.subtitle')}
             </p>
           </div>
 
@@ -603,7 +602,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       5
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Countries covered</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">{t('homepage.whyZambeel.stats.countriesCovered')}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -614,7 +613,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       80%
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">COD Delivery Ratio</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">{t('homepage.whyZambeel.stats.codDeliveryRatio')}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -625,7 +624,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       Biggest
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Product Catalog</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">{t('homepage.whyZambeel.stats.productCatalog')}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -636,7 +635,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
                       Weekly
                     </h4>
-                    <span className="text-xs md:text-sm lg:text-base text-gray-500">Payments Guaranteed</span>
+                    <span className="text-xs md:text-sm lg:text-base text-gray-500">{t('homepage.whyZambeel.stats.paymentsGuaranteed')}</span>
                   </div>
                 </div>
               </div>
@@ -667,23 +666,23 @@ export default function HomePage() {
                 {[
                   {
                     img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
-                      title: "Dropshipping",
-                    desc: "Start your Ecommerce business anywhere without registration.",
+                      title: t('homepage.whyZambeel.features.dropshipping.title'),
+                    desc: t('homepage.whyZambeel.features.dropshipping.desc'),
                   },
                   {
                     img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
-                      title: "Zambeel 360",
-                    desc: "Scale easily with COD—no payment gateway needed.",
+                      title: t('homepage.whyZambeel.features.zambeel360.title'),
+                    desc: t('homepage.whyZambeel.features.zambeel360.desc'),
                   },
                   {
                     img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                      title: "3PL Service",
-                      desc: "Use our AI tools to accelerate your work.",
+                      title: t('homepage.whyZambeel.features.3PL.title'),
+                      desc: t('homepage.whyZambeel.features.3PL.desc'),
                     },
                     {
                       img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                      title: "Learn E-commerce",
-                    desc: "Use our AI tools to accelerate your work.",
+                      title: t('homepage.whyZambeel.features.learnEcommerce.title'),
+                    desc: t('homepage.whyZambeel.features.learnEcommerce.desc'),
                   },
                 ].map((card) => (
                   <div
@@ -778,11 +777,11 @@ export default function HomePage() {
               >
                 {showAllFeatures ? (
                   <>
-                    View less <i className="fa-solid fa-arrow-up" />
+                    {t('common.viewLess')} <i className="fa-solid fa-arrow-up" />
                   </>
                 ) : (
                   <>
-                    View more <i className="fa-solid fa-arrow-right" />
+                    {t('common.viewMore')} <i className="fa-solid fa-arrow-right" />
                   </>
                 )}
               </button>
@@ -795,7 +794,7 @@ export default function HomePage() {
                 onClick={() => setShowAllFeatures(false)}
                 className="bg-[#2E3B78] hover:bg-[#1a2542] text-white px-10 py-4 rounded-full text-sm font-bold flex items-center gap-3 shadow-lg transition ml-[286px]"
               >
-                <i className="fa-solid fa-arrow-left" /> View more
+                <i className="fa-solid fa-arrow-left" /> {t('common.viewMore')}
               </button>
             ) : (
               <div></div>
@@ -804,7 +803,7 @@ export default function HomePage() {
               onClick={() => setShowAllFeatures(true)}
               className="bg-[#2E3B78] hover:bg-[#1a2542] text-white px-10 py-4 rounded-full text-sm font-bold flex items-center gap-3 shadow-lg transition"
             >
-              View more <i className="fa-solid fa-arrow-right" />
+              {t('common.viewMore')} <i className="fa-solid fa-arrow-right" />
             </button>
           </div>
         </div>
@@ -814,7 +813,7 @@ export default function HomePage() {
         <div className="max-w-[1400px] w-full mx-auto px-4 py-8 md:py-8 space-y-12 md:space-y-6">
           <div ref={statsRef} className="max-w-6xl mx-auto bg-white rounded-[2rem] md:rounded-[3rem] px-6 py-10 md:p-8 shadow-2xl text-center">
             <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-6">
-              Our Network, Active & Rising
+              {t('homepage.network.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               <div className="bg-[#F0F8FF] rounded-3xl p-6 md:p-8 flex flex-row md:flex-col items-center md:justify-center gap-5 md:gap-0 h-32 md:h-56 transition hover:-translate-y-1 duration-300">
@@ -826,7 +825,7 @@ export default function HomePage() {
                     {codCount}K+
                   </div>
                   <div className="text-[#4B5563] text-sm font-medium">
-                    orders delivered
+                    {t('homepage.network.ordersDelivered')}
                   </div>
                 </div>
               </div>
@@ -839,7 +838,7 @@ export default function HomePage() {
                     {sellersCount}K+
                   </div>
                   <div className="text-[#4B5563] text-sm font-medium">
-                    Sellers Registered
+                    {t('homepage.network.sellersRegistered')}
                   </div>
                 </div>
               </div>
@@ -852,7 +851,7 @@ export default function HomePage() {
                     {countriesCount}+
                   </div>
                   <div className="text-[#4B5563] text-sm font-medium">
-                    Countries Represented
+                    {t('homepage.network.countriesRepresented')}
                   </div>
                 </div>
               </div>
@@ -862,7 +861,7 @@ export default function HomePage() {
           <div id="reviews" className="max-w-6xl mx-auto md:bg-white md:rounded-[3rem] px-0 md:py-4 md:shadow-2xl overflow-hidden">
             <div className="px-4 mb-6 md:mb-4">
               <h2 className="text-center text-xl md:text-3xl font-bold text-white md:text-gray-900">
-                What our Customers have to say
+                {t('homepage.reviews.title')}
               </h2>
             </div>
             <div className="flex flex-col md:block gap-5 px-4 md:px-0">
@@ -885,7 +884,7 @@ export default function HomePage() {
 
 
               <h3 className="hidden md:block text-center text-lg font-bold text-gray-800 mb-4">
-                Most recent reviews
+                {t('homepage.reviews.mostRecent')}
               </h3>
 
               <div className="flex items-center justify-center w-full md:px-8 gap-4 md:gap-8">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import PricingSection from "../components/PricingSection.jsx"; 
 import TrendingProducts from "../components/dropshiping_components/TrendingProducts.jsx"; 
 import Wts from "../components/dropshiping_components/WhereTS.jsx";
@@ -7,13 +8,14 @@ import DeliveryCharges from "../components/DeliveryCharges.jsx";
 
 
 const DropshippingPage = () => {
+  const { t } = useTranslation();
   // Text carousel state
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   const carouselTexts = [
-    "Without buying inventory",
-    "From anywhere in the world",
-    "No business registration required"
+    t('dropshipping.hero.carousel.withoutInventory'),
+    t('dropshipping.hero.carousel.fromAnywhere'),
+    t('dropshipping.hero.carousel.noRegistration')
   ];
 
   // Auto-rotate text every 3.5 seconds
@@ -23,7 +25,7 @@ const DropshippingPage = () => {
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [carouselTexts.length]);
+  }, [carouselTexts.length, t]);
   return (
     <div
       className="min-h-screen m-0 p-0 overflow-x-hidden"
@@ -55,8 +57,8 @@ const DropshippingPage = () => {
             <path d="M115.078 217C173.923 217 255 175.225 255 169.835C218.385 155.012 196.154 -2.57223e-06 153 -4.45854e-06C99.386 -6.80211e-06 1.33141e-05 44.4904 1.33141e-05 44.4904C61.4613 107.826 68.0003 217 115.078 217Z" fill="#F4D03F" fillOpacity="0.3"/>
           </svg>
         </div>
-        <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6 relative z-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>Zambeel Dropshipping</h3>
-        <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Start Dropshipping in Largest COD Markets</p>
+        <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6 relative z-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>{t('dropshipping.hero.title')}</h3>
+        <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>{t('dropshipping.hero.subtitle')}</p>
         <div>
           <p className="text-[14px] md:text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[30px] md:min-h-[40px] transition-opacity duration-500 mb-2 md:mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
             {carouselTexts[currentTextIndex]}
@@ -79,7 +81,7 @@ const DropshippingPage = () => {
         {/* Get Started Button */}
         <div className="flex justify-center mb-8">
           <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
-            Get Started
+            {t('common.getStarted')}
           </button>
         </div>
         {/* UAE/KSA Box */}
@@ -87,7 +89,7 @@ const DropshippingPage = () => {
           <div className="mx-auto rounded-[32px] shadow-lg max-w-lg overflow-hidden w-full" style={{boxShadow: '0 8px 32px rgba(36,58,134,0.18)'}}>
           {/* Top: Dropshipping available */}
           <div className="bg-[#e3e7f6] px-4 pt-3 pb-2">
-            <p className="text-[#243a86] font-bold text-lg mb-3 text-center">Dropshipping currently available in</p>
+            <p className="text-[#243a86] font-bold text-lg mb-3 text-center">{t('dropshipping.hero.availableIn')}</p>
             <div className="flex items-center justify-center gap-6 md:gap-8">
               {/* UAE Flag */}
               <div className="flex flex-col items-center">
@@ -144,7 +146,7 @@ const DropshippingPage = () => {
           <div className="bg-[#e3e7f6] h-2"></div>
           {/* Bottom: Other services available */}
           <div className="bg-gray-100 px-4 pt-2 pb-3 rounded-b-[32px]" style={{ filter: 'grayscale(100%)', opacity: 0.6 }}>
-            <p className="text-gray-500 font-bold text-lg mb-3 text-center">Other Zambeel services available in</p>
+            <p className="text-gray-500 font-bold text-lg mb-3 text-center">{t('dropshipping.hero.otherServices')}</p>
             <div className="flex items-center justify-center gap-6">
               {/* Qatar */}
               <div className="flex flex-col items-center">
@@ -202,7 +204,7 @@ const DropshippingPage = () => {
       {/* ================= WHY DROPSHIPPING ================= */}
       <section>
         <WhyZambeel 
-          description="Start selling without inventory or business registration hassles. Launch your AI-powered store in under 3 minutes, get personalised guidance, and access 20K+ winning products to succeed in UAE & KSA with Zambeel Dropshipping."
+          description={t('dropshipping.whyZambeel.description')}
         />
       </section>
 
@@ -213,8 +215,8 @@ const DropshippingPage = () => {
 
       {/* ================= PRICING ================= */}
       <PricingSection 
-        title="Clear Pricing. Great Value."
-        subtitle="Click on any plan to see full details and features."
+        title={t('dropshipping.pricing.title')}
+        subtitle={t('dropshipping.pricing.subtitle')}
         customPlans={[
           {
             tag: "FREE",
@@ -277,8 +279,8 @@ const DropshippingPage = () => {
 
       {/* ================= DELIVERY CHARGES ================= */}
       <DeliveryCharges
-        title="Dropshipping Delivery Charges"
-        subtitle="Transparent pricing for all your dropshipping deliveries"
+        title={t('dropshipping.deliveryCharges.title')}
+        subtitle={t('dropshipping.deliveryCharges.subtitle')}
         countries={[
           { code: "Pakistan", name: "Pakistan", currency: "PKR" },
           { code: "UAE", name: "UAE", currency: "AED" },

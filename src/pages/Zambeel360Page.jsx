@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import PricingSection from '../components/PricingSection';
 import WhyZambeel from '../components/dropshiping_components/WhyZambeel';
 import Wts from '../components/dropshiping_components/WhereTS';
@@ -8,18 +9,19 @@ import databaseImg from '../assets/images/database.png';
 import frameImg from '../assets/images/frame1.png';
 
 const Zambeel360Page = () => {
+  const { t } = useTranslation();
   // Text carousel state
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   const carouselTexts = [
     {
-      line1: "Sourcing, Custom Clearance & Delivery- All done by Zambeel",
+      line1: t('zambeel360.hero.carousel.allDone'),
     },
     {
-      line1: "High Quality Guaranteed",
+      line1: t('zambeel360.hero.carousel.quality'),
     },
     {
-      line1: "All in solution for your E-commerce",
+      line1: t('zambeel360.hero.carousel.allInSolution'),
     }
   ];
 
@@ -30,11 +32,11 @@ const Zambeel360Page = () => {
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [carouselTexts.length]);
+  }, [carouselTexts.length, t]);
   const features = [
     {
       id: 1,
-      text: "Find Products",
+      text: t('zambeel360.whatIs.features.findProducts'),
       lineWidth: "md:w-[15%]",
       mobileLineW: "w-[12%]",
       mobileCardMl: "ml-[12%]",
@@ -49,7 +51,7 @@ const Zambeel360Page = () => {
     },
     {
       id: 2,
-      text: "Quality Check",
+      text: t('zambeel360.whatIs.features.qualityCheck'),
       lineWidth: "md:w-[25%]",
       mobileLineW: "w-[22%]",
       mobileCardMl: "ml-[22%]",
@@ -63,7 +65,7 @@ const Zambeel360Page = () => {
     },
     {
       id: 3,
-      text: "Handle Customs",
+      text: t('zambeel360.whatIs.features.handleCustoms'),
       lineWidth: "md:w-[35%]",
       mobileLineW: "w-[32%]",
       mobileCardMl: "ml-[32%]",
@@ -81,7 +83,7 @@ const Zambeel360Page = () => {
     },
     {
       id: 4,
-      text: "Store Safely",
+      text: t('zambeel360.whatIs.features.storeSafely'),
       lineWidth: "md:w-[20%]",
       mobileLineW: "w-[18%]",
       mobileCardMl: "ml-[18%]",
@@ -100,7 +102,7 @@ const Zambeel360Page = () => {
     },
     {
       id: 5,
-      text: "Fast Delivery",
+      text: t('zambeel360.whatIs.features.fastDelivery'),
       lineWidth: "md:w-[10%]",
       mobileLineW: "w-[8%]",
       mobileCardMl: "ml-[8%]",
@@ -154,10 +156,10 @@ const Zambeel360Page = () => {
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6 relative z-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Zambeel 360
+              {t('zambeel360.hero.title')}
             </h3>
             <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Source anything from China
+              {t('zambeel360.hero.subtitle')}
             </p>
             <div>
               <p className="text-[14px] md:text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[30px] md:min-h-[40px] transition-opacity duration-500 mb-2 md:mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
@@ -181,14 +183,14 @@ const Zambeel360Page = () => {
             {/* Get Started Button */}
             <div className="flex justify-center mb-8">
               <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
-                Talk to our agent
+                {t('common.talkToAgent')}
               </button>
             </div>
           </div>
           <div className="max-w-md md:max-w-2xl mx-auto">
             <div className="bg-[#d5dce8]/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10">
               <p className="text-[#2c3e5f] text-center text-xs sm:text-sm md:text-base font-semibold mb-6 md:mb-8">
-                Zambeel 360 currently available in
+                {t('zambeel360.hero.availableIn')}
               </p>
               <div className="flex flex-col gap-4 md:gap-0 md:flex-row md:justify-center md:items-center md:space-x-6 lg:space-x-10">
                 <div className="flex justify-center items-center gap-6 md:contents">
@@ -289,9 +291,9 @@ const Zambeel360Page = () => {
 
       {/* Why China Sourcing Section */}
       <WhyZambeel
-        title="What is Zambeel 360?"
-        mobileTitle="What is Zambeel 360?"
-        description="We sourced high quality products from trusted suppliers in China. Our end-to-end service includes product sourcing, quality control, shipping logistics, and customs clearance, making it easy for you to focus on growing your business."
+        title={t('zambeel360.whatIs.title')}
+        mobileTitle={t('zambeel360.whatIs.title')}
+        description={t('zambeel360.whatIs.description')}
         features={features}
         desktopFeatures={[
           {
@@ -416,14 +418,14 @@ const Zambeel360Page = () => {
 
       {/* Pricing Section */}
       <PricingSection 
-        title="Our pricing is clear and transparent"
-        subtitle="Click on any plan to see full details and features."
+        title={t('zambeel360.pricing.title')}
+        subtitle={t('zambeel360.pricing.subtitle')}
       />
 
       {/* ================= DELIVERY CHARGES ================= */}
       <DeliveryCharges
-        title="Zambeel 360 Delivery Charges"
-        subtitle="Comprehensive pricing across all supported regions"
+        title={t('zambeel360.deliveryCharges.title')}
+        subtitle={t('zambeel360.deliveryCharges.subtitle')}
         countries={[
           { code: "UAE", name: "UAE", currency: "AED" },
           { code: "KSA", name: "KSA", currency: "SAR" },

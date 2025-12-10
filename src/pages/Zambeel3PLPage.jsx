@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import PricingSection from '../components/PricingSection';
 import WhyZambeel from '../components/dropshiping_components/WhyZambeel';
 import Wts from '../components/dropshiping_components/WhereTS';
@@ -8,18 +9,19 @@ import databaseImg from '../assets/images/database.png';
 import frameImg from '../assets/images/frame1.png';
 
 const Zambeel3PLPage = () => {
+  const { t } = useTranslation();
   // Text carousel state
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
   const carouselTexts = [
     {
-      line1: "FREE warehousing for first 2 months",
+      line1: t('zambeel3PL.hero.carousel.freeWarehousing'),
     },
     {
-      line1: "Fast delivery and smooth business operations",
+      line1: t('zambeel3PL.hero.carousel.fastDelivery'),
     },
     {
-      line1: "Scale your business without the complexity.",
+      line1: t('zambeel3PL.hero.carousel.scale'),
     }
   ];
 
@@ -30,11 +32,11 @@ const Zambeel3PLPage = () => {
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [carouselTexts.length]);
+  }, [carouselTexts.length, t]);
   const features = [
     {
       id: 1,
-      text: "Smart Warehousing solutions",
+      text: t('zambeel3PL.whyZambeel.features.warehousing'),
       lineWidth: "md:w-[15%]",
       mobileLineW: "w-[12%]",
       mobileCardMl: "ml-[12%]",
@@ -47,7 +49,7 @@ const Zambeel3PLPage = () => {
     },
     {
       id: 2,
-      text: "Fast Order fullfilment",
+      text: t('zambeel3PL.whyZambeel.features.fulfillment'),
       lineWidth: "md:w-[25%]",
       mobileLineW: "w-[22%]",
       mobileCardMl: "ml-[22%]",
@@ -61,7 +63,7 @@ const Zambeel3PLPage = () => {
     },
     {
       id: 3,
-      text: "Secure Inventory management",
+      text: t('zambeel3PL.whyZambeel.features.inventory'),
       lineWidth: "md:w-[35%]",
       mobileLineW: "w-[32%]",
       mobileCardMl: "ml-[32%]",
@@ -80,7 +82,7 @@ const Zambeel3PLPage = () => {
     },
     {
       id: 4,
-      text: "Global Shipping network",
+      text: t('zambeel3PL.whyZambeel.features.shipping'),
       lineWidth: "md:w-[20%]",
       mobileLineW: "w-[18%]",
       mobileCardMl: "ml-[18%]",
@@ -98,7 +100,7 @@ const Zambeel3PLPage = () => {
     },
     {
       id: 5,
-      text: "Real time tracking",
+      text: t('zambeel3PL.whyZambeel.features.tracking'),
       lineWidth: "md:w-[10%]",
       mobileLineW: "w-[8%]",
       mobileCardMl: "ml-[8%]",
@@ -152,10 +154,10 @@ const Zambeel3PLPage = () => {
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h3 className="text-[26px] md:text-[44px] font-[700] leading-[100%] tracking-[0.02em] text-center text-white mt-8 md:mt-0 mb-4 md:mb-6 relative z-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Zambeel 3PL
+              {t('zambeel3PL.hero.title')}
             </h3>
             <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Get warehousing, inventory management & efficient fulfillment
+              {t('zambeel3PL.hero.subtitle')}
             </p>
             <div>
               <p className="text-[14px] md:text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[30px] md:min-h-[40px] transition-opacity duration-500 mb-2 md:mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
@@ -179,14 +181,14 @@ const Zambeel3PLPage = () => {
             {/* Get Started Button */}
             <div className="flex justify-center mb-8">
               <button className="bg-[#ffd24c] text-[#243a86] font-bold px-8 py-3 rounded-full hover:bg-[#ffc933] transition-all duration-300 shadow-lg text-base md:text-lg">
-                Talk to our agent
+                {t('common.talkToAgent')}
               </button>
             </div>
           </div>
           <div className="max-w-md md:max-w-2xl mx-auto">
             <div className="bg-[#d5dce8]/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10">
               <p className="text-[#2c3e5f] text-center text-xs sm:text-sm md:text-base font-semibold mb-6 md:mb-8">
-                Zambeel 3PL currently available in
+                {t('zambeel3PL.hero.availableIn')}
               </p>
               <div className="flex flex-col gap-4 md:gap-0 md:flex-row md:justify-center md:items-center md:space-x-6 lg:space-x-10">
                 <div className="flex justify-center items-center gap-6 md:contents">
@@ -287,9 +289,9 @@ const Zambeel3PLPage = () => {
 
       {/* Why 3PL with Zambeel Section */}
       <WhyZambeel
-        title="Why 3PL with Zambeel?"
-        mobileTitle="Why 3PL with Zambeel?"
-        description="From warehousing to last-mile delivery, Zambeel's 3PL service ensures live tracking of your orders and inventory, faster shipping and smoother operations."
+        title={t('zambeel3PL.whyZambeel.title')}
+        mobileTitle={t('zambeel3PL.whyZambeel.title')}
+        description={t('zambeel3PL.whyZambeel.description')}
         features={features}
         desktopFeatures={[
           {
@@ -370,9 +372,9 @@ const Zambeel3PLPage = () => {
 
       {/* Where to Start Section */}
       <Wts
-        title="Where to Start?"
-        description="Getting started with Zambeel's 3PL service is easy. Follow these simple steps to begin your journey with Zambeel."
-        buttonText="Talk to our agent"
+        title={t('zambeel3PL.whereToStart.title')}
+        description={t('zambeel3PL.whereToStart.description')}
+        buttonText={t('common.talkToAgent')}
         steps={[
           {
             number: 1,
@@ -411,8 +413,8 @@ const Zambeel3PLPage = () => {
 
       {/* Pricing Section */}
       <PricingSection 
-        title="Our pricing is clear and transparent"
-        subtitle="Click on any plan to see full details and features."
+        title={t('zambeel3PL.pricing.title')}
+        subtitle={t('zambeel3PL.pricing.subtitle')}
         customPlans={[
           {
             tag: "FREE",
@@ -475,8 +477,8 @@ const Zambeel3PLPage = () => {
 
       {/* ================= DELIVERY CHARGES ================= */}
       <DeliveryCharges
-        title="3PL Services Delivery Charges"
-        subtitle="Competitive pricing for all your fulfillment needs"
+        title={t('zambeel3PL.deliveryCharges.title')}
+        subtitle={t('zambeel3PL.deliveryCharges.subtitle')}
         countries={[
           { code: "UAE", name: "UAE", currency: "AED" },
           { code: "KSA", name: "KSA", currency: "SAR" },
