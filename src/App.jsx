@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -9,12 +10,23 @@ import Zambeel3PLPage from "./pages/Zambeel3PLPage";
 import DropshippingPage from "./pages/DropshippingPage";
 import StakingCardsDemo from "./pages/StakingCardsDemo";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+
+  return null;
+}
+
 function AppContent() {
   const location = useLocation();
   const shouldHavePadding = location.pathname === "/" || location.pathname === "/about" || location.pathname === "/team";
   
   return (
     <div className="min-h-screen flex flex-col bg-transparent">
+      <ScrollToTop />
       <Header theme={location.pathname === "/zambeel-360" || location.pathname === "/dropshipping" || location.pathname === "/zambeel-3pl" ? "light" : "dark"} />
       <main className={`flex-grow bg-transparent ${shouldHavePadding ? "pt-20" : ""}`}>
           <Routes>

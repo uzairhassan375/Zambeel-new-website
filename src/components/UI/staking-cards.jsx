@@ -135,6 +135,9 @@ const Card = ({ title, description, index, totalCards, cta, link }) => {
                         {link ? (
                             <Link
                                 to={link}
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: 'instant' });
+                                }}
                                 style={{
                                     backgroundColor: '#1e3a8a',
                                     color: '#ffffff',
