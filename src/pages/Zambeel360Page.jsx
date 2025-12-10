@@ -298,34 +298,34 @@ const Zambeel360Page = () => {
         desktopFeatures={[
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#d_find)">
                   <circle cx="22" cy="22" r="8" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M30 30L36 36" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <rect x="8" y="8" width="12" height="12" rx="2" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M10 10H18M10 14H16" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
+                      </g>
                 <defs><clipPath id="d_find"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    </svg>
             ),
             label: "Find\nProducts"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#d_quality)">
                   <path d="M24 6L28 14L36 16L30 22L31 30L24 26L17 30L18 22L12 16L20 14L24 6Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M16 24L20 28L28 20" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <circle cx="24" cy="24" r="18" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
+                      </g>
                 <defs><clipPath id="d_quality"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    </svg>
             ),
             label: "Quality\nCheck"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#d_customs)">
                   <rect x="10" y="8" width="28" height="32" rx="2" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M10 16H38" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -334,15 +334,15 @@ const Zambeel360Page = () => {
                   <path d="M20 36H28" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M14 12H18" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <circle cx="32" cy="12" r="2" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
+                      </g>
                 <defs><clipPath id="d_customs"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    </svg>
             ),
             label: "Handle\nCustoms"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#d_store)">
                   <rect x="8" y="14" width="32" height="28" rx="2" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M8 20H40" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -352,23 +352,23 @@ const Zambeel360Page = () => {
                   <path d="M18 8V14" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M30 8V14" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <circle cx="32" cy="10" r="1.5" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
+                      </g>
                 <defs><clipPath id="d_store"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    </svg>
             ),
             label: "Store\nSafely"
           },
           {
             icon: (
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#d_delivery)">
                   <path d="M10 34C10 35.0609 10.4214 36.0783 11.1716 36.8284C11.9217 37.5786 12.9391 38 14 38C15.0609 38 16.0783 37.5786 16.8284 36.8284C17.5786 36.0783 18 35.0609 18 34C18 32.9391 17.5786 31.9217 16.8284 31.1716C16.0783 30.4214 15.0609 30 14 30C12.9391 30 11.9217 30.4214 11.1716 31.1716C10.4214 31.9217 10 32.9391 10 34Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M30 34C30 35.0609 30.4214 36.0783 31.1716 36.8284C31.9217 37.5786 32.9391 38 34 38C35.0609 38 36.0783 37.5786 36.8284 36.8284C37.5786 36.0783 38 35.0609 38 34C38 32.9391 37.5786 31.9217 36.8284 31.1716C36.0783 30.4214 35.0609 30 34 30C32.9391 30 31.9217 30.4214 31.1716 31.1716C30.4214 31.9217 30 32.9391 30 34Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M10 34H6V12C6 11.4696 6.21071 10.9609 6.58579 10.5858C6.96086 10.2107 7.46957 10 8 10H26V34M18 34H30M38 34H42V22M42 22H26M42 22L36 12H26" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M32 6L38 12H32V6Z" stroke="#2D3E7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
+                      </g>
                 <defs><clipPath id="d_delivery"><rect width="48" height="48" fill="white" /></clipPath></defs>
-              </svg>
+                    </svg>
             ),
             label: "Fast\nDelivery"
           }

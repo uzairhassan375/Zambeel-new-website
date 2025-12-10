@@ -9,7 +9,7 @@ export default function HomePage() {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   const [numberText, setNumberText] = useState("");
-
+  
   // Statistics animation
   const statsRef = useRef(null);
   const [codCount, setCodCount] = useState(0);
@@ -48,9 +48,9 @@ export default function HomePage() {
           wordIndex++;
           if (wordIndex === numbers.length) {
             wordIndex = 0;
+            }
           }
         }
-      }
       timeoutId = setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
     };
     
@@ -70,7 +70,7 @@ export default function HomePage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
-
+            
             // Animate orders delivered (1000K+)
             const codTarget = 1000;
             const codDuration = 2000;
@@ -139,7 +139,7 @@ export default function HomePage() {
   // Auto-rotate reviews carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentReviewIndex((prevIndex) =>
+      setCurrentReviewIndex((prevIndex) => 
         prevIndex === 3 ? 0 : prevIndex + 1
       );
     }, 3500); // Change every 3.5 seconds
@@ -214,25 +214,49 @@ export default function HomePage() {
   const featureCards = [
     {
       title: "Learn E-commerce with Zambeel",
-      desc: "Learn to Start, Build & Grow your E-commerce business from scratch",
+      desc: [
+        "Learn to Start, Build & Grow your E-commerce business from scratch",
+        "Master the fundamentals of online selling and understand market trends",
+        "Develop strategies to scale your business effectively",
+        "Get expert guidance on product selection and marketing techniques",
+        "Build a solid foundation for long-term success"
+      ],
       cta: "Learn E-commerce",
       link: "/",
     },
     {
       title: "Start E-comm without buying inventory",
-      desc: "Sell winning products from anywhere in the world on Cash on Delivery",
+      desc: [
+        "Sell winning products from anywhere in the world on Cash on Delivery",
+        "Start your dropshipping business without upfront inventory costs",
+        "Access our extensive product catalog with thousands of products",
+        "Sell directly to customers in Pakistan, UAE, and KSA",
+        "We handle order processing, packing, and delivery for you"
+      ],
       cta: "Dropshipping",
       link: "/dropshipping",
     },
     {
       title: "Build your private label with Zambeel 360",
-      desc: "We handle the entire process — sourcing, customs clearance, and delivery to our warehouse",
+      desc: [
+        "We handle the entire process — sourcing, customs clearance, and delivery",
+        "Source high-quality products directly from China",
+        "Our team manages product sourcing and quality control",
+        "Complete customs documentation and international shipping handled",
+        "Build your private label brand with confidence"
+      ],
       cta: "Zambeel 360",
       link: "/zambeel-360",
     },
     {
       title: "Grow your E-comm with our 3PL service",
-      desc: "Use our automated system where we take care of storage, call confirmation & last-mile delivery",
+      desc: [
+        "Use our automated system for storage and order fulfillment",
+        "Store your inventory in our secure warehouses",
+        "Real-time inventory tracking and automated order processing",
+        "Fast last-mile delivery to your customers",
+        "Scale your business effortlessly while we manage logistics"
+      ],
       cta: "Zambeel 3PL",
       link: "/zambeel-3pl",
     },
@@ -252,8 +276,8 @@ export default function HomePage() {
     const handleScroll = () => {
       if (isUserTapping.current) return; // Don't interfere with tap interactions
 
-      // Position viewport center at half height (h/2)
-      const viewportCenter = window.innerHeight / 2;
+      // Position viewport trigger at 80% from top (20% from bottom)
+      const viewportTrigger = window.innerHeight * 0.8;
       let closestCardIndex = null;
       let closestDistance = Infinity;
 
@@ -269,17 +293,17 @@ export default function HomePage() {
         const isInViewport = cardBottom > 0 && cardTop < window.innerHeight;
         
         if (isInViewport) {
-          const distance = Math.abs(viewportCenter - cardCenter);
+          const distance = Math.abs(viewportTrigger - cardCenter);
           
-          // Prefer cards that are closer to center and have their top visible
-          if (distance < closestDistance && cardTop < viewportCenter + 100) {
+          // Prefer cards that are closer to the trigger point (80% from top)
+          if (distance < closestDistance) {
             closestDistance = distance;
             closestCardIndex = index;
           }
         }
       });
 
-      if (closestCardIndex !== null && closestDistance < window.innerHeight * 0.7) {
+      if (closestCardIndex !== null && closestDistance < window.innerHeight * 0.4) {
         setExpandedCards(prev => {
           // Only update if different to avoid unnecessary re-renders
           if (prev[closestCardIndex]) return prev;
@@ -297,7 +321,7 @@ export default function HomePage() {
       handleScroll();
     }, 100);
 
-    // Throttle scroll events
+    // Throttle scroll events with smoother handling
     let ticking = false;
     const throttledScroll = () => {
       if (!ticking) {
@@ -343,7 +367,7 @@ export default function HomePage() {
     // Reset tap flag after animation
     setTimeout(() => {
       isUserTapping.current = false;
-    }, 700);
+    }, 1500);
   };
 
   const selectedCountryData = countries.find((c) => c.name === selectedCountry);
@@ -418,11 +442,11 @@ export default function HomePage() {
                   e.stopPropagation();
                   toggleCard(index);
                 }}
-                style={{
+              style={{
                   zIndex: activeCardIndex === index ? 100 : index + 1,
                   marginTop: index === 0 ? 0 : expandedCards[index] || expandedCards[index - 1] ? '20px' : '-20px',
                 }}
-                className={`w-full rounded-3xl overflow-hidden transition-all duration-700 ease-out border border-white/60 cursor-pointer ${expandedCards[index] ? "shadow-2xl" : "shadow-lg"
+                className={`w-full rounded-3xl overflow-hidden transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] border border-white/60 cursor-pointer ${expandedCards[index] ? "shadow-2xl" : "shadow-lg"
                   } ${index === 0 ? 'bg-[#E7EFFC]' :
                     index === 1 ? 'bg-[#FFF9E6]' :
                       index === 2 ? 'bg-[#FDE8E9]' :
@@ -440,10 +464,9 @@ export default function HomePage() {
                         index === 2 ? 'Zambeel 360' :
                           'Zambeel 3PL'}
                   </h2>
-
                 </div>
                 <div
-                  className={`transition-all duration-700 ease-in-out overflow-hidden ${expandedCards[index] ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  className={`transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${expandedCards[index] ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
                     } ${index === 0 ? 'bg-[#E7EFFC]' :
                       index === 1 ? 'bg-[#FFF9E6]' :
                         index === 2 ? 'bg-[#FDE8E9]' :
@@ -451,9 +474,11 @@ export default function HomePage() {
                     }`}
                 >
                   <div className="px-6 pb-8 pt-0">
-                    <p className="text-[#4A5568] text-sm leading-relaxed mb-6">
-                      {card.desc}
-                    </p>
+                    <ul className="text-[#4A5568] text-sm leading-relaxed mb-6 space-y-2 list-disc list-inside">
+                      {card.desc.map((point, idx) => (
+                        <li key={idx}>{point}</li>
+                      ))}
+                    </ul>
                     {card.link ? (
                       <Link
                         to={card.link}
@@ -474,7 +499,7 @@ export default function HomePage() {
                     )}
                   </div>
                 </div>
-              </div>
+            </div>
             ))}
           </div>
         </div>
@@ -547,9 +572,9 @@ export default function HomePage() {
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
                     className={`w-16 h-12 rounded-xl flex items-center justify-center cursor-pointer transition overflow-hidden shadow-md ${country.name === selectedCountry
-                      ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
-                      : "border-2 border-gray-200 hover:border-gray-300"
-                      }`}
+                        ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
+                        : "border-2 border-gray-200 hover:border-gray-300"
+                    }`}
                   >
                     <img
                       src={`https://flagcdn.com/w160/${country.code}.png`}
@@ -666,9 +691,9 @@ export default function HomePage() {
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
                     className={`flex flex-col items-center gap-2 cursor-pointer transition p-3 rounded-xl ${country.name === selectedCountry
-                      ? "bg-[#FFF9E6] shadow-md"
-                      : "hover:bg-gray-50"
-                      }`}
+                        ? "bg-[#FFF9E6] shadow-md"
+                        : "hover:bg-gray-50"
+                    }`}
                   >
                     <div className="w-12 h-8 rounded shadow-sm overflow-hidden border border-gray-200">
                       <img
@@ -792,70 +817,70 @@ export default function HomePage() {
             {/* Carousel - Desktop only */}
             <div className="hidden lg:flex gap-4 h-[500px] justify-center">
 
+            <div
+              className="relative overflow-hidden h-full mx-auto"
+              style={{ width: "830px" }}
+            >
               <div
-                className="relative overflow-hidden h-full mx-auto"
-                style={{ width: "830px" }}
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to right, white 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 94%, white 100%)",
+                }}
+              />
+              <div
+                className="flex h-full gap-4 transition-transform duration-700 ease-in-out"
+                style={{
+                  transform: showAllFeatures
+                    ? "translateX(-165px)"
+                    : "translateX(0)",
+                }}
               >
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(to right, white 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 94%, white 100%)",
-                  }}
-                />
-                <div
-                  className="flex h-full gap-4 transition-transform duration-700 ease-in-out"
-                  style={{
-                    transform: showAllFeatures
-                      ? "translateX(-165px)"
-                      : "translateX(0)",
-                  }}
-                >
-                  {[
-                    {
-                      img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
+                {[
+                  {
+                    img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
                       title: "Dropshipping",
-                      desc: "Start your Ecommerce business anywhere without registration.",
-                    },
-                    {
-                      img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
+                    desc: "Start your Ecommerce business anywhere without registration.",
+                  },
+                  {
+                    img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
                       title: "Zambeel 360",
-                      desc: "Scale easily with COD—no payment gateway needed.",
-                    },
-                    {
-                      img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                    desc: "Scale easily with COD—no payment gateway needed.",
+                  },
+                  {
+                    img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
                       title: "3PL Service",
                       desc: "Use our AI tools to accelerate your work.",
                     },
                     {
                       img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
                       title: "Learn E-commerce",
-                      desc: "Use our AI tools to accelerate your work.",
-                    },
-                  ].map((card) => (
-                    <div
-                      key={card.title}
-                      className="group relative rounded-[32px] overflow-hidden cursor-pointer h-full shrink-0"
-                      style={{ width: "320px" }}
-                    >
-                      <img
-                        src={card.img}
-                        alt={card.title}
-                        className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-8 z-10">
-                        <h3 className="text-white text-xl font-bold mb-1">
-                          {card.title}
-                        </h3>
-                        <p className="text-gray-200 text-sm leading-snug">
-                          {card.desc}
-                        </p>
-                      </div>
+                    desc: "Use our AI tools to accelerate your work.",
+                  },
+                ].map((card) => (
+                  <div
+                    key={card.title}
+                    className="group relative rounded-[32px] overflow-hidden cursor-pointer h-full shrink-0"
+                    style={{ width: "320px" }}
+                  >
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-8 z-10">
+                      <h3 className="text-white text-xl font-bold mb-1">
+                        {card.title}
+                      </h3>
+                      <p className="text-gray-200 text-sm leading-snug">
+                        {card.desc}
+                      </p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
+            </div>
             </div>
           </div>
 
@@ -872,15 +897,15 @@ export default function HomePage() {
                   title: "Cash on Delivery",
                   desc: "Scale easily with COD—no payment gateway needed.",
                 },
-                {
-                  img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                  title: "AI Enabled Economy",
-                  desc: "Use our AI tools to accelerate your work.",
-                },
-                {
-                  img: "https://picsum.photos/400/600?random=4",
-                  title: "Dedicated Support",
-                  desc: "Get expert support from day one.",
+                      {
+                        img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                        title: "AI Enabled Economy",
+                        desc: "Use our AI tools to accelerate your work.",
+                      },
+                      {
+                        img: "https://picsum.photos/400/600?random=4",
+                        title: "Dedicated Support",
+                        desc: "Get expert support from day one.",
                 },
                 ...(showAllFeatures
                   ? [
@@ -893,8 +918,8 @@ export default function HomePage() {
                       img: "https://picsum.photos/400/600?random=6",
                       title: "Secure Platform",
                       desc: "Your data and transactions are always protected.",
-                    },
-                  ]
+                      },
+                    ]
                   : []),
               ].map((card) => (
                 <div
@@ -1028,7 +1053,7 @@ export default function HomePage() {
                   (1076 reviews)
                 </div>
               </div>
-              
+
 
 
               <h3 className="hidden md:block text-center text-lg font-bold text-gray-800 mb-4">
@@ -1040,7 +1065,7 @@ export default function HomePage() {
                   const prevIndex = currentReviewIndex === 0 ? reviews.length - 1 : currentReviewIndex - 1;
                   const prevReview = reviews[prevIndex];
                   return (
-                    <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
+                <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
                       <div className="flex items-center gap-2 mb-3 opacity-70">
                         <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
                           <img
@@ -1064,11 +1089,11 @@ export default function HomePage() {
                             }
                           ></i>
                         ))}
-                      </div>
-                      <p className="text-xs text-gray-400 leading-relaxed">
+                  </div>
+                  <p className="text-xs text-gray-400 leading-relaxed">
                         "{prevReview.text.substring(0, 40)}..."
-                      </p>
-                    </div>
+                  </p>
+                </div>
                   );
                 })()}
 
@@ -1115,19 +1140,19 @@ export default function HomePage() {
                   const nextIndex = currentReviewIndex === reviews.length - 1 ? 0 : currentReviewIndex + 1;
                   const nextReview = reviews[nextIndex];
                   return (
-                    <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
-                      <div className="flex items-center gap-2 mb-3 opacity-70">
-                        <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
-                          <img
+                <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
+                  <div className="flex items-center gap-2 mb-3 opacity-70">
+                    <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
+                      <img
                             src={nextReview.image}
-                            className="w-full h-full object-cover"
+                        className="w-full h-full object-cover"
                             alt={nextReview.name}
-                          />
-                        </div>
-                        <span className="font-bold text-xs text-gray-700">
+                      />
+                    </div>
+                    <span className="font-bold text-xs text-gray-700">
                           {nextReview.name}
-                        </span>
-                      </div>
+                    </span>
+                  </div>
                       <div className="flex text-[#FFC107] text-xs mb-2 opacity-70">
                         {[...Array(5)].map((_, i) => (
                           <i
@@ -1140,10 +1165,10 @@ export default function HomePage() {
                           ></i>
                         ))}
                       </div>
-                      <p className="text-xs text-gray-400 leading-relaxed">
+                  <p className="text-xs text-gray-400 leading-relaxed">
                         "{nextReview.text.substring(0, 40)}..."
-                      </p>
-                    </div>
+                  </p>
+                </div>
                   );
                 })()}
               </div>
@@ -1154,9 +1179,9 @@ export default function HomePage() {
                     key={idx}
                     onClick={() => setCurrentReviewIndex(idx)}
                     className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full cursor-pointer transition-all ${idx === currentReviewIndex
-                      ? "bg-[#FFD700]"
-                      : "bg-white opacity-40 md:bg-[#2E3B78] md:opacity-80"
-                      }`}
+                        ? "bg-[#FFD700]"
+                        : "bg-white opacity-40 md:bg-[#2E3B78] md:opacity-80"
+                    }`}
                   ></div>
                 ))}
               </div>

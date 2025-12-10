@@ -55,15 +55,15 @@ const PricingSection = ({
             const middleIndex = Math.floor(plans.length / 2);
             const isMiddle = idx === middleIndex;
             return (
-              <PricingCard
-                key={idx}
-                plan={plan}
-                isActive={isDesktop ? true : activeIndex === idx}
-                onClick={() => setActiveIndex(idx)}
+            <PricingCard
+              key={idx}
+              plan={plan}
+              isActive={isDesktop ? true : activeIndex === idx}
+              onClick={() => setActiveIndex(idx)}
                 isLast={idx === plans.length - 1}
                 isMiddle={isMiddle}
                 cardIndex={idx}
-              />
+            />
             );
           })}
         </div>

@@ -147,9 +147,9 @@ const DropshippingPage = () => {
                 </div>
                 <span className="text-gray-500 font-semibold text-xs">Kuwait</span>
               </div>
-              </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

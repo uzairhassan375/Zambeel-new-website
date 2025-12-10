@@ -157,7 +157,7 @@ const Zambeel3PLPage = () => {
               Zambeel 3PL
             </h3>
             <p className="text-[20px] md:text-[30px] font-normal italic leading-[100%] tracking-[0] text-center text-white mb-2 md:mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Get warehousing, inventory management, and efficient fulfillment
+              Get warehousing, inventory management & efficient fulfillment
             </p>
             <div>
               <p className="text-[14px] md:text-[20px] font-normal italic leading-[100%] tracking-[0] text-center text-white/95 max-w-3xl mx-auto px-2 min-h-[30px] md:min-h-[40px] transition-opacity duration-500 mb-2 md:mb-0" style={{ fontFamily: 'DM Sans, sans-serif' }}>
