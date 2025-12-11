@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Import your image assets
 import connectionImg from '../../assets/images/connection.png';
@@ -6,46 +7,68 @@ import databaseImg from '../../assets/images/database.png';
 import frameImg from '../../assets/images/frame1.png';
 
 const Wts = ({
-  title = "How to Start?",
-  description = "From AI-built stores, winning products, and personalized assistance, we provide everything you need to start selling under 30 minutes.",
-  buttonText = "Start Dropshipping",
+  title,
+  description,
+  buttonText,
   buttonLink = null,
   showButton = true,
-  steps = [
+  steps
+}) => {
+  const { t } = useTranslation();
+  
+  // Use translations as defaults if props are not provided
+  const defaultTitle = title || t('whereToStart.title');
+  const defaultDescription = description || t('whereToStart.description');
+  const defaultButtonText = buttonText || t('whereToStart.startDropshipping');
+  
+  const getDesktopDescription = (desc) => {
+    // For English, format for multi-line display
+    if (t('common.getStarted') === 'Get Started') {
+      return desc.replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/ — /g, '\n— ').replace(/ or /g, '\nor ');
+    }
+    return desc;
+  };
+  
+  const defaultSteps = steps || [
     {
       number: 1,
-      title: "Create account",
-      description: "Sign up in seconds and access your Zambeel dashboard instantly.",
-      desktopDescription: "Sign up in seconds and\naccess your Zambeel\ndashboard instantly.",
+      title: t('whereToStart.steps.createAccount.title'),
+      description: t('whereToStart.steps.createAccount.desc'),
+      desktopDescription: getDesktopDescription(t('whereToStart.steps.createAccount.desc')),
       icon: connectionImg,
       iconAlt: "connection"
     },
     {
       number: 2,
-      title: "Connect store",
-      description: "Link Shopify, YouCan, EasyOrders store, or upload orders manually.",
-      desktopDescription: "Link Shopify, YouCan,\nEasyOrders store, or\nupload orders manually.",
+      title: t('whereToStart.steps.connectStore.title'),
+      description: t('whereToStart.steps.connectStore.desc'),
+      desktopDescription: getDesktopDescription(t('whereToStart.steps.connectStore.desc')),
       icon: frameImg,
       iconAlt: "frame"
     },
     {
       number: 3,
-      title: "List Products",
-      description: "Choose from 20K+ products and set your own selling price — your profit is the difference.",
-      desktopDescription: "Choose from 20K+ products and\nset your own selling price — your\nprofit is the difference.",
+      title: t('whereToStart.steps.listProducts.title'),
+      description: t('whereToStart.steps.listProducts.desc'),
+      desktopDescription: getDesktopDescription(t('whereToStart.steps.listProducts.desc')),
       icon: databaseImg,
       iconAlt: "database"
     },
     {
       number: 4,
-      title: "Start Selling",
-      description: "Promote your store on Facebook, Instagram, or any platform you like.",
-      desktopDescription: "Promote your store on\nFacebook, Instagram, or\nany platform you like.",
+      title: t('whereToStart.steps.startSelling.title'),
+      description: t('whereToStart.steps.startSelling.desc'),
+      desktopDescription: getDesktopDescription(t('whereToStart.steps.startSelling.desc')),
       icon: null,
       iconAlt: null
     }
-  ]
-}) => {
+  ];
+  
+  const finalTitle = title || defaultTitle;
+  const finalDescription = description || defaultDescription;
+  const finalButtonText = buttonText || defaultButtonText;
+  const finalSteps = steps || defaultSteps;
+  
   const handleButtonClick = () => {
     if (buttonLink) {
       window.location.href = buttonLink;
@@ -67,12 +90,12 @@ const Wts = ({
       >
         {/* Title */}
         <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-black mb-3 md:mb-4" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-          {title}
+          {finalTitle}
         </h2>
 
         {/* Description */}
         <p className="text-gray-600 max-w-[750px] mx-auto mb-4 md:mb-6 text-base sm:text-lg">
-          {description}
+          {finalDescription}
         </p>
 
         {/* Button */}
@@ -81,7 +104,7 @@ const Wts = ({
             onClick={handleButtonClick}
             className="hidden md:inline-flex items-center px-8 py-3.5 bg-[#243a86] text-white text-base font-semibold rounded-full hover:bg-[#1d2a69] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mb-4 md:mb-6"
           >
-            <span>{buttonText}</span>
+            <span>{finalButtonText}</span>
           <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
@@ -103,7 +126,7 @@ const Wts = ({
               }}
             ></div>
 
-            {steps.map((step, index) => (
+            {finalSteps.map((step, index) => (
               <React.Fragment key={step.number}>
                 {/* STEP */}
             <div className="flex flex-col items-center w-1/4 relative z-10 px-2">
@@ -122,7 +145,7 @@ const Wts = ({
             </div>
 
                 {/* Icon (Between steps) */}
-                {index < steps.length - 1 && step.icon && (
+                {index < finalSteps.length - 1 && step.icon && (
             <div
                     className="absolute top-12 transform -translate-x-1/2 -translate-y-1/2 z-20"
                     style={{ left: `${(index + 1) * 25}%` }}
@@ -149,7 +172,7 @@ const Wts = ({
         {/* ==================== */}
         <div className="min-[850px]:hidden relative">
           <div className="flex flex-col items-center space-y-0">
-            {steps.map((step, index) => (
+            {finalSteps.map((step, index) => (
               <React.Fragment key={step.number}>
                 {/* STEP */}
             <div className="relative w-full pb-2">
@@ -165,7 +188,7 @@ const Wts = ({
                 </p>
               </div>
               {/* Connection Line and Icon */}
-                  {index < steps.length - 1 && step.icon && (
+                  {index < finalSteps.length - 1 && step.icon && (
               <div className="flex justify-center py-2">
                 <div className="flex flex-col items-center">
                   <div className="w-0.5 h-4 border-l-2 border-dashed border-gray-300"></div>

@@ -188,7 +188,14 @@
       },
       "whyZambeel": {
         "title": "Why Dropshipping with Zambeel?",
-        "description": "Start selling without inventory or business registration hassles. Launch your AI-powered store in under 3 minutes, get personalised guidance, and access 20K+ winning products to succeed in UAE & KSA with Zambeel Dropshipping."
+        "description": "Start selling without inventory or business registration hassles. Launch your AI-powered store in under 3 minutes, get personalised guidance, and access 20K+ winning products to succeed in UAE & KSA with Zambeel Dropshipping.",
+        "features": {
+          "dedicatedAccountManagers": "Dedicated Account Managers",
+          "highestDeliveryRates": "Highest Delivery Rates",
+          "biggestCatalog": "Biggest Catalog of Winning Products",
+          "smartOrderConfirmation": "Smart Order Confirmation",
+          "weeklyPayments": "Weekly Payments"
+        }
       },
       "pricing": {
         "title": "Clear Pricing. Great Value.",
@@ -326,11 +333,11 @@
         "whatsappGroupAccess": "Whatsapp Group Access",
         "winningCreativity": "Winning Creativity & Strategy",
         "bumperTrendingProducts": "Bumper Trending Products",
-        "seniorBusinessConsultant": "Senior Business & market consultant",
-        "customisedPackaging": "Customised Packaging*",
+        "seniorBusinessConsultant": "Senior Business consultant",
+        "customisedPackaging": "Customised Packaging",
         "productFinancing": "Product Financing",
-        "seniorAccountManager": "Senior Dedicated Account Manager",
-        "responseTime30Minutes": "Response time: Within 30 minutes",
+        "seniorAccountManager": "Senior Dedicated Manager",
+        "responseTime30Minutes": "Response time: 30 minutes",
         "exclusiveWinningProduct": "Exclusive Winning Product",
         "winningCreativedStrategy": "Winning Creatived & Strategy"
       },

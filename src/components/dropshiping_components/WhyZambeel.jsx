@@ -1,13 +1,24 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const WhyZambeel = ({
-  title = "Why Dropshipping with Zambeel?",
-  mobileTitle = "Why Dropshipping with Zambeel?",
-  description = "We sourced high quality products from trusted suppliers in China. Our end-to-end service includes product sourcing, quality control, shipping logistics, and customs clearance, making it easy for you to focus on growing your business.",
-  features = [
+  title,
+  mobileTitle,
+  description,
+  features,
+  desktopFeatures
+}) => {
+  const { t } = useTranslation();
+  
+  // Use translations as defaults if props are not provided
+  const defaultTitle = title || t('dropshipping.whyZambeel.title');
+  const defaultMobileTitle = mobileTitle || t('dropshipping.whyZambeel.title');
+  const defaultDescription = description || t('dropshipping.whyZambeel.description');
+  
+  const defaultFeatures = features || [
     {
       id: 1,
-      text: "Dedicated Account Managers",
+      text: t('dropshipping.whyZambeel.features.dedicatedAccountManagers'),
       mobileLineW: "w-[12%]",
       mobileCardMl: "ml-[12%]",
       icon: (
@@ -21,7 +32,7 @@ const WhyZambeel = ({
     },
     {
       id: 2,
-      text: "Highest Delivery Rates",
+      text: t('dropshipping.whyZambeel.features.highestDeliveryRates'),
       mobileLineW: "w-[22%]",
       mobileCardMl: "ml-[22%]",
       icon: (
@@ -34,7 +45,7 @@ const WhyZambeel = ({
     },
     {
       id: 3,
-      text: "Biggest Catalog of Winning Products",
+      text: t('dropshipping.whyZambeel.features.biggestCatalog'),
       mobileLineW: "w-[32%]",
       mobileCardMl: "ml-[32%]",
       icon: (
@@ -50,7 +61,7 @@ const WhyZambeel = ({
     },
     {
       id: 4,
-      text: "Smart Order Confirmation",
+      text: t('dropshipping.whyZambeel.features.smartOrderConfirmation'),
       mobileLineW: "w-[18%]",
       mobileCardMl: "ml-[18%]",
       icon: (
@@ -64,7 +75,7 @@ const WhyZambeel = ({
     },
     {
       id: 5,
-      text: "Weekly Payments",
+      text: t('dropshipping.whyZambeel.features.weeklyPayments'),
       mobileLineW: "w-[8%]",
       mobileCardMl: "ml-[8%]",
       icon: (
@@ -79,8 +90,9 @@ const WhyZambeel = ({
         </svg>
       )
     }
-  ],
-  desktopFeatures = [
+  ];
+  
+  const defaultDesktopFeatures = desktopFeatures || [
     {
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +105,7 @@ const WhyZambeel = ({
           <defs><clipPath id="d_manager"><rect width="48" height="48" fill="white" /></clipPath></defs>
         </svg>
       ),
-      label: "Dedicated Account\nManagers"
+      label: t('dropshipping.whyZambeel.features.dedicatedAccountManagers').replace(/ Account /g, '\nAccount ')
     },
     {
       icon: (
@@ -106,7 +118,7 @@ const WhyZambeel = ({
           <defs><clipPath id="d_ship"><rect width="48" height="48" fill="white" /></clipPath></defs>
         </svg>
       ),
-      label: "Highest Delivery\nRates"
+      label: t('dropshipping.whyZambeel.features.highestDeliveryRates').replace(/ Delivery /g, '\nDelivery ')
     },
     {
       icon: (
@@ -122,7 +134,7 @@ const WhyZambeel = ({
           <defs><clipPath id="d_catalog"><rect width="48" height="48" fill="white" /></clipPath></defs>
         </svg>
       ),
-      label: "Biggest Catalog of\nWinning Products"
+      label: t('dropshipping.whyZambeel.features.biggestCatalog').replace(/ of /g, '\nof ').replace(/ Winning /g, '\nWinning ')
     },
     {
       icon: (
@@ -136,7 +148,7 @@ const WhyZambeel = ({
           <defs><clipPath id="d_confirm"><rect width="48" height="48" fill="white" /></clipPath></defs>
         </svg>
       ),
-      label: "Smart Order\nConfirmation"
+      label: t('dropshipping.whyZambeel.features.smartOrderConfirmation').replace(/ Order /g, '\nOrder ')
     },
     {
       icon: (
@@ -153,10 +165,15 @@ const WhyZambeel = ({
           <defs><clipPath id="d_payment"><rect width="48" height="48" fill="white" /></clipPath></defs>
         </svg>
       ),
-      label: "Weekly\nPayments"
+      label: t('dropshipping.whyZambeel.features.weeklyPayments').replace(' ', '\n')
     }
-  ]
-}) => {
+  ];
+  
+  const finalTitle = title || defaultTitle;
+  const finalMobileTitle = mobileTitle || defaultMobileTitle;
+  const finalDescription = description || defaultDescription;
+  const finalFeatures = features || defaultFeatures;
+  const finalDesktopFeatures = desktopFeatures || defaultDesktopFeatures;
   return (
     <section className="relative w-full mx-auto py-8 md:py-8 px-6 sm:px-10 lg:px-12">
       <div className="max-w-[1050px] mx-auto relative z-10">
@@ -166,14 +183,14 @@ const WhyZambeel = ({
         {/* ==================== */}
         <div className="hidden md:block rounded-3xl overflow-hidden shadow-2xl">
           <div className="bg-white px-14 pt-16 pb-10 text-center">
-            <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-black mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>{title}</h2>
+            <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-black mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>{finalTitle}</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {description}
+              {finalDescription}
             </p>
           </div>
           <div className="bg-gray-400 px-14 py-10">
             <div className="flex flex-wrap justify-center gap-12">
-              {desktopFeatures.map((feature, index) => (
+              {finalDesktopFeatures.map((feature, index) => (
                 <div key={index} className="flex flex-col items-center w-32 text-center">
                   <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 ring-1 ring-gray-200">
                     {feature.icon}
@@ -192,21 +209,21 @@ const WhyZambeel = ({
         {/* ==================== */}
         <div className="md:hidden w-full overflow-hidden" style={{ backgroundColor: '#FFFFFF33' }}>
           <div className="px-6 pt-10 pb-8 text-center">
-            <h2 className="text-white text-xl font-bold mb-3 tracking-wide">{mobileTitle}</h2>
+            <h2 className="text-white text-xl font-bold mb-3 tracking-wide">{finalMobileTitle}</h2>
             <p className="text-white/90 text-[12px] leading-5 font-light">
-              {description}
+              {finalDescription}
             </p>
           </div>
           <div className="py-8 space-y-5" style={{ backgroundColor: '#E8F0FE4D' }}>
-            {features.map((feature) => (
+            {finalFeatures.map((feature) => (
               <div key={feature.id} className="relative flex items-center w-full">
-                <div className={`absolute left-0 h-[2px] bg-[#fbbf24] z-0 transition-all duration-300 ${feature.mobileLineW}`}></div>
-                <div className={`relative z-10 flex items-center bg-gradient-to-r from-[#eef2ff] to-white rounded-l-full rounded-r-full py-2 pl-2 pr-6 shadow-lg transition-all duration-300 ${feature.mobileCardMl}`}>
+                <div className={`absolute left-0 h-[2px] bg-[#fbbf24] z-0 transition-all duration-300 ${feature.mobileLineW || ''}`}></div>
+                <div className={`relative z-10 flex items-center bg-gradient-to-r from-[#eef2ff] to-white rounded-l-full rounded-r-full py-2 pl-2 pr-6 shadow-lg transition-all duration-300 ${feature.mobileCardMl || ''}`}>
                   <div className="w-10 h-10 bg-[#e0e7ff] rounded-full flex items-center justify-center border-2 border-white shadow-sm shrink-0">
                     {feature.icon}
                   </div>
                   <span className="ml-3 text-[#1e3a8a] font-semibold text-[13px] leading-tight">
-                    {feature.text}
+                    {feature.text || feature.label || ''}
                   </span>
                 </div>
               </div>

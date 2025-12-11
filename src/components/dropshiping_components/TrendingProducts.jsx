@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const trendingProducts = [
   {
@@ -52,6 +53,7 @@ const trendingProducts = [
 ];
 
 const TrendingProducts = () => {
+  const { t } = useTranslation();
   const carouselRef = useRef(null);
   const [showMore, setShowMore] = useState(false);
 
@@ -76,7 +78,7 @@ const TrendingProducts = () => {
     >
       <div className="max-w-[1050px] mx-auto text-center">
         <h2 className="text-[20px] md:text-[36px] font-[700] leading-[100%] tracking-[0] text-center text-white mb-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-          Trending Dropshipping Products this week
+          {t('dropshipping.trendingProducts.title')}
         </h2>
 
         {/* ==================== */}
@@ -134,7 +136,7 @@ const TrendingProducts = () => {
               className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors mb-6"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
-              All Products
+              {t('common.allProducts')}
             </button>
           )}
 
@@ -190,7 +192,7 @@ const TrendingProducts = () => {
                 className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors"
                 style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
               >
-                Show Less
+                {t('common.showLess')}
               </button>
             </>
           )}
@@ -263,7 +265,7 @@ const TrendingProducts = () => {
               className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
-              View All Products
+              {t('common.viewAllProducts')}
             </button>
 
             <button

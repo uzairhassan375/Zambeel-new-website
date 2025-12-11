@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const DeliveryCharges = ({ 
   title, 
@@ -6,6 +7,7 @@ const DeliveryCharges = ({
   countries, 
   charges
 }) => {
+  const { t } = useTranslation();
   // Helper function to get country flag SVG
   const getCountryFlag = (countryCode) => {
     const flags = {
@@ -88,7 +90,7 @@ const DeliveryCharges = ({
                 className="grid gap-0.5 md:gap-2 lg:gap-4 items-center p-1 md:p-3 lg:p-6"
                 style={{ gridTemplateColumns: `minmax(75px, 1.2fr) repeat(${countries.length}, minmax(45px, 1fr))` }}
               >
-                <div className="font-bold text-[8px] md:text-xs lg:text-base leading-tight text-center">Delivery Charges Breakdown</div>
+                <div className="font-bold text-[8px] md:text-xs lg:text-base leading-tight text-center">{t('deliveryCharges.breakdown')}</div>
                 {countries.map((country) => (
                   <div key={country.code} className="flex flex-col items-center gap-0">
                     <div className="w-4 h-4 md:w-8 md:h-8 lg:w-12 lg:h-12 rounded-full overflow-hidden flex items-center justify-center bg-white p-0.5 md:p-1">

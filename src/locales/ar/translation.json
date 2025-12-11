@@ -188,7 +188,14 @@
         },
         "whyZambeel": {
             "title": "لماذا تختار دروبشيبينغ مع زمبيل؟",
-            "description": "ابدأ البيع دون عناء إدارة المخزون أو تسجيل الأعمال. أطلق متجرك الذكي في أقل من 3 دقائق، واحصل على إرشادات شخصية، واحصل على أكثر من 20 ألف منتج رابح لتحقيق النجاح في الإمارات العربية المتحدة والمملكة العربية السعودية مع زمبيل دروبشيبينغ."
+            "description": "ابدأ البيع دون عناء إدارة المخزون أو تسجيل الأعمال. أطلق متجرك الذكي في أقل من 3 دقائق، واحصل على إرشادات شخصية، واحصل على أكثر من 20 ألف منتج رابح لتحقيق النجاح في الإمارات العربية المتحدة والمملكة العربية السعودية مع زمبيل دروبشيبينغ.",
+            "features": {
+                "dedicatedAccountManagers": "مديرو حسابات مخصصون",
+                "highestDeliveryRates": "أعلى معدلات التسليم",
+                "biggestCatalog": "أكبر كتالوج للمنتجات الرابحة",
+                "smartOrderConfirmation": "تأكيد الطلبات الذكي",
+                "weeklyPayments": "مدفوعات أسبوعية"
+            }
         },
         "pricing": {
             "title": "أسعار واضحة. قيمة رائعة.",
@@ -326,12 +333,12 @@
             "whatsappGroupAccess": "مجموعة واتساب خاصة",
             "winningCreativity": "الإبداع والاستراتيجية الرابحة",
             "bumperTrendingProducts": "منتجات رائجة جدًا",
-            "seniorBusinessConsultant": "مستشار أعمال وتسويق خبير",
+            "seniorBusinessConsultant": "مستشار أعمال خبير",
             "winningCreativedStrategy": "الإبداع والاستراتيجية الرابحة",
-            "customisedPackaging": "تغليف مخصص*",
+            "customisedPackaging": "تغليف مخصص",
             "productFinancing": "تمويل المنتج",
-            "seniorAccountManager": "مدير حسابات خبير مخصص",
-            "responseTime30Minutes": "مدة الاستجابة: خلال 30 دقيقة",
+            "seniorAccountManager": "مدير مخصص خبير",
+            "responseTime30Minutes": "مدة الاستجابة: 30 دقيقة",
             "exclusiveWinningProduct": "منتج رابح حصري"
         },
         "buttons": {
