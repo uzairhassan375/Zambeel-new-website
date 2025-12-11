@@ -308,7 +308,7 @@ const Zambeel360Page = () => {
                 <defs><clipPath id="d_find"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Find\nProducts"
+            label: t('zambeel360.whatIs.features.findProducts').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -321,7 +321,7 @@ const Zambeel360Page = () => {
                 <defs><clipPath id="d_quality"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Quality\nCheck"
+            label: t('zambeel360.whatIs.features.qualityCheck').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -338,7 +338,7 @@ const Zambeel360Page = () => {
                 <defs><clipPath id="d_customs"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Handle\nCustoms"
+            label: t('zambeel360.whatIs.features.handleCustoms').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -356,7 +356,7 @@ const Zambeel360Page = () => {
                 <defs><clipPath id="d_store"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Store\nSafely"
+            label: t('zambeel360.whatIs.features.storeSafely').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -370,46 +370,46 @@ const Zambeel360Page = () => {
                 <defs><clipPath id="d_delivery"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Fast\nDelivery"
+            label: t('zambeel360.whatIs.features.fastDelivery').replace(/ /g, '\n')
           }
         ]}
       />
 
       {/* Where to Start Section */}
       <Wts
-        title="Where to Start?"
-        description="Getting started with Zambeel's 360 service is easy. Follow these simple steps to begin your journey with Zambeel."
-        buttonText="Talk to our agent"
+        title={t('zambeel360.whereToStart.title')}
+        description={t('zambeel360.whereToStart.description')}
+        buttonText={t('common.talkToAgent')}
         steps={[
           {
             number: 1,
-            title: "Book Consultation",
-            description: "Contact us through our Whatsapp number and our senior business consultant will get in touch with you.",
-            desktopDescription: "Contact us through our\nWhatsapp number and our\nsenior business consultant\nwill get in touch with you.",
+            title: t('zambeel360.whereToStart.steps.bookConsultation.title'),
+            description: t('zambeel360.whereToStart.steps.bookConsultation.desc'),
+            desktopDescription: t('zambeel360.whereToStart.steps.bookConsultation.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
             icon: connectionImg,
             iconAlt: "connection"
           },
           {
             number: 2,
-            title: "Send Inventory",
-            description: "Our team will share the product and shipping cost with you. Once you approve, we will send you a payment link.",
-            desktopDescription: "Our team will share the\nproduct and shipping cost\nwith you. Once you approve,\nwe will send you a payment link.",
+            title: t('zambeel360.whereToStart.steps.sendInventory.title'),
+            description: t('zambeel360.whereToStart.steps.sendInventory.desc'),
+            desktopDescription: t('zambeel360.whereToStart.steps.sendInventory.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
             icon: frameImg,
             iconAlt: "frame"
           },
           {
             number: 3,
-            title: "Connect Store",
-            description: "We will source your product and handle all shipping logistics to our warehouse.",
-            desktopDescription: "We will source your product\nand handle all shipping\nlogistics to our warehouse.",
+            title: t('zambeel360.whereToStart.steps.connectStore.title'),
+            description: t('zambeel360.whereToStart.steps.connectStore.desc'),
+            desktopDescription: t('zambeel360.whereToStart.steps.connectStore.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
             icon: databaseImg,
             iconAlt: "database"
           },
           {
             number: 4,
-            title: "Start Selling",
-            description: "Integrate your online store with us through Shopify, Youcan, Easyorders & Lightfunnels or use Zambeel portal manually.",
-            desktopDescription: "Integrate your online store\nwith us through Shopify,\nYoucan, Easyorders &\nLightfunnels or use Zambeel\nportal manually.",
+            title: t('zambeel360.whereToStart.steps.startSelling.title'),
+            description: t('zambeel360.whereToStart.steps.startSelling.desc'),
+            desktopDescription: t('zambeel360.whereToStart.steps.startSelling.desc').replace(/ and /g, '\nand ').replace(/ or /g, '\nor ').replace(/, /g, ',\n').replace(/ & /g, '\n& ').replace(/\n\n/g, '\n'),
             icon: null,
             iconAlt: null
           }

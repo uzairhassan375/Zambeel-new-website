@@ -298,13 +298,13 @@ const Zambeel3PLPage = () => {
             icon: (
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clipPath="url(#d_hq)">
-                  <path d="M28 8C28 7.46957 28.2107 6.96086 28.5858 6.58579C28.9609 6.21071 29.4696 6 30 6H40C40.5304 6 41.0391 6.21071 41.4142 6.58579C41.7893 6.96086 42 7.46957 42 8V18C42 18.5304 41.7893 19.0391 41.4142 19.4142C41.0391 19.7893 40.5304 20 40 20H30C29.4696 20 28.9609 19.7893 28.5858 19.4142C28.2107 19.0391 28 18.5304 28 18V8Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M28 8C28 7.46957 28.2107 6.96086 28.5858 6.58579C28.9609 6.21071 29.4696 6 30 6H40C40.5304 6 41.0391 6.21071 41.4142 6.58579C41.7893 6.96086 42 7.46957 42 8V18C42 18.5304 41.7893 19.0391 41.4142 19.4142C41.0391 19.7893 40.5304 20 40 20H30C29.4696 20 28.9609 19.7893 28.5858 19.4142C28.2107 19.0391 28 18.5304 28 18V8Z" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M6 28H30C31.0609 28 32.0783 28.4214 32.8284 29.1716C33.5786 29.9217 34 30.9391 34 32V38C34 39.0609 33.5786 40.0783 32.8284 40.8284C32.0783 41.5786 31.0609 42 30 42H10C8.93913 42 7.92172 41.5786 7.17157 40.8284C6.42143 40.0783 6 39.0609 6 38V18C6 16.9391 6.42143 15.9217 7.17157 15.1716C7.92172 14.4214 8.93913 14 10 14H16C17.0609 14 18.0783 14.4214 18.8284 15.1716C19.5786 15.9217 20 16.9391 20 18V42" stroke="#2D3E7E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                       </g>
                       <defs><clipPath id="d_hq"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Smart Warehousing\nsolutions"
+            label: t('zambeel3PL.whyZambeel.features.warehousing').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -317,7 +317,7 @@ const Zambeel3PLPage = () => {
                       <defs><clipPath id="d_ship"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Fast Order\nfullfilment"
+            label: t('zambeel3PL.whyZambeel.features.fulfillment').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -335,7 +335,7 @@ const Zambeel3PLPage = () => {
                       <defs><clipPath id="d_src"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Secure Inventory\nmanagement"
+            label: t('zambeel3PL.whyZambeel.features.inventory').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -351,7 +351,7 @@ const Zambeel3PLPage = () => {
                       <defs><clipPath id="d_pkg"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Global Shipping\nnetwork"
+            label: t('zambeel3PL.whyZambeel.features.shipping').replace(/ /g, '\n')
           },
           {
             icon: (
@@ -365,7 +365,7 @@ const Zambeel3PLPage = () => {
                       <defs><clipPath id="d_low"><rect width="48" height="48" fill="white" /></clipPath></defs>
                     </svg>
             ),
-            label: "Real time\ntracking"
+            label: t('zambeel3PL.whyZambeel.features.tracking').replace(/ /g, '\n')
           }
         ]}
       />
@@ -378,33 +378,33 @@ const Zambeel3PLPage = () => {
         steps={[
           {
             number: 1,
-            title: "Book Consultation",
-            description: "Contact us through our Whatsapp number and our senior business consultant will get in touch with you.",
-            desktopDescription: "Contact us through our\nWhatsapp number and our\nsenior business consultant\nwill get in touch with you.",
+            title: t('zambeel3PL.whereToStart.steps.bookConsultation.title'),
+            description: t('zambeel3PL.whereToStart.steps.bookConsultation.desc'),
+            desktopDescription: t('zambeel3PL.whereToStart.steps.bookConsultation.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
             icon: connectionImg,
             iconAlt: "connection"
           },
           {
             number: 2,
-            title: "Send Inventory",
-            description: "Our team will share the product and shipping cost with you. Once you approve, we will send you a payment link.",
-            desktopDescription: "Our team will share the\nproduct and shipping cost\nwith you. Once you approve,\nwe will send you a payment link.",
+            title: t('zambeel3PL.whereToStart.steps.sendInventory.title'),
+            description: t('zambeel3PL.whereToStart.steps.sendInventory.desc'),
+            desktopDescription: t('zambeel3PL.whereToStart.steps.sendInventory.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
             icon: frameImg,
             iconAlt: "frame"
           },
           {
             number: 3,
-            title: "Connect Store",
-            description: "We will source your product and handle all shipping logistics to our warehouse.",
-            desktopDescription: "We will source your product\nand handle all shipping\nlogistics to our warehouse.",
+            title: t('zambeel3PL.whereToStart.steps.connectStore.title'),
+            description: t('zambeel3PL.whereToStart.steps.connectStore.desc'),
+            desktopDescription: t('zambeel3PL.whereToStart.steps.connectStore.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
             icon: databaseImg,
             iconAlt: "database"
           },
           {
             number: 4,
-            title: "Start Selling",
-            description: "Integrate your online store with us through Shopify, Youcan, Easyorders & Lightfunnels or use Zambeel portal manually.",
-            desktopDescription: "Integrate your online store\nwith us through Shopify,\nYoucan, Easyorders &\nLightfunnels or use Zambeel\nportal manually.",
+            title: t('zambeel3PL.whereToStart.steps.startSelling.title'),
+            description: t('zambeel3PL.whereToStart.steps.startSelling.desc'),
+            desktopDescription: t('zambeel3PL.whereToStart.steps.startSelling.desc').replace(/ and /g, '\nand ').replace(/ or /g, '\nor ').replace(/, /g, ',\n').replace(/ & /g, '\n& ').replace(/\n\n/g, '\n'),
             icon: null,
             iconAlt: null
           }

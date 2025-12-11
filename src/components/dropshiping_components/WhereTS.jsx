@@ -22,9 +22,17 @@ const Wts = ({
   const defaultButtonText = buttonText || t('whereToStart.startDropshipping');
   
   const getDesktopDescription = (desc) => {
-    // For English, format for multi-line display
-    if (t('common.getStarted') === 'Get Started') {
-      return desc.replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/ — /g, '\n— ').replace(/ or /g, '\nor ');
+    // Format for multi-line display - replace common patterns
+    if (desc) {
+      return desc
+        .replace(/ and /g, '\nand ')
+        .replace(/, /g, ',\n')
+        .replace(/ — /g, '\n— ')
+        .replace(/ or /g, '\nor ')
+        .replace(/ through /g, '\nthrough ')
+        .replace(/ with /g, '\nwith ')
+        .replace(/\. /g, '.\n')
+        .replace(/\n\n/g, '\n'); // Remove double newlines
     }
     return desc;
   };
