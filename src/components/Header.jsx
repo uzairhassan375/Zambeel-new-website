@@ -253,9 +253,12 @@ export default function Header({ theme = "dark" }) {
       {showMobileMenu && (
         <div className={`lg:hidden fixed top-20 left-1/2 transform -translate-x-1/2 w-[96%] max-w-[1400px] ${isLightTheme ? 'bg-[#E8F0FE]' : 'bg-[#2D3E7E]'} rounded-2xl shadow-2xl z-40 mt-2 overflow-hidden`}>
           <div className="flex flex-col p-6 space-y-4">
-            <div className="relative">
+            <div className="relative services-dropdown">
               <button
-                onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowServicesDropdown(!showServicesDropdown);
+                }}
                 className={`w-full flex items-center justify-between ${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition`}
               >
                 <span>{t('header.services')}</span>
