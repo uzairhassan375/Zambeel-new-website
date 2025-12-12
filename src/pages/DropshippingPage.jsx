@@ -189,7 +189,7 @@ const DropshippingPage = () => {
               playsInline
               poster="https://plus.unsplash.com/premium_photo-1661521056111-73d80cb1fd00?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZHJvcHNoaXBwaW5nfGVufDB8MHwwfHx8MA%3D%3D"
             >
-              <source src="/src/assets/dropshipping.webm" type="video/webm" />
+              <source src="/public/videos/dropshipping.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
           </div>

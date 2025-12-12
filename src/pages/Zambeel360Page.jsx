@@ -282,7 +282,7 @@ const Zambeel360Page = () => {
               playsInline
               poster="https://plus.unsplash.com/premium_photo-1683984171269-04c84ee23234?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGVjb21tZXJjZXxlbnwwfDB8MHx8fDA%3D"
             >
-              <source src="/src/assets/360-zambeel.webm" type="video/webm" />
+              <source src="/public/videos/360-zambeel.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
           </div>

@@ -280,7 +280,7 @@ const Zambeel3PLPage = () => {
               playsInline
               poster="https://plus.unsplash.com/premium_photo-1749423089108-9ab9871fb9e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGhpcmQlMjBwYXJ0JTIwbG9naXN0aWNzfGVufDB8MHwwfHx8MA%3D%3D"
             >
-              <source src="/src/assets/3pl-landscape.webm" type="video/webm" />
+              <source src="/public/videos/3pl-landscape.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
           </div>
