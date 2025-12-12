@@ -305,6 +305,14 @@ export default function HomePage() {
           </svg>
         </div>
 
+        {/* Mobile SVGs */}
+        <div className="absolute top-[1%] w-full flex justify-center gap-4 md:hidden -z-10 -ml-25">
+          <svg width="163" height="82" viewBox="0 0 163 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M163 44.9946C163 26.0717 149.909 0 148.22 0C143.575 11.7742 95 18.9229 95 32.7999C95 50.0406 108.942 82 108.942 82C128.789 62.236 163 60.1332 163 44.9946Z" fill="#FFB6C1" fillOpacity="0.2" />
+            <path d="M68 44.9946C68 26.0717 54.9094 0 53.2202 0C48.5752 11.7742 0 18.9229 0 32.7999C0 50.0406 13.9417 82 13.9417 82C33.7888 62.236 68 60.1332 68 44.9946Z" fill="#FFB6C1" fillOpacity="0.2" />
+          </svg>
+        </div>
+
 
         <div className="text-center mb-16 md:mb-8 relative">
           <div className="mb-8 hidden md:flex justify-center relative items-center">
