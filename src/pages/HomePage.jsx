@@ -12,7 +12,7 @@ export default function HomePage() {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   const [numberText, setNumberText] = useState("");
-  
+
   // Statistics animation
   const statsRef = useRef(null);
   const [codCount, setCodCount] = useState(0);
@@ -32,7 +32,7 @@ export default function HomePage() {
 
     const type = () => {
       const currentWord = numbers[wordIndex];
-      
+
       if (!isDeleting) {
         setNumberText(currentWord.substring(0, charIndex + 1));
         charIndex++;
@@ -51,14 +51,14 @@ export default function HomePage() {
           wordIndex++;
           if (wordIndex === numbers.length) {
             wordIndex = 0;
-            }
           }
         }
+      }
       timeoutId = setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
     };
-    
+
     type();
-    
+
     return () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
@@ -73,7 +73,7 @@ export default function HomePage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
-            
+
             // Animate orders delivered (1000K+)
             const codTarget = 1000;
             const codDuration = 2000;
@@ -142,7 +142,7 @@ export default function HomePage() {
   // Auto-rotate reviews carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentReviewIndex((prevIndex) => 
+      setCurrentReviewIndex((prevIndex) =>
         prevIndex === 3 ? 0 : prevIndex + 1
       );
     }, 3500); // Change every 3.5 seconds
@@ -286,22 +286,22 @@ export default function HomePage() {
         <div className="absolute top-0 left-[10%] w-40 h-40 bg-[#FFFBEB] rounded-full blur-xl -z-10 rotate-12 transform opacity-80"></div>
         <div className="absolute top-10 right-[15%] w-80 h-80 bg-[#FFFBEB] rounded-full blur-2xl -z-10 opacity-80"></div>
 
- {/* Left side SVGs */}
- <div className="absolute left-30 top-[20%] hidden md:block">
+        {/* Left side SVGs */}
+        <div className="absolute left-30 top-[20%] hidden md:block">
           <svg width="106" height="124" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F9D849" fillOpacity="0.1"/>
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F9D849" fillOpacity="0.1" />
           </svg>
         </div>
         <div className="absolute left-0 top-[20%] hidden md:block">
           <svg width="106" height="124" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F9D849" fillOpacity="0.1"/>
+            <path d="M-1.68109e-06 55.9593C-4.18271e-06 84.5745 20.406 124 23.039 124C30.2799 106.195 106 95.3848 106 74.4002C106 48.3289 84.2674 5.72947e-06 84.2674 5.72947e-06C53.3291 29.8871 3.20237e-07 33.0668 -1.68109e-06 55.9593Z" fill="#F9D849" fillOpacity="0.1" />
           </svg>
         </div>
 
         {/* Right side SVG */}
         <div className="absolute right-0 top-[1%] hidden md:block">
           <svg width="305" height="260" viewBox="0 0 305 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M137.642 260C208.026 260 305 209.948 305 203.489C261.206 185.729 234.616 -3.07658e-06 183 -5.33277e-06C118.873 -8.13585e-06 -2.3301e-06 53.3065 -2.3301e-06 53.3065C73.5126 129.193 81.3337 260 137.642 260Z" fill="#F9D849" fillOpacity="0.1"/>
+            <path d="M137.642 260C208.026 260 305 209.948 305 203.489C261.206 185.729 234.616 -3.07658e-06 183 -5.33277e-06C118.873 -8.13585e-06 -2.3301e-06 53.3065 -2.3301e-06 53.3065C73.5126 129.193 81.3337 260 137.642 260Z" fill="#F9D849" fillOpacity="0.1" />
           </svg>
         </div>
 
@@ -340,44 +340,44 @@ export default function HomePage() {
             const titleWords = card.title.split(' ');
             const firstWord = titleWords[0];
             const restOfTitle = titleWords.slice(1).join(' ');
-            
+
             return (
-            <div
-              key={card.cta}
-              className="group card-hover bg-[#E7EFFC] rounded-[32px] px-6 py-4 flex flex-col h-full transition-all duration-300 hover:scale-[1.02]"
-            >
-              <div className="flex-grow">
-                <h2 className="text-[#2E3B78] text-xl font-semibold mb-2 leading-tight">
-                  <span className="font-bold">
-                    {firstWord}
-                  </span>
-                  {restOfTitle && ` ${restOfTitle}`}
-                </h2>
-                <p className="text-[#4A5568] group-hover:text-[#2E3B78] text-sm leading-relaxed mb-4">
-                  {card.desc}
-                </p>
+              <div
+                key={card.cta}
+                className="group card-hover bg-[#E7EFFC] rounded-[32px] px-6 py-4 flex flex-col h-full transition-all duration-300 hover:scale-[1.02]"
+              >
+                <div className="flex-grow">
+                  <h2 className="text-[#2E3B78] text-xl font-semibold mb-2 leading-tight">
+                    <span className="font-bold">
+                      {firstWord}
+                    </span>
+                    {restOfTitle && ` ${restOfTitle}`}
+                  </h2>
+                  <p className="text-[#4A5568] group-hover:text-[#2E3B78] text-sm leading-relaxed mb-4">
+                    {card.desc}
+                  </p>
+                </div>
+                {card.link ? (
+                  <Link
+                    to={card.link}
+                    className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg"
+                  >
+                    <span>{card.cta}</span>
+                    <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
+                  </Link>
+                ) : (
+                  <button className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
+                    <span>{card.cta}</span>
+                    <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
+                  </button>
+                )}
               </div>
-              {card.link ? (
-                <Link
-                  to={card.link}
-                  className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg"
-                >
-                  <span>{card.cta}</span>
-                  <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
-                </Link>
-              ) : (
-                <button className="w-full bg-[#2E3B78] group-hover:bg-white text-white group-hover:text-black font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
-                  <span>{card.cta}</span>
-                  <i className="fa-solid fa-arrow-right text-[#FCD64C] group-hover:text-black transition-colors"></i>
-                </button>
-              )}
-            </div>
             );
           })}
         </div>
       </main>
 
-      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-8 pb-0 md:pt-0 md:py-8 px-4 flex justify-center">
+      <section id="where-to-sell" className="w-full lg:bg-[#FDE8E9] pt-8 pb-0 md:py-8 px-4 flex justify-center">
         <div className="max-w-[1200px] w-full mx-auto bg-white rounded-[2.5rem] p-6 lg:px-12 lg:py-6">
           <div className="flex lg:hidden gap-3 items-center">
             <div className="flex flex-col items-center justify-between py-2">
@@ -402,9 +402,9 @@ export default function HomePage() {
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
                     className={`w-16 h-12 rounded-xl flex items-center justify-center cursor-pointer transition overflow-hidden shadow-md ${country.name === selectedCountry
-                        ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
-                        : "border-2 border-gray-200 hover:border-gray-300"
-                    }`}
+                      ? "ring-2 ring-[#FCD64C] shadow-lg scale-105"
+                      : "border-2 border-gray-200 hover:border-gray-300"
+                      }`}
                   >
                     <img
                       src={`https://flagcdn.com/w160/${country.code}.png`}
@@ -440,11 +440,11 @@ export default function HomePage() {
                 </h3>
               </div>
               <p className="text-[#4A5568] text-xs leading-relaxed mb-5">
-                {selectedCountry === "Pakistan" 
+                {selectedCountry === "Pakistan"
                   ? t('homepage.whereToSell.description.full', { country: selectedCountry })
                   : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
-                  ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
-                  : t('homepage.whereToSell.description.full', { country: selectedCountry })
+                    ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
+                    : t('homepage.whereToSell.description.full', { country: selectedCountry })
                 }
               </p>
               <div className="space-y-2">
@@ -520,9 +520,9 @@ export default function HomePage() {
                     key={country.code}
                     onClick={() => setSelectedCountry(country.name)}
                     className={`flex flex-col items-center gap-2 cursor-pointer transition p-3 rounded-xl ${country.name === selectedCountry
-                        ? "bg-[#FFF9E6] shadow-md"
-                        : "hover:bg-gray-50"
-                    }`}
+                      ? "bg-[#FFF9E6] shadow-md"
+                      : "hover:bg-gray-50"
+                      }`}
                   >
                     <div className="w-12 h-8 rounded shadow-sm overflow-hidden border border-gray-200">
                       <img
@@ -546,11 +546,11 @@ export default function HomePage() {
                 {selectedCountry}
               </h3>
               <p className="text-[#4A5568] text-sm lg:text-base leading-relaxed mb-8">
-                {selectedCountry === "Pakistan" 
+                {selectedCountry === "Pakistan"
                   ? t('homepage.whereToSell.description.full', { country: selectedCountry })
                   : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
-                  ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
-                  : t('homepage.whereToSell.description.full', { country: selectedCountry })
+                    ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
+                    : t('homepage.whereToSell.description.full', { country: selectedCountry })
                 }
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -644,70 +644,70 @@ export default function HomePage() {
             {/* Carousel - Desktop only */}
             <div className="hidden lg:flex gap-4 h-[500px] justify-center">
 
-            <div
-              className="relative overflow-hidden h-full mx-auto"
-              style={{ width: "830px" }}
-            >
               <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, white 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 94%, white 100%)",
-                }}
-              />
-              <div
-                className="flex h-full gap-4 transition-transform duration-700 ease-in-out"
-                style={{
-                  transform: showAllFeatures
-                    ? "translateX(-165px)"
-                    : "translateX(0)",
-                }}
+                className="relative overflow-hidden h-full mx-auto"
+                style={{ width: "830px" }}
               >
-                {[
-                  {
-                    img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(to right, white 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 94%, white 100%)",
+                  }}
+                />
+                <div
+                  className="flex h-full gap-4 transition-transform duration-700 ease-in-out"
+                  style={{
+                    transform: showAllFeatures
+                      ? "translateX(-165px)"
+                      : "translateX(0)",
+                  }}
+                >
+                  {[
+                    {
+                      img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
                       title: t('homepage.whyZambeel.features.dropshipping.title'),
-                    desc: t('homepage.whyZambeel.features.dropshipping.desc'),
-                  },
-                  {
-                    img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
+                      desc: t('homepage.whyZambeel.features.dropshipping.desc'),
+                    },
+                    {
+                      img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
                       title: t('homepage.whyZambeel.features.zambeel360.title'),
-                    desc: t('homepage.whyZambeel.features.zambeel360.desc'),
-                  },
-                  {
-                    img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                      desc: t('homepage.whyZambeel.features.zambeel360.desc'),
+                    },
+                    {
+                      img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
                       title: t('homepage.whyZambeel.features.3PL.title'),
                       desc: t('homepage.whyZambeel.features.3PL.desc'),
                     },
                     {
                       img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
                       title: t('homepage.whyZambeel.features.learnEcommerce.title'),
-                    desc: t('homepage.whyZambeel.features.learnEcommerce.desc'),
-                  },
-                ].map((card) => (
-                  <div
-                    key={card.title}
-                    className="group relative rounded-[32px] overflow-hidden cursor-pointer h-full shrink-0"
-                    style={{ width: "320px" }}
-                  >
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-8 z-10">
-                      <h3 className="text-white text-xl font-bold mb-1">
-                        {card.title}
-                      </h3>
-                      <p className="text-gray-200 text-sm leading-snug">
-                        {card.desc}
-                      </p>
+                      desc: t('homepage.whyZambeel.features.learnEcommerce.desc'),
+                    },
+                  ].map((card) => (
+                    <div
+                      key={card.title}
+                      className="group relative rounded-[32px] overflow-hidden cursor-pointer h-full shrink-0"
+                      style={{ width: "320px" }}
+                    >
+                      <img
+                        src={card.img}
+                        alt={card.title}
+                        className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-8 z-10">
+                        <h3 className="text-white text-xl font-bold mb-1">
+                          {card.title}
+                        </h3>
+                        <p className="text-gray-200 text-sm leading-snug">
+                          {card.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
             </div>
           </div>
 
@@ -724,15 +724,15 @@ export default function HomePage() {
                   title: t('about.whyZambeel.features.cod.title'),
                   desc: t('about.whyZambeel.features.cod.desc'),
                 },
-                      {
-                        img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                        title: t('about.whyZambeel.features.ai.title'),
-                        desc: t('about.whyZambeel.features.ai.desc'),
-                      },
-                      {
-                        img: "https://picsum.photos/400/600?random=4",
-                        title: t('about.whyZambeel.features.support.title'),
-                        desc: t('about.whyZambeel.features.support.desc'),
+                {
+                  img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
+                  title: t('about.whyZambeel.features.ai.title'),
+                  desc: t('about.whyZambeel.features.ai.desc'),
+                },
+                {
+                  img: "https://picsum.photos/400/600?random=4",
+                  title: t('about.whyZambeel.features.support.title'),
+                  desc: t('about.whyZambeel.features.support.desc'),
                 },
                 ...(showAllFeatures
                   ? [
@@ -745,8 +745,8 @@ export default function HomePage() {
                       img: "https://picsum.photos/400/600?random=6",
                       title: "Secure Platform",
                       desc: "Your data and transactions are always protected.",
-                      },
-                    ]
+                    },
+                  ]
                   : []),
               ].map((card) => (
                 <div
@@ -892,7 +892,7 @@ export default function HomePage() {
                   const prevIndex = currentReviewIndex === 0 ? reviews.length - 1 : currentReviewIndex - 1;
                   const prevReview = reviews[prevIndex];
                   return (
-                <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
+                    <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
                       <div className="flex items-center gap-2 mb-3 opacity-70">
                         <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
                           <img
@@ -916,11 +916,11 @@ export default function HomePage() {
                             }
                           ></i>
                         ))}
-                  </div>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                      </div>
+                      <p className="text-xs text-gray-400 leading-relaxed">
                         "{prevReview.text.substring(0, 40)}..."
-                  </p>
-                </div>
+                      </p>
+                    </div>
                   );
                 })()}
 
@@ -967,19 +967,19 @@ export default function HomePage() {
                   const nextIndex = currentReviewIndex === reviews.length - 1 ? 0 : currentReviewIndex + 1;
                   const nextReview = reviews[nextIndex];
                   return (
-                <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
-                  <div className="flex items-center gap-2 mb-3 opacity-70">
-                    <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
-                      <img
+                    <div className="hidden md:flex w-1/4 min-w-[220px] h-40 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm opacity-60 flex-col justify-center select-none transform scale-95">
+                      <div className="flex items-center gap-2 mb-3 opacity-70">
+                        <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
+                          <img
                             src={nextReview.image}
-                        className="w-full h-full object-cover"
+                            className="w-full h-full object-cover"
                             alt={nextReview.name}
-                      />
-                    </div>
-                    <span className="font-bold text-xs text-gray-700">
+                          />
+                        </div>
+                        <span className="font-bold text-xs text-gray-700">
                           {nextReview.name}
-                    </span>
-                  </div>
+                        </span>
+                      </div>
                       <div className="flex text-[#FFC107] text-xs mb-2 opacity-70">
                         {[...Array(5)].map((_, i) => (
                           <i
@@ -992,10 +992,10 @@ export default function HomePage() {
                           ></i>
                         ))}
                       </div>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                      <p className="text-xs text-gray-400 leading-relaxed">
                         "{nextReview.text.substring(0, 40)}..."
-                  </p>
-                </div>
+                      </p>
+                    </div>
                   );
                 })()}
               </div>
@@ -1006,9 +1006,9 @@ export default function HomePage() {
                     key={idx}
                     onClick={() => setCurrentReviewIndex(idx)}
                     className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full cursor-pointer transition-all ${idx === currentReviewIndex
-                        ? "bg-[#FFD700]"
-                        : "bg-white opacity-40 md:bg-[#2E3B78] md:opacity-80"
-                    }`}
+                      ? "bg-[#FFD700]"
+                      : "bg-white opacity-40 md:bg-[#2E3B78] md:opacity-80"
+                      }`}
                   ></div>
                 ))}
               </div>
