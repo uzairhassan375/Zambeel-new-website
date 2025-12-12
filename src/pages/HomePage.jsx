@@ -206,10 +206,10 @@ export default function HomePage() {
       image: "https://randomuser.me/api/portraits/women/44.jpg",
     },
     {
-      name: "Ahmed Hassan",
+      name: "أحمد حسن",
       date: "8th December, 2025",
       rating: 5,
-      text: "The 3PL service is outstanding. Fast shipping, reliable tracking, and excellent customer service. Our customers love the quick delivery times.",
+      text: "خدمة 3PL ممتازة. شحن سريع وتتبع موثوق وخدمة عملاء رائعة. يحب عملاؤنا أوقات التسليم السريعة.",
       image: "https://randomuser.me/api/portraits/men/89.jpg",
     },
   ];
