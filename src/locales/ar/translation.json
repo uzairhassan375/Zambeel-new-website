@@ -20,7 +20,11 @@
         "whyZambeel": "لماذا زمبيل؟",
         "reviews": "المراجعات",
         "ourTeam": "فريقنا",
-        "aboutUs": "نبذة عنا"
+        "aboutUs": "نبذة عنا",
+        "selectLanguage": "اختر اللغة",
+        "toggleMenu": "تبديل القائمة",
+        "languageEnglish": "English",
+        "languageArabic": "العربية"
     },
     "footer": {
         "tagline": "منصة واحدة لتعلم وبدء وإنشاء وتنمية أعمال التجارة الإلكترونية الخاصة بك بشكل مربح.",
@@ -82,7 +86,9 @@
                 "countriesCovered": "الدول المتاحة",
                 "codDeliveryRatio": "نسبة تسليم الدفع عند الاستلام",
                 "productCatalog": "كتالوج المنتجات",
-                "paymentsGuaranteed": "الدفع مضمون"
+                "paymentsGuaranteed": "الدفع مضمون",
+                "biggest": "الأكبر",
+                "weekly": "أسبوعي"
             },
             "features": {
                 "dropshipping": {
@@ -390,6 +396,7 @@
     },
     "trendingProducts": {
         "sold": "مباع",
+        "roas": "عائد الاستثمار",
         "rank": {
             "1st": "الأول",
             "2nd": "الثاني",
@@ -397,6 +404,14 @@
             "4th": "الرابع",
             "5th": "الخامس",
             "6th": "السادس"
+        },
+        "products": {
+            "nikeShoes": "أحذية نايك",
+            "audionicHeadphones": "سماعات أوديونيك",
+            "rolexWatch": "ساعة رولكس",
+            "selfieStick": "عصا السيلفي",
+            "rgbMouse": "ماوس RGB",
+            "roninMicrophone": "ميكروفون رونين"
         }
     }
 }

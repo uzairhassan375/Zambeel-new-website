@@ -427,15 +427,15 @@ const Zambeel360Page = () => {
         title={t('zambeel360.deliveryCharges.title')}
         subtitle={t('zambeel360.deliveryCharges.subtitle')}
         countries={[
-          { code: "UAE", name: "UAE", currency: "AED" },
-          { code: "KSA", name: "KSA", currency: "SAR" },
-          { code: "Kuwait", name: "Kuwait", currency: "AED" },
-          { code: "Qatar", name: "Qatar", currency: "AED" },
-          { code: "Pakistan", name: "Pakistan", currency: "PKR" }
+          { code: "UAE", name: t('countries.UAE'), currency: "AED" },
+          { code: "KSA", name: t('countries.KSA'), currency: "SAR" },
+          { code: "Kuwait", name: t('countries.Kuwait'), currency: "AED" },
+          { code: "Qatar", name: t('countries.Qatar'), currency: "AED" },
+          { code: "Pakistan", name: t('countries.Pakistan'), currency: "PKR" }
         ]}
         charges={[
           {
-            label: "Order Confirmation + Followup / Order Packing / Delivery",
+            label: t('deliveryCharges.orderConfirmation'),
             values: {
               UAE: "18 AED",
               KSA: "26 SAR",
@@ -445,7 +445,7 @@ const Zambeel360Page = () => {
             }
           },
           {
-            label: "Return",
+            label: t('deliveryCharges.return'),
             values: {
               UAE: "5 AED",
               KSA: "7.5 SAR",
@@ -455,7 +455,7 @@ const Zambeel360Page = () => {
             }
           },
           {
-            label: "COD Tax",
+            label: t('deliveryCharges.codTax'),
             values: {
               UAE: "0%",
               KSA: "0%",
@@ -465,7 +465,7 @@ const Zambeel360Page = () => {
             }
           },
           {
-            label: "Delivery Time",
+            label: t('deliveryCharges.deliveryTime'),
             icon: "⚡",
             values: {
               UAE: "1-2 Days",
@@ -477,9 +477,9 @@ const Zambeel360Page = () => {
           }
         ]}
         importantInfo={[
-          "Warehousing is FREE for first 2 months, after this 1AED/item/Month will be charged on unsold inventory",
-          "In case of failed delivery, only 'Return' will be charged",
-          "In some outskirt areas, delivery charges can be greater too. This happens on 3% of the orders only."
+          t('deliveryCharges.warehousingFree'),
+          t('deliveryCharges.failedDelivery'),
+          t('deliveryCharges.outskirtAreas')
         ]}
       />
     </div>

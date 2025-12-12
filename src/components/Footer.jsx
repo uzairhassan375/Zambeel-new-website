@@ -34,24 +34,24 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm text-blue-50 opacity-90">
             <li>
-              <a href="#" className="hover:text-white hover:underline">
+              <Link to="/dropshipping" className="hover:text-white hover:underline">
                 {t('header.dropshipping')}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-white hover:underline">
+              <Link to="/zambeel-3pl" className="hover:text-white hover:underline">
                 {t('header.zambeel3PL')}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-white hover:underline">
+              <Link to="/zambeel-360" className="hover:text-white hover:underline">
                 {t('header.zambeel360')}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-white hover:underline">
+              <Link to="/" className="hover:text-white hover:underline">
                 {t('footer.learnEcommerce')}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -270,11 +270,11 @@ export default function HomePage() {
   const getServiceDisplayName = (service) => {
     switch (service) {
       case "Dropshipping":
-        return "Dropshipping";
+        return t('header.dropshipping');
       case "360":
-        return "Zambeel 360";
+        return t('header.zambeel360');
       case "3PL":
-        return "Zambeel 3PL";
+        return t('header.zambeel3PL');
       default:
         return service;
     }
@@ -622,7 +622,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      Biggest
+                      {t('homepage.whyZambeel.stats.biggest')}
                     </h4>
                     <span className="text-xs md:text-sm lg:text-base text-gray-500">{t('homepage.whyZambeel.stats.productCatalog')}</span>
                   </div>
@@ -633,7 +633,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#2E3B78] text-base md:text-lg lg:text-xl">
-                      Weekly
+                      {t('homepage.whyZambeel.stats.weekly')}
                     </h4>
                     <span className="text-xs md:text-sm lg:text-base text-gray-500">{t('homepage.whyZambeel.stats.paymentsGuaranteed')}</span>
                   </div>
@@ -716,23 +716,23 @@ export default function HomePage() {
               {[
                 {
                   img: "https://images.unsplash.com/photo-1625571281240-694bfa82e4c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fDUtMTAlMjBwcm9kdWN0cyUyMGltYWdlc3xlbnwwfDF8MHx8fDA%3D",
-                  title: "Zambeel Dropshipping",
-                  desc: "Start your Ecommerce business anywhere without registration.",
+                  title: t('homepage.whyZambeel.features.dropshipping.title'),
+                  desc: t('homepage.whyZambeel.features.dropshipping.desc'),
                 },
                 {
                   img: "https://plus.unsplash.com/premium_photo-1661393335735-7ee8d420b58a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww",
-                  title: "Cash on Delivery",
-                  desc: "Scale easily with COD—no payment gateway needed.",
+                  title: t('about.whyZambeel.features.cod.title'),
+                  desc: t('about.whyZambeel.features.cod.desc'),
                 },
                       {
                         img: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFJfGVufDB8MXwwfHx8MA%3D%3D",
-                        title: "AI Enabled Economy",
-                        desc: "Use our AI tools to accelerate your work.",
+                        title: t('about.whyZambeel.features.ai.title'),
+                        desc: t('about.whyZambeel.features.ai.desc'),
                       },
                       {
                         img: "https://picsum.photos/400/600?random=4",
-                        title: "Dedicated Support",
-                        desc: "Get expert support from day one.",
+                        title: t('about.whyZambeel.features.support.title'),
+                        desc: t('about.whyZambeel.features.support.desc'),
                 },
                 ...(showAllFeatures
                   ? [

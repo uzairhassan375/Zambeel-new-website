@@ -1,4 +1,8 @@
+import { useTranslation } from 'react-i18next';
+
 function AboutPage() {
+  const { t } = useTranslation();
+  
   return (
     <div className="min-h-screen bg-white">
       {/* About Zambeel Section */}
@@ -7,12 +11,12 @@ function AboutPage() {
           <div className="relative inline-block mb-6">
             <div className="absolute -left-8 -top-2 w-4 h-4 bg-yellow-400 rounded-sm transform rotate-12"></div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1e3a8a] relative z-10">
-              About Zambeel
+              {t('about.title')}
             </h1>
             <div className="absolute -right-8 -bottom-2 w-4 h-4 bg-yellow-400 rounded-sm transform -rotate-12"></div>
           </div>
           <p className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Zambeel is a commerce platform that provides sellers with the tools, automation, and fulfillment options they need to build and scale their online businesses. Whether you're just starting out or looking to expand, Zambeel offers solutions that make e-commerce accessible and profitable.
+            {t('about.description')}
           </p>
         </div>
 
@@ -21,12 +25,12 @@ function AboutPage() {
           <div className="relative inline-block mb-6">
             <div className="absolute -left-6 -top-1 w-3 h-3 bg-yellow-400 rounded-xl transform rotate-12"></div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1e3a8a] relative z-10">
-              Our Mission
+              {t('about.mission.title')}
             </h2>
             <div className="absolute -right-6 -bottom-1 w-3 h-3 bg-yellow-400 rounded-full transform -rotate-12"></div>
           </div>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-            To empower sellers with an accessible, intelligent, and local-first platform that makes online selling simple and genuinely profitable.
+            {t('about.mission.text')}
           </p>
         </div>
       </section>
@@ -35,7 +39,7 @@ function AboutPage() {
       <section className="bg-gray-50 py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1e3a8a] text-center mb-12 sm:mb-16">
-            What We Do
+            {t('about.whatWeDo.title')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
@@ -45,10 +49,10 @@ function AboutPage() {
                 <i className="fa-solid fa-bolt text-[#1e3a8a]"></i>
               </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e3a8a] mb-4 sm:mb-6">
-                Smart Selling Tools
+                {t('about.whatWeDo.smartTools.title')}
               </h3>
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed flex-grow">
-                Our AI-powered tools help you evaluate products, understand demand, build your store, get instant support, gain insights, and automate workflows. Everything you need to sell smarter and scale faster.
+                {t('about.whatWeDo.smartTools.desc')}
               </p>
             </div>
 
@@ -58,10 +62,10 @@ function AboutPage() {
                 <i className="fa-solid fa-truck-fast text-[#1e3a8a]"></i>
               </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e3a8a] mb-4 sm:mb-6">
-                Flexible Fulfillment Options
+                {t('about.whatWeDo.fulfillment.title')}
               </h3>
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed flex-grow">
-                Choose from dropshipping, 3PL, or our comprehensive 360 brand building solution. We handle storage, packaging, and delivery so you can focus on growing your business.
+                {t('about.whatWeDo.fulfillment.desc')}
               </p>
             </div>
 
@@ -71,10 +75,10 @@ function AboutPage() {
                 <i className="fa-solid fa-globe text-[#1e3a8a]"></i>
               </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e3a8a] mb-4 sm:mb-6">
-                Local Solutions for Local Sellers
+                {t('about.whatWeDo.localSolutions.title')}
               </h3>
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed flex-grow">
-                We understand the Pakistani market and the unique challenges you face. From payment constraints to logistics reliability, we've built solutions that work for local sellers.
+                {t('about.whatWeDo.localSolutions.desc')}
               </p>
             </div>
           </div>
@@ -85,10 +89,10 @@ function AboutPage() {
       <section className="w-full py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F5FCFF' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1e3a8a] text-center mb-6">
-            Why Zambeel?
+            {t('about.whyZambeel.title')}
           </h2>
           <p className="text-center text-base sm:text-lg text-gray-700 mb-12 sm:mb-16">
-            Start your Ecommerce business from anywhere in the world without business registration.
+            {t('about.whyZambeel.subtitle')}
           </p>
 
         {/* Metrics */}
@@ -98,25 +102,25 @@ function AboutPage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#F0FAFF' }}>
                 <i className="fa-solid fa-globe text-[#1e3a8a] text-xl"></i>
               </div>
-              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">5 countries covered</p>
+              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">{t('about.whyZambeel.metrics.countriesCovered')}</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#F0FAFF' }}>
                 <i className="fa-solid fa-truck-fast text-[#1e3a8a] text-xl"></i>
               </div>
-              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">80% Delivery Success</p>
+              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">{t('about.whyZambeel.metrics.deliverySuccess')}</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#F0FAFF' }}>
                 <i className="fa-solid fa-cart-shopping text-[#1e3a8a] text-xl"></i>
               </div>
-              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">10K+ Products Listed</p>
+              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">{t('about.whyZambeel.metrics.productsListed')}</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#F0FAFF' }}>
                 <i className="fa-regular fa-credit-card text-[#1e3a8a] text-xl"></i>
               </div>
-              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">5-Day Payment Guarantee</p>
+              <p className="text-sm sm:text-base font-semibold text-[#1e3a8a]">{t('about.whyZambeel.metrics.paymentGuarantee')}</p>
             </div>
           </div>
         </div>
@@ -127,16 +131,16 @@ function AboutPage() {
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
               src="https://images.unsplash.com/photo-1612452830710-97cd38a7b6e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGVjb21tZXJjZXxlbnwwfDF8MHx8fDA%3D"
-              alt="Zambeel Dropshipping"
+              alt={t('about.whyZambeel.features.dropshipping.title')}
               className="w-full h-full object-cover absolute inset-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                Zambeel Dropshipping
+                {t('about.whyZambeel.features.dropshipping.title')}
               </h3>
               <p className="text-sm sm:text-base text-white/90">
-                Start your Ecommerce business from anywhere in the world without business registration.
+                {t('about.whyZambeel.features.dropshipping.desc')}
               </p>
             </div>
           </div>
@@ -145,16 +149,16 @@ function AboutPage() {
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
               src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FzaCUyMG9uJTIwZGVsaXZlcnl8ZW58MHwxfDB8fHww"
-              alt="Cash on Delivery"
+              alt={t('about.whyZambeel.features.cod.title')}
               className="w-full h-full object-cover absolute inset-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                Cash on Delivery
+                {t('about.whyZambeel.features.cod.title')}
               </h3>
               <p className="text-sm sm:text-base text-white/90">
-                No need for payment gateway. You can start and scale your business with Cash on Delivery.
+                {t('about.whyZambeel.features.cod.desc')}
               </p>
             </div>
           </div>
@@ -163,16 +167,16 @@ function AboutPage() {
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
               src="https://plus.unsplash.com/premium_photo-1677269465314-d5d2247a0b0c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEFJfGVufDB8MXwwfHx8MA%3D%3D"
-              alt="AI Enabled Economy"
+              alt={t('about.whyZambeel.features.ai.title')}
               className="w-full h-full object-cover absolute inset-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                AI Enabled Economy
+                {t('about.whyZambeel.features.ai.title')}
               </h3>
               <p className="text-sm sm:text-base text-white/90">
-                Use our AI tools to make your work easier and more efficient.
+                {t('about.whyZambeel.features.ai.desc')}
               </p>
             </div>
           </div>
@@ -181,16 +185,16 @@ function AboutPage() {
           <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow min-h-[280px] sm:min-h-[320px]">
             <img
               src="https://plus.unsplash.com/premium_photo-1661508822147-810c368b0ea0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RGVkaWNhdGVkJTIwc3VwcG9ydHxlbnwwfDF8MHx8fDA%3D"
-              alt="Dedicated Support"
+              alt={t('about.whyZambeel.features.support.title')}
               className="w-full h-full object-cover absolute inset-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                Dedicated Support
+                {t('about.whyZambeel.features.support.title')}
               </h3>
               <p className="text-sm sm:text-base text-white/90">
-                Get dedicated expert support from day one.
+                {t('about.whyZambeel.features.support.desc')}
               </p>
             </div>
           </div>
@@ -199,7 +203,7 @@ function AboutPage() {
         {/* View More Button */}
         <div className="flex justify-end">
           <button className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-[#1e3a8a] text-[#1e3a8a] font-semibold rounded-lg hover:bg-[#1e3a8a] hover:text-white transition-colors">
-            View more
+            {t('common.viewMore')}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

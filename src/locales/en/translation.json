@@ -20,7 +20,11 @@
       "whyZambeel": "Why Zambeel?",
       "reviews": "Reviews",
       "ourTeam": "Our Team",
-      "aboutUs": "About Us"
+      "aboutUs": "About Us",
+      "selectLanguage": "Select language",
+      "toggleMenu": "Toggle menu",
+      "languageEnglish": "English",
+      "languageArabic": "العربية"
     },
     "footer": {
       "tagline": "One Platform to Learn, Start, Build and Grow your E-commerce Business Profitably.",
@@ -82,7 +86,9 @@
           "countriesCovered": "Countries covered",
           "codDeliveryRatio": "COD Delivery Ratio",
           "productCatalog": "Product Catalog",
-          "paymentsGuaranteed": "Payments Guaranteed"
+          "paymentsGuaranteed": "Payments Guaranteed",
+          "biggest": "Biggest",
+          "weekly": "Weekly"
         },
         "features": {
           "dropshipping": {
@@ -390,6 +396,7 @@
     },
     "trendingProducts": {
       "sold": "sold",
+      "roas": "ROAS",
       "rank": {
         "1st": "1st",
         "2nd": "2nd",
@@ -397,6 +404,14 @@
         "4th": "4th",
         "5th": "5th",
         "6th": "6th"
+      },
+      "products": {
+        "nikeShoes": "NIKE Shoes",
+        "audionicHeadphones": "Audionic Headphones",
+        "rolexWatch": "Rolex Watch",
+        "selfieStick": "Selfie Stick",
+        "rgbMouse": "RGB Mouse",
+        "roninMicrophone": "Ronin Microphone"
       }
     }
   }

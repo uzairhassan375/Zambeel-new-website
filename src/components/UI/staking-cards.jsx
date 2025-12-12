@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { cardData } from '../../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -192,6 +192,42 @@ const Card = ({ title, description, index, totalCards, cta, link }) => {
 
 export const StackedCards = () => {
     const containerRef = useRef(null);
+    const { t } = useTranslation();
+
+    const cardData = [
+        {
+            id: 1,
+            title: t('homepage.featureCards.learnEcommerce.title'),
+            description: t('homepage.featureCards.learnEcommerce.desc'),
+            color: "rgba(99, 102, 241, 0.8)",
+            cta: t('homepage.featureCards.learnEcommerce.cta'),
+            link: "/"
+        },
+        {
+            id: 2,
+            title: t('homepage.featureCards.dropshipping.title'),
+            description: t('homepage.featureCards.dropshipping.desc'),
+            color: "rgba(236, 72, 153, 0.8)",
+            cta: t('homepage.featureCards.dropshipping.cta'),
+            link: "/dropshipping"
+        },
+        {
+            id: 3,
+            title: t('homepage.featureCards.zambeel360.title'),
+            description: t('homepage.featureCards.zambeel360.desc'),
+            color: "rgba(34, 197, 94, 0.8)",
+            cta: t('homepage.featureCards.zambeel360.cta'),
+            link: "/zambeel-360"
+        },
+        {
+            id: 4,
+            title: t('homepage.featureCards.zambeel3PL.title'),
+            description: t('homepage.featureCards.zambeel3PL.desc'),
+            color: "rgba(251, 146, 60, 0.8)",
+            cta: t('homepage.featureCards.zambeel3PL.cta'),
+            link: "/zambeel-3pl"
+        }
+    ];
 
     useEffect(() => {
         const container = containerRef.current;

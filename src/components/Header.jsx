@@ -145,7 +145,7 @@ export default function Header({ theme = "dark" }) {
             setShowLanguageDropdown(!showLanguageDropdown);
           }}
           className={`${textColor} p-2 rounded-full hover:bg-white/10 transition flex items-center gap-2`}
-          aria-label="Select language"
+          aria-label={t('header.selectLanguage')}
         >
           {currentLanguage === 'en' ? (
             <svg className="w-5 h-5" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +186,7 @@ export default function Header({ theme = "dark" }) {
                 <path d="M10 0V15M0 7.5H20" stroke="#C8102E" strokeWidth="1"/>
               </svg>
               <span className={`text-sm font-medium ${currentLanguage === 'en' ? 'text-[#2E3B78]' : 'text-gray-700'}`}>
-                English
+                {t('header.languageEnglish')}
               </span>
             </button>
             <button
@@ -201,7 +201,7 @@ export default function Header({ theme = "dark" }) {
                 <rect width="20" height="4.44" y="8.89" fill="#CE1126"/>
               </svg>
               <span className={`text-sm font-medium ${currentLanguage === 'ar' ? 'text-[#2E3B78]' : 'text-gray-700'}`}>
-                العربية
+                {t('header.languageArabic')}
               </span>
             </button>
           </div>
@@ -219,7 +219,7 @@ export default function Header({ theme = "dark" }) {
         <button
           onClick={() => setShowMobileMenu(!showMobileMenu)}
           className={`lg:hidden ${textColor} p-2`}
-          aria-label="Toggle menu"
+          aria-label={t('header.toggleMenu')}
         >
           <svg
             className="w-6 h-6"
@@ -360,7 +360,7 @@ export default function Header({ theme = "dark" }) {
                         <rect width="20" height="4.44" y="8.89" fill="#CE1126"/>
                       </svg>
                     )}
-                    <span>{currentLanguage === 'en' ? 'English' : 'العربية'}</span>
+                    <span>{currentLanguage === 'en' ? t('header.languageEnglish') : t('header.languageArabic')}</span>
                   </div>
                   <svg
                     className={`w-4 h-4 transition-transform ${
@@ -389,7 +389,7 @@ export default function Header({ theme = "dark" }) {
                         <path d="M10 0V15M0 7.5H20" stroke="white" strokeWidth="1.5"/>
                         <path d="M10 0V15M0 7.5H20" stroke="#C8102E" strokeWidth="1"/>
                       </svg>
-                      <span>English</span>
+                      <span>{t('header.languageEnglish')}</span>
                     </button>
                     <button
                       onClick={() => handleLanguageChange('ar')}
@@ -400,7 +400,7 @@ export default function Header({ theme = "dark" }) {
                         <rect width="20" height="4.44" y="4.44" fill="#FFFFFF"/>
                         <rect width="20" height="4.44" y="8.89" fill="#CE1126"/>
                       </svg>
-                      <span>العربية</span>
+                      <span>{t('header.languageArabic')}</span>
                     </button>
                   </div>
                 )}

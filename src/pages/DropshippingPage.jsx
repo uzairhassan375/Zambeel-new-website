@@ -286,13 +286,13 @@ const DropshippingPage = () => {
         title={t('dropshipping.deliveryCharges.title')}
         subtitle={t('dropshipping.deliveryCharges.subtitle')}
         countries={[
-          { code: "Pakistan", name: "Pakistan", currency: "PKR" },
-          { code: "UAE", name: "UAE", currency: "AED" },
-          { code: "KSA", name: "KSA", currency: "SAR" }
+          { code: "Pakistan", name: t('countries.Pakistan'), currency: "PKR" },
+          { code: "UAE", name: t('countries.UAE'), currency: "AED" },
+          { code: "KSA", name: t('countries.KSA'), currency: "SAR" }
         ]}
         charges={[
           {
-            label: "Order Confirmation + Followup / Order Packing / Delivery",
+            label: t('deliveryCharges.orderConfirmation'),
             values: {
               Pakistan: "200 PKR",
               UAE: "18 AED",
@@ -300,7 +300,7 @@ const DropshippingPage = () => {
             }
           },
           {
-            label: "Return",
+            label: t('deliveryCharges.return'),
             values: {
               Pakistan: "200 PKR",
               UAE: "5 AED",
@@ -308,7 +308,7 @@ const DropshippingPage = () => {
             }
           },
           {
-            label: "COD Tax",
+            label: t('deliveryCharges.codTax'),
             values: {
               Pakistan: "4%",
               UAE: "0%",
@@ -316,7 +316,7 @@ const DropshippingPage = () => {
             }
           },
           {
-            label: "Delivery Time",
+            label: t('deliveryCharges.deliveryTime'),
             icon: "⚡",
             values: {
               Pakistan: "2-4 Days",
@@ -326,8 +326,8 @@ const DropshippingPage = () => {
           }
         ]}
         importantInfo={[
-          "In case of failed delivery, only 'Return' will be charged",
-          "In some outskirt areas, delivery charges can be greater too. This happens on 3% of the orders only."
+          t('deliveryCharges.failedDelivery'),
+          t('deliveryCharges.outskirtAreas')
         ]}
       />
     </div>
