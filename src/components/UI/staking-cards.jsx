@@ -61,7 +61,7 @@ const Card = ({ title, description, index, totalCards, cta, link }) => {
     const viewportCenter = '30%';
     // All containers need enough height for the scroll animation
     const containerHeight = 400;
-    
+
     return (
         <div
             ref={containerRef}
@@ -176,8 +176,8 @@ const Card = ({ title, description, index, totalCards, cta, link }) => {
                                 transition: 'opacity 0.2s',
                                 fontFamily: 'inherit'
                             }}
-                            onMouseEnter={(e) => e.target.style.opacity = '0.9'}
-                            onMouseLeave={(e) => e.target.style.opacity = '1'}
+                                onMouseEnter={(e) => e.target.style.opacity = '0.9'}
+                                onMouseLeave={(e) => e.target.style.opacity = '1'}
                             >
                                 {cta || title}
                                 <span style={{ fontSize: '1rem', color: '#FCD64C' }}>→</span>
@@ -196,20 +196,20 @@ export const StackedCards = () => {
 
     const cardData = [
         {
-            id: 1,
-            title: t('homepage.featureCards.learnEcommerce.title'),
-            description: t('homepage.featureCards.learnEcommerce.desc'),
-            color: "rgba(99, 102, 241, 0.8)",
-            cta: t('homepage.featureCards.learnEcommerce.cta'),
-            link: "/"
-        },
-        {
             id: 2,
             title: t('homepage.featureCards.dropshipping.title'),
             description: t('homepage.featureCards.dropshipping.desc'),
             color: "rgba(236, 72, 153, 0.8)",
             cta: t('homepage.featureCards.dropshipping.cta'),
             link: "/dropshipping"
+        },
+        {
+            id: 1,
+            title: t('homepage.featureCards.learnEcommerce.title'),
+            description: t('homepage.featureCards.learnEcommerce.desc'),
+            color: "rgba(99, 102, 241, 0.8)",
+            cta: t('homepage.featureCards.learnEcommerce.cta'),
+            link: "/"
         },
         {
             id: 3,

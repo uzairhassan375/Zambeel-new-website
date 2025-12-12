@@ -110,7 +110,7 @@ const Wts = ({
         {showButton && (
           <button 
             onClick={handleButtonClick}
-            className="hidden md:inline-flex items-center px-8 py-3.5 bg-[#243a86] text-white text-base font-semibold rounded-full hover:bg-[#1d2a69] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mb-4 md:mb-6"
+            className="inline-flex items-center px-8 py-3.5 bg-[#243a86] text-white text-base font-semibold rounded-full hover:bg-[#1d2a69] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mb-4 md:mb-6"
           >
             <span>{finalButtonText}</span>
           <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
