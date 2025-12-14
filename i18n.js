@@ -3,6 +3,8 @@ import { initReactI18next } from 'react-i18next';
 import enTranslations from './src/locales/en/translation.json';
 import arTranslations from './src/locales/ar/translation.json';
 
+const savedLanguage = localStorage.getItem('language') || 'en';
+
 i18n
   .use(initReactI18next)
   .init({
@@ -14,7 +16,7 @@ i18n
         translation: arTranslations,
       },
     },
-    lng: 'en', // default language
+    lng: savedLanguage,
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // React already escapes values
@@ -24,19 +26,14 @@ i18n
 // Function to change language and update document direction
 export const changeLanguage = (lng) => {
   i18n.changeLanguage(lng);
+  localStorage.setItem('language', lng);
   document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
   document.documentElement.lang = lng;
 };
 
 // Set initial direction based on saved language preference
-const savedLanguage = localStorage.getItem('i18nextLng') || 'en';
-if (savedLanguage === 'ar') {
-  document.documentElement.dir = 'rtl';
-  document.documentElement.lang = 'ar';
-} else {
-  document.documentElement.dir = 'ltr';
-  document.documentElement.lang = 'en';
-}
+document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
+document.documentElement.lang = savedLanguage;
 
 export default i18n;
 
