@@ -113,6 +113,15 @@ const PricingCard = ({ plan, isMonthly = true, isActive, onClick, isLast = false
                 const featureText = feature.translationKey 
                   ? t(feature.translationKey) 
                   : (feature.text || '');
+                
+                // Features that should be bold
+                const boldFeatures = [
+                  'pricing.features.exclusiveWinningProduct',
+                  'pricing.features.winningCreativedStrategy',
+                  'pricing.features.seniorBusinessConsultant'
+                ];
+                const shouldBeBold = feature.translationKey && boldFeatures.includes(feature.translationKey);
+                
                 return (
                   <li key={i} className="flex items-center gap-2">
                     {feature.included ? (
@@ -120,7 +129,7 @@ const PricingCard = ({ plan, isMonthly = true, isActive, onClick, isLast = false
                     ) : (
                       <X className="w-5 h-5 text-red-400 shrink-0" />
                     )}
-                    <span className={`font-medium leading-[100%] tracking-[0] ${!feature.included ? 'text-gray-400 line-through' : ''}`} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px' }}>
+                    <span className={`${shouldBeBold ? 'font-bold' : 'font-medium'} leading-[100%] tracking-[0] ${!feature.included ? 'text-gray-400 line-through' : ''}`} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', fontWeight: shouldBeBold ? '700' : '500' }}>
                       {featureText}
                     </span>
                   </li>

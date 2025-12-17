@@ -41,7 +41,7 @@ export const pricingPlans = [
     ],
   },
   {
-    tag: "Diomand",
+    tag: "Diamond",
     tagTranslationKey: "pricing.plans.diamond.tag",
     name: "Super Saver",
     nameTranslationKey: "pricing.plans.diamond.name",

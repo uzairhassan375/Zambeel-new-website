@@ -77,7 +77,7 @@ const TrendingProducts = () => {
       }}
     >
       <div className="max-w-[1050px] mx-auto text-center">
-        <h2 className="text-[20px] md:text-[36px] font-[700] leading-[100%] tracking-[0] text-center text-white mb-10" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+        <h2 className="text-[20px] md:text-[36px] font-[700] leading-[100%] tracking-[0] text-center text-white mb-10" style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '700' }}>
           {t('dropshipping.trendingProducts.title')}
         </h2>
 
@@ -131,13 +131,15 @@ const TrendingProducts = () => {
 
           {/* All Products Button */}
           {!showMore && (
-            <button
-              onClick={() => setShowMore(true)}
-              className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors mb-6"
+            <a
+              href="https://www.myzambeel.com/pages/products"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FCD64C] text-[#243a86] px-8 py-3 rounded-full font-bold text-base hover:bg-[#ffc933] transition-colors mb-6 inline-block"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
               {t('common.allProducts')}
-            </button>
+            </a>
           )}
 
           {/* Additional cards when Show More is clicked */}
@@ -261,12 +263,15 @@ const TrendingProducts = () => {
               <i className="fa-solid fa-arrow-left"></i>
             </button>
 
-            <button
-              className="bg-[#243a86] text-white px-8 py-3 rounded-full font-medium text-base hover:bg-opacity-90 transition-colors"
+            <a
+              href="https://www.myzambeel.com/pages/products"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FCD64C] text-[#243a86] px-8 py-3 rounded-full font-bold text-base hover:bg-[#ffc933] transition-colors inline-block"
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)" }}
             >
               {t('common.viewAllProducts')}
-            </button>
+            </a>
 
             <button
               onClick={() => scroll("right")}

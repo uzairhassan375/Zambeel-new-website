@@ -183,7 +183,7 @@ const WhyZambeel = ({
         {/* ==================== */}
         <div className="hidden md:block rounded-3xl overflow-hidden shadow-2xl">
           <div className="bg-white px-14 pt-16 pb-10 text-center">
-            <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-black mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>{finalTitle}</h2>
+            <h2 className="text-[36px] font-bold leading-[100%] tracking-[0] text-center text-black mb-6" style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '700' }}>{finalTitle}</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {finalDescription}
             </p>

@@ -73,7 +73,7 @@ const DeliveryCharges = ({
       <div className="max-w-[1200px] mx-auto">
         {/* Title and Subtitle */}
         <div className="text-center mb-3 md:mb-6 lg:mb-8">
-          <h2 className="text-sm md:text-2xl lg:text-3xl font-bold text-white mb-0.5 md:mb-2" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+          <h2 className="text-sm md:text-2xl lg:text-3xl font-bold text-white mb-0.5 md:mb-2" style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '700' }}>
             {title}
           </h2>
           <p className="text-[9px] md:text-sm lg:text-base text-white" style={{ fontFamily: 'DM Sans, sans-serif' }}>

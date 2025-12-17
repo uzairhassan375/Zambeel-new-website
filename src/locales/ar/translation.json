@@ -16,9 +16,10 @@
         "dropshipping": "دروبشيبينغ",
         "zambeel3PL": "خدمات زمبيل اللوجستية",
         "zambeel360": "زمبيل 360",
+        "learnEcomm": "تعلم التجارة الإلكترونية",
+        "dropshippingProducts": "منتجات دروبشيبينغ",
         "whereCanYouSell": "أين يمكنك البيع؟",
         "whyZambeel": "لماذا زمبيل؟",
-        "reviews": "المراجعات",
         "ourTeam": "فريقنا",
         "aboutUs": "نبذة عنا",
         "selectLanguage": "اختر اللغة",
@@ -329,7 +330,7 @@
                 "name": "للمبتدئين"
             },
             "diamond": {
-                "tag": "Diomand",
+                "tag": "Diamond",
                 "name": "موفر فائق"
             }
         },

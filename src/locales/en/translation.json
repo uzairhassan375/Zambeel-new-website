@@ -11,21 +11,22 @@
     "talkToAgent": "Talk to our agent",
     "learnMore": "Learn more"
   },
-  "header": {
-    "services": "Services",
-    "dropshipping": "Dropshipping",
-    "zambeel3PL": "Zambeel 3PL",
-    "zambeel360": "Zambeel 360",
-    "whereCanYouSell": "Where can you sell?",
-    "whyZambeel": "Why Zambeel?",
-    "reviews": "Reviews",
-    "ourTeam": "Our Team",
-    "aboutUs": "About Us",
-    "selectLanguage": "Select language",
-    "toggleMenu": "Toggle menu",
-    "languageEnglish": "English",
-    "languageArabic": "العربية"
-  },
+    "header": {
+      "services": "Services",
+      "dropshipping": "Dropshipping",
+      "zambeel3PL": "Zambeel 3PL",
+      "zambeel360": "Zambeel 360",
+      "learnEcomm": "Learn E-comm",
+      "dropshippingProducts": "Dropshipping Products",
+      "whereCanYouSell": "Where can you sell?",
+      "whyZambeel": "Why Zambeel?",
+      "ourTeam": "Our Team",
+      "aboutUs": "About Us",
+      "selectLanguage": "Select language",
+      "toggleMenu": "Toggle menu",
+      "languageEnglish": "English",
+      "languageArabic": "العربية"
+    },
   "footer": {
     "tagline": "One Platform to Learn, Start, Build and Grow your E-commerce Business Profitably.",
     "services": "Services",
@@ -329,7 +330,7 @@
         "name": "For Beginners"
       },
       "diamond": {
-        "tag": "Diomand",
+        "tag": "Diamond",
         "name": "Super Saver"
       }
     },
@@ -345,7 +346,7 @@
       "seniorAccountManager": "Senior Dedicated Manager",
       "responseTime30Minutes": "Response time: 30 minutes",
       "exclusiveWinningProduct": "Exclusive Winning Product",
-      "winningCreativedStrategy": "Winning Creatived & Strategy"
+      "winningCreativedStrategy": "Winning Creatives & Strategy"
     },
     "buttons": {
       "getStarted": "Get Started",

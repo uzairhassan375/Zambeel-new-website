@@ -107,10 +107,24 @@ export default function Header({ theme = "dark" }) {
                   >
                     {t('header.zambeel3PL')}
                   </Link>
+                  <Link
+                    to="/"
+                    className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
+                  >
+                    {t('header.learnEcomm')}
+                  </Link>
                 </div>
               </div>
             )}
           </div>
+          <a 
+            href="https://www.myzambeel.com/pages/products" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${hoverColor} transition cursor-pointer`}
+          >
+            {t('header.dropshippingProducts')}
+          </a>
           <button
             onClick={() => handleSectionClick("where-to-sell")}
             className={`${hoverColor} transition cursor-pointer`}
@@ -123,15 +137,6 @@ export default function Header({ theme = "dark" }) {
           >
             {t('header.whyZambeel')}
           </button>
-          <button
-            onClick={() => handleSectionClick("reviews")}
-            className={`${hoverColor} transition cursor-pointer`}
-          >
-            {t('header.reviews')}
-          </button>
-          <Link to="/team" className={`${hoverColor} transition`}>
-            {t('header.ourTeam')}
-          </Link>
           <Link to="/about" className={`${hoverColor} transition`}>
             {t('header.aboutUs')}
           </Link>
@@ -147,21 +152,9 @@ export default function Header({ theme = "dark" }) {
             className={`${textColor} p-2 rounded-full hover:bg-white/10 transition flex items-center gap-2`}
             aria-label={t('header.selectLanguage')}
           >
-            {currentLanguage === 'en' ? (
-              <svg className="w-5 h-5" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="20" height="15" fill="#012169" />
-                <path d="M0 0L20 15M20 0L0 15" stroke="white" strokeWidth="2" />
-                <path d="M0 5L20 10M20 5L0 10" stroke="white" strokeWidth="2" />
-                <path d="M10 0V15M0 7.5H20" stroke="white" strokeWidth="1.5" />
-                <path d="M10 0V15M0 7.5H20" stroke="#C8102E" strokeWidth="1" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" viewBox="0 0 20 13.33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="20" height="4.44" y="0" fill="#000000" />
-                <rect width="20" height="4.44" y="4.44" fill="#FFFFFF" />
-                <rect width="20" height="4.44" y="8.89" fill="#CE1126" />
-              </svg>
-            )}
+            <span className="text-sm font-medium">
+              {currentLanguage === 'en' ? t('header.languageArabic') : t('header.languageEnglish')}
+            </span>
             <svg
               className={`w-3 h-3 transition-transform duration-200 ${showLanguageDropdown ? 'rotate-180' : ''}`}
               fill="currentColor"
@@ -177,13 +170,6 @@ export default function Header({ theme = "dark" }) {
                 className={`w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-50 transition text-left ${currentLanguage === 'en' ? 'bg-blue-50' : ''
                   }`}
               >
-                <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="20" height="15" fill="#012169" />
-                  <path d="M0 0L20 15M20 0L0 15" stroke="white" strokeWidth="2" />
-                  <path d="M0 5L20 10M20 5L0 10" stroke="white" strokeWidth="2" />
-                  <path d="M10 0V15M0 7.5H20" stroke="white" strokeWidth="1.5" />
-                  <path d="M10 0V15M0 7.5H20" stroke="#C8102E" strokeWidth="1" />
-                </svg>
                 <span className={`text-sm font-medium ${currentLanguage === 'en' ? 'text-[#2E3B78]' : 'text-gray-700'}`}>
                   {t('header.languageEnglish')}
                 </span>
@@ -193,11 +179,6 @@ export default function Header({ theme = "dark" }) {
                 className={`w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-50 transition text-left ${currentLanguage === 'ar' ? 'bg-blue-50' : ''
                   }`}
               >
-                <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 20 13.33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="20" height="4.44" y="0" fill="#000000" />
-                  <rect width="20" height="4.44" y="4.44" fill="#FFFFFF" />
-                  <rect width="20" height="4.44" y="8.89" fill="#CE1126" />
-                </svg>
                 <span className={`text-sm font-medium ${currentLanguage === 'ar' ? 'text-[#2E3B78]' : 'text-gray-700'}`}>
                   {t('header.languageArabic')}
                 </span>
@@ -226,21 +207,9 @@ export default function Header({ theme = "dark" }) {
               className={`${textColor} p-2 rounded-full hover:bg-white/10 transition flex items-center gap-1`}
               aria-label={t('header.selectLanguage')}
             >
-              {currentLanguage === 'en' ? (
-                <svg className="w-5 h-5" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="20" height="15" fill="#012169" />
-                  <path d="M0 0L20 15M20 0L0 15" stroke="white" strokeWidth="2" />
-                  <path d="M0 5L20 10M20 5L0 10" stroke="white" strokeWidth="2" />
-                  <path d="M10 0V15M0 7.5H20" stroke="white" strokeWidth="1.5" />
-                  <path d="M10 0V15M0 7.5H20" stroke="#C8102E" strokeWidth="1" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" viewBox="0 0 20 13.33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="20" height="4.44" y="0" fill="#000000" />
-                  <rect width="20" height="4.44" y="4.44" fill="#FFFFFF" />
-                  <rect width="20" height="4.44" y="8.89" fill="#CE1126" />
-                </svg>
-              )}
+              <span className="text-sm font-medium">
+                {currentLanguage === 'en' ? t('header.languageArabic') : t('header.languageEnglish')}
+              </span>
               <svg
                 className={`w-3 h-3 transition-transform duration-200 ${showLanguageDropdown ? 'rotate-180' : ''}`}
                 fill="currentColor"
@@ -256,13 +225,6 @@ export default function Header({ theme = "dark" }) {
                   className={`w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-50 transition text-left ${currentLanguage === 'en' ? 'bg-blue-50' : ''
                     }`}
                 >
-                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="20" height="15" fill="#012169" />
-                    <path d="M0 0L20 15M20 0L0 15" stroke="white" strokeWidth="2" />
-                    <path d="M0 5L20 10M20 5L0 10" stroke="white" strokeWidth="2" />
-                    <path d="M10 0V15M0 7.5H20" stroke="white" strokeWidth="1.5" />
-                    <path d="M10 0V15M0 7.5H20" stroke="#C8102E" strokeWidth="1" />
-                  </svg>
                   <span className={`text-sm font-medium ${currentLanguage === 'en' ? 'text-[#2E3B78]' : 'text-gray-700'}`}>
                     {t('header.languageEnglish')}
                   </span>
@@ -272,11 +234,6 @@ export default function Header({ theme = "dark" }) {
                   className={`w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-50 transition text-left ${currentLanguage === 'ar' ? 'bg-blue-50' : ''
                     }`}
                 >
-                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 20 13.33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="20" height="4.44" y="0" fill="#000000" />
-                    <rect width="20" height="4.44" y="4.44" fill="#FFFFFF" />
-                    <rect width="20" height="4.44" y="8.89" fill="#CE1126" />
-                  </svg>
                   <span className={`text-sm font-medium ${currentLanguage === 'ar' ? 'text-[#2E3B78]' : 'text-gray-700'}`}>
                     {t('header.languageArabic')}
                   </span>
@@ -367,9 +324,25 @@ export default function Header({ theme = "dark" }) {
                   >
                     {t('header.zambeel3PL')}
                   </Link>
+                  <Link
+                    to="/"
+                    className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
+                    onClick={() => setShowMobileMenu(false)}
+                  >
+                    {t('header.learnEcomm')}
+                  </Link>
                 </div>
               )}
             </div>
+            <a
+              href="https://www.myzambeel.com/pages/products"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setShowMobileMenu(false)}
+              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition text-left w-full`}
+            >
+              {t('header.dropshippingProducts')}
+            </a>
             <button
               onClick={() => handleSectionClick("where-to-sell")}
               className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition text-left w-full`}
@@ -389,19 +362,6 @@ export default function Header({ theme = "dark" }) {
             >
               {t('header.aboutUs')}
             </Link>
-            <Link
-              to="/team"
-              onClick={() => setShowMobileMenu(false)}
-              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition`}
-            >
-              {t('header.ourTeam')}
-            </Link>
-            <button
-              onClick={() => handleSectionClick("reviews")}
-              className={`${isLightTheme ? 'text-[#2E3B78]' : 'text-white'} text-[15px] font-medium py-3 ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition text-left w-full`}
-            >
-              {t('header.reviews')}
-            </button>
             <div className={`pt-4 border-t ${isLightTheme ? 'border-[#2E3B78]/20' : 'border-white/20'}`}>
               {/* Language Dropdown for Mobile */}
 
