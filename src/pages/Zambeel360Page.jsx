@@ -9,7 +9,22 @@ import databaseImg from '../assets/images/database.png';
 import frameImg from '../assets/images/frame1.png';
 
 const Zambeel360Page = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language || 'en';
+  
+  // Helper function to format description - only for Arabic
+  const formatDescription = (desc) => {
+    if (currentLanguage === 'ar') {
+      return desc
+        .replace(/ and /g, '\nand ')
+        .replace(/ or /g, '\nor ')
+        .replace(/ & /g, '\n& ')
+        .replace(/, /g, ',\n')
+        .replace(/\. /g, '.\n')
+        .replace(/\n\n/g, '\n');
+    }
+    return desc;
+  };
   // Text carousel state
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
@@ -385,7 +400,7 @@ const Zambeel360Page = () => {
             number: 1,
             title: t('zambeel360.whereToStart.steps.bookConsultation.title'),
             description: t('zambeel360.whereToStart.steps.bookConsultation.desc'),
-            desktopDescription: t('zambeel360.whereToStart.steps.bookConsultation.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
+            desktopDescription: formatDescription(t('zambeel360.whereToStart.steps.bookConsultation.desc')),
             icon: connectionImg,
             iconAlt: "connection"
           },
@@ -393,7 +408,7 @@ const Zambeel360Page = () => {
             number: 2,
             title: t('zambeel360.whereToStart.steps.sendInventory.title'),
             description: t('zambeel360.whereToStart.steps.sendInventory.desc'),
-            desktopDescription: t('zambeel360.whereToStart.steps.sendInventory.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
+            desktopDescription: formatDescription(t('zambeel360.whereToStart.steps.sendInventory.desc')),
             icon: frameImg,
             iconAlt: "frame"
           },
@@ -401,7 +416,7 @@ const Zambeel360Page = () => {
             number: 3,
             title: t('zambeel360.whereToStart.steps.connectStore.title'),
             description: t('zambeel360.whereToStart.steps.connectStore.desc'),
-            desktopDescription: t('zambeel360.whereToStart.steps.connectStore.desc').replace(/ and /g, '\nand ').replace(/, /g, ',\n').replace(/\. /g, '.\n').replace(/\n\n/g, '\n'),
+            desktopDescription: formatDescription(t('zambeel360.whereToStart.steps.connectStore.desc')),
             icon: databaseImg,
             iconAlt: "database"
           },
@@ -409,7 +424,7 @@ const Zambeel360Page = () => {
             number: 4,
             title: t('zambeel360.whereToStart.steps.startSelling.title'),
             description: t('zambeel360.whereToStart.steps.startSelling.desc'),
-            desktopDescription: t('zambeel360.whereToStart.steps.startSelling.desc').replace(/ and /g, '\nand ').replace(/ or /g, '\nor ').replace(/, /g, ',\n').replace(/ & /g, '\n& ').replace(/\n\n/g, '\n'),
+            desktopDescription: formatDescription(t('zambeel360.whereToStart.steps.startSelling.desc')),
             icon: null,
             iconAlt: null
           }

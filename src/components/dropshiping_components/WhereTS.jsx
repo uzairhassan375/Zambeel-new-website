@@ -14,7 +14,8 @@ const Wts = ({
   showButton = true,
   steps
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language || 'en';
   
   // Use translations as defaults if props are not provided
   const defaultTitle = title || t('whereToStart.title');
@@ -22,18 +23,24 @@ const Wts = ({
   const defaultButtonText = buttonText || t('whereToStart.startDropshipping');
   
   const getDesktopDescription = (desc) => {
-    // Format for multi-line display - replace common patterns
-    if (desc) {
+    // Only apply formatting for Arabic; for English, return as-is for natural CSS wrapping
+    if (!desc) return desc;
+    
+    if (currentLanguage === 'ar') {
+      // Format for multi-line display - replace common patterns (Arabic-specific)
       return desc
         .replace(/ and /g, '\nand ')
+        .replace(/ or /g, '\nor ')
+        .replace(/ & /g, '\n& ')
         .replace(/, /g, ',\n')
         .replace(/ — /g, '\n— ')
-        .replace(/ or /g, '\nor ')
         .replace(/ through /g, '\nthrough ')
         .replace(/ with /g, '\nwith ')
         .replace(/\. /g, '.\n')
         .replace(/\n\n/g, '\n'); // Remove double newlines
     }
+    
+    // For English, return text as-is - let CSS handle wrapping naturally
     return desc;
   };
   
