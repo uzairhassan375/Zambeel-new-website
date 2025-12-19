@@ -330,7 +330,7 @@
                 "name": "للمبتدئين"
             },
             "diamond": {
-                "tag": "Diamond",
+                "tag": "الماس",
                 "name": "موفر فائق"
             }
         },
@@ -414,5 +414,13 @@
             "rgbMouse": "ماوس RGB",
             "roninMicrophone": "ميكروفون رونين"
         }
+    },
+    "popup": {
+        "lookingFor": "تبحث عن",
+        "winningProducts": "منتجات رابحة",
+        "forFree": "مجانًا؟",
+        "joinOur": "انضم إلى",
+        "exclusiveWhatsApp": "قناة واتساب الحصرية!",
+        "joinNow": "انضم الآن!"
     }
 }

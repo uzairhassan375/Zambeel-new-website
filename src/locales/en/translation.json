@@ -414,5 +414,13 @@
       "rgbMouse": "RGB Mouse",
       "roninMicrophone": "Ronin Microphone"
     }
+  },
+  "popup": {
+    "lookingFor": "Looking for",
+    "winningProducts": "Winning Products",
+    "forFree": "For FREE?",
+    "joinOur": "Join our",
+    "exclusiveWhatsApp": "Exclusive Whatsapp Channel!",
+    "joinNow": "Join Now!"
   }
 }
