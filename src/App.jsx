@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppPopup from "./components/WhatsAppPopup";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import Ticker from "./components/Ticker";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import TeamPage from "./pages/TeamPage";
@@ -29,10 +30,11 @@ function AppContent() {
   return (
     <div className="min-h-screen flex flex-col bg-transparent">
       <ScrollToTop />
+      <Ticker />
       <WhatsAppPopup />
       <WhatsAppFloat />
       <Header theme={location.pathname === "/zambeel-360" || location.pathname === "/dropshipping" || location.pathname === "/zambeel-3pl" ? "light" : "dark"} />
-      <main className={`flex-grow bg-transparent ${shouldHavePadding ? "pt-20" : ""}`}>
+      <main className={`flex-grow bg-transparent ${shouldHavePadding ? "pt-32" : "pt-10"}`}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />

@@ -133,10 +133,10 @@ const Zambeel360Page = () => {
   ];
 
   return (
-    <div className="min-h-screen overflow-x-hidden relative -mt-20 pt-20" style={{ background: 'linear-gradient(186.57deg, rgba(18, 75, 61, 0.75) 5.1%, rgba(31, 46, 100, 0.958277) 12.51%, rgba(28, 54, 89, 0.911419) 31.95%, rgba(22, 81, 66, 0.793286) 47.98%, rgba(51, 88, 140, 0.913498) 70.93%, #4A61C4 81.76%)' }}>
+    <div className="min-h-screen overflow-x-hidden relative" style={{ background: 'linear-gradient(186.57deg, rgba(18, 75, 61, 0.75) 5.1%, rgba(31, 46, 100, 0.958277) 12.51%, rgba(28, 54, 89, 0.911419) 31.95%, rgba(22, 81, 66, 0.793286) 47.98%, rgba(51, 88, 140, 0.913498) 70.93%, #4A61C4 81.76%)' }}>
 
       {/* Hero Section */}
-      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28 overflow-hidden">
+      <section className="pb-8 md:pb-8 text-center relative pt-28 md:pt-28 overflow-hidden">
         {/* Left side SVGs */}
         <div className="absolute left-[3%] top-[50%] hidden md:block">
           <svg width="80" height="93" viewBox="0 0 106 124" fill="none" xmlns="http://www.w3.org/2000/svg">
