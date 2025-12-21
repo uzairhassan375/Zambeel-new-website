@@ -34,7 +34,7 @@ const DropshippingPage = () => {
       }}
     >
       {/* ================= HERO SECTION ================= */}
-      <section className="pb-8 md:pb-8 text-center relative pt-32 md:pt-36 overflow-hidden">
+      <section className="pb-8 md:pb-8 text-center relative pt-24 md:pt-28 overflow-hidden">
         {/* Left side SVGs (smaller, flipped) */}
         <div className="absolute left-[15%] top-[35%] hidden md:block">
           <svg width="90" height="76" viewBox="0 0 255 217" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scaleX(-1)' }}>
