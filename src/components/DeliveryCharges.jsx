@@ -7,7 +7,37 @@ const DeliveryCharges = ({
   countries, 
   charges
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language || 'en';
+
+  // Helper function to translate currency symbols and "Days" in values
+  const translateValue = (value) => {
+    if (!value || typeof value !== 'string') return value;
+    
+    if (currentLanguage === 'ar') {
+      // Replace currency symbols
+      value = value.replace(/\bAED\b/g, t('deliveryCharges.currencyAED'));
+      value = value.replace(/\bSAR\b/g, t('deliveryCharges.currencySAR'));
+      value = value.replace(/\bPKR\b/g, t('deliveryCharges.currencyPKR'));
+      // Replace "Days"
+      value = value.replace(/\bDays\b/g, t('deliveryCharges.days'));
+    }
+    
+    return value;
+  };
+
+  // Helper function to translate currency code to Arabic name
+  const translateCurrencyCode = (currencyCode) => {
+    if (currentLanguage === 'ar') {
+      const currencyMap = {
+        'AED': t('deliveryCharges.currencyAED'),
+        'SAR': t('deliveryCharges.currencySAR'),
+        'PKR': t('deliveryCharges.currencyPKR')
+      };
+      return currencyMap[currencyCode] || currencyCode;
+    }
+    return currencyCode;
+  };
   // Helper function to get country flag SVG
   const getCountryFlag = (countryCode) => {
     const flags = {
@@ -97,7 +127,7 @@ const DeliveryCharges = ({
                       {getCountryFlag(country.code)}
                     </div>
                     <div className="text-[7px] md:text-[10px] lg:text-sm font-semibold leading-tight mt-0.5">{country.name}</div>
-                    <div className="text-[6px] md:text-[9px] lg:text-xs text-gray-300 leading-tight">{country.currency}</div>
+                    <div className="text-[6px] md:text-[9px] lg:text-xs text-gray-300 leading-tight">{translateCurrencyCode(country.currency)}</div>
                   </div>
                 ))}
               </div>
@@ -129,7 +159,7 @@ const DeliveryCharges = ({
                   </div>
                   {countries.map((country) => (
                     <div key={country.code} className="text-center text-[8px] md:text-xs lg:text-base text-gray-700 leading-tight font-bold">
-                      {charge.values[country.code] || '-'}
+                      {translateValue(charge.values[country.code]) || '-'}
                     </div>
                   ))}
                 </div>

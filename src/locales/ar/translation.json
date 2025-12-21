@@ -22,6 +22,11 @@
         "whyZambeel": "لماذا زمبيل؟",
         "ourTeam": "فريقنا",
         "aboutUs": "نبذة عنا",
+        "joinUs": "انضم إلينا",
+        "whatsapp": "واتساب",
+        "facebook": "فيسبوك",
+        "linkedin": "لينكد إن",
+        "becomeASupplier": "كن مورداً",
         "selectLanguage": "اختر اللغة",
         "toggleMenu": "تبديل القائمة",
         "languageEnglish": "English",
@@ -360,6 +365,10 @@
         "return": "العودة",
         "codTax": "ضريبة الدفع عند الاستلام",
         "deliveryTime": "وقت التسليم",
+        "days": "أيام",
+        "currencyAED": "درهم",
+        "currencySAR": "ريال",
+        "currencyPKR": "روبية",
         "importantInfo": "معلومات مهمة",
         "failedDelivery": "في حالة فشل التسليم، سيتم فرض رسوم \"الإرجاع\" فقط",
         "outskirtAreas": "في بعض المناطق النائية، قد تكون رسوم التوصيل أعلى أيضًا. ينطبق هذا على ٣٪ فقط من الطلبات.",
@@ -389,8 +398,8 @@
         }
     },
     "countries": {
-        "UAE": "الإمارات العربية المتحدة",
-        "KSA": "المملكة العربية السعودية",
+        "UAE": "الإمارات",
+        "KSA": "السعودية",
         "Qatar": "قطر",
         "Kuwait": "الكويت",
         "Pakistan": "باكستان"

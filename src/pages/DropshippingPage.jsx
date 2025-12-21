@@ -103,7 +103,7 @@ const DropshippingPage = () => {
                     <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-red-600"></div>
                   </div>
                 </div>
-                <span className="mt-1 text-[#243a86] font-semibold text-sm">UAE</span>
+                <span className="mt-1 text-[#243a86] font-semibold text-sm">{t('countries.UAE')}</span>
               </div>
               {/* KSA Custom Icon */}
               <div className="flex flex-col items-center">
@@ -118,7 +118,7 @@ const DropshippingPage = () => {
                     <path d="M38 49H44V53H38V49Z" fill="#F0F0F0" />
                   </svg>
                 </div>
-                <span className="mt-1 text-[#243a86] font-semibold text-sm">KSA</span>
+                <span className="mt-1 text-[#243a86] font-semibold text-sm">{t('countries.KSA')}</span>
               </div>
               {/* Pakistan */}
               <div className="flex flex-col items-center">
@@ -138,7 +138,7 @@ const DropshippingPage = () => {
                     </defs>
                   </svg>
                 </div>
-                <span className="mt-1 text-[#243a86] font-semibold text-sm">Pakistan</span>
+                <span className="mt-1 text-[#243a86] font-semibold text-sm">{t('countries.Pakistan')}</span>
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ const DropshippingPage = () => {
                     <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-gray-300" style={{ clipPath: 'polygon(0 0, 100% 20%, 100% 30%, 0 50%, 100% 70%, 100% 80%, 0 100%)' }}></div>
                   </div>
                 </div>
-                <span className="text-gray-500 font-semibold text-xs">Qatar</span>
+                <span className="text-gray-500 font-semibold text-xs">{t('countries.Qatar')}</span>
               </div>
               {/* Kuwait */}
               <div className="flex flex-col items-center">
@@ -169,7 +169,7 @@ const DropshippingPage = () => {
                     <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-gray-700"></div>
                   </div>
                 </div>
-                <span className="text-gray-500 font-semibold text-xs">Kuwait</span>
+                <span className="text-gray-500 font-semibold text-xs">{t('countries.Kuwait')}</span>
               </div>
             </div>
           </div>

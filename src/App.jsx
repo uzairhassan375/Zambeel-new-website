@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppPopup from "./components/WhatsAppPopup";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import TeamPage from "./pages/TeamPage";
@@ -29,6 +30,7 @@ function AppContent() {
     <div className="min-h-screen flex flex-col bg-transparent">
       <ScrollToTop />
       <WhatsAppPopup />
+      <WhatsAppFloat />
       <Header theme={location.pathname === "/zambeel-360" || location.pathname === "/dropshipping" || location.pathname === "/zambeel-3pl" ? "light" : "dark"} />
       <main className={`flex-grow bg-transparent ${shouldHavePadding ? "pt-20" : ""}`}>
           <Routes>

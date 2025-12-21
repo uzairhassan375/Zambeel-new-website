@@ -218,7 +218,7 @@ const Zambeel3PLPage = () => {
                         <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-red-600"></div>
                       </div>
                     </div>
-                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">UAE</span>
+                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">{t('countries.UAE')}</span>
                   </div>
                   <div className="flex flex-col items-center transform hover:scale-110 transition-transform">
                     <div className="w-20 h-20 md:w-22 md:h-22 rounded-full flex items-center justify-center mb-2 md:mb-3">
@@ -232,7 +232,7 @@ const Zambeel3PLPage = () => {
                         <path d="M38 49H44V53H38V49Z" fill="#F0F0F0" />
                       </svg>
                     </div>
-                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">KSA</span>
+                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">{t('countries.KSA')}</span>
                   </div>
                   <div className="flex flex-col items-center transform hover:scale-110 transition-transform">
                     <div className="w-18 h-18 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-2 md:mb-3">
@@ -251,7 +251,7 @@ const Zambeel3PLPage = () => {
                         </defs>
                       </svg>
                     </div>
-                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">Pakistan</span>
+                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">{t('countries.Pakistan')}</span>
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-12 md:contents">
@@ -266,7 +266,7 @@ const Zambeel3PLPage = () => {
                         <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-black"></div>
                       </div>
                     </div>
-                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">Kuwait</span>
+                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">{t('countries.Kuwait')}</span>
                   </div>
                   <div className="flex flex-col items-center transform hover:scale-110 transition-transform">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-2 md:mb-3">
@@ -274,7 +274,7 @@ const Zambeel3PLPage = () => {
                         <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-white" style={{ clipPath: 'polygon(0 0, 100% 20%, 100% 30%, 0 50%, 100% 70%, 100% 80%, 0 100%)' }}></div>
                       </div>
                     </div>
-                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">Qatar</span>
+                    <span className="text-[10px] sm:text-xs md:text-sm text-[#2c3e5f] font-semibold">{t('countries.Qatar')}</span>
                   </div>
                 </div>
               </div>

@@ -5,8 +5,9 @@ import blue_logoImage from "../blue_logo.png";
 import { StackedCards } from "../components/UI/staking-cards";
 
 export default function HomePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
+  const currentLanguage = i18n.language || 'en';
   const [selectedCountry, setSelectedCountry] = useState("UAE");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
@@ -182,6 +183,14 @@ export default function HomePage() {
     { name: "Kuwait", code: "kw", services: ["360", "3PL"] },
     { name: "Pakistan", code: "pk", services: ["Dropshipping", "360", "3PL"] },
   ];
+
+  // Helper function to translate country names
+  const translateCountryName = (countryName) => {
+    if (countryName === "Qatar") {
+      return currentLanguage === 'ar' ? t('countries.Qatar') : "QTR"; // Special case for Qatar display
+    }
+    return t(`countries.${countryName}`);
+  };
 
   const reviews = [
     {
@@ -436,15 +445,15 @@ export default function HomePage() {
                   {t('homepage.whereToSell.title')}
                 </h2>
                 <h3 className="text-[#B91C1C] font-bold text-xs tracking-widest uppercase">
-                  {selectedCountry}
+                  {translateCountryName(selectedCountry)}
                 </h3>
               </div>
               <p className="text-[#4A5568] text-xs leading-relaxed mb-5">
                 {selectedCountry === "Pakistan"
-                  ? t('homepage.whereToSell.description.full', { country: selectedCountry })
+                  ? t('homepage.whereToSell.description.full', { country: translateCountryName(selectedCountry) })
                   : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
-                    ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
-                    : t('homepage.whereToSell.description.full', { country: selectedCountry })
+                    ? t('homepage.whereToSell.description.noDropshipping', { country: translateCountryName(selectedCountry) })
+                    : t('homepage.whereToSell.description.full', { country: translateCountryName(selectedCountry) })
                 }
               </p>
               <div className="space-y-2">
@@ -532,7 +541,7 @@ export default function HomePage() {
                       />
                     </div>
                     <span className="text-[10px] font-bold text-[#2E3B78]">
-                      {country.name === "Qatar" ? "QTR" : country.name}
+                      {translateCountryName(country.name)}
                     </span>
                   </div>
                 ))}
@@ -543,14 +552,14 @@ export default function HomePage() {
                 {t('homepage.whereToSell.title')}
               </h2>
               <h3 className="text-[#B91C1C] font-bold text-sm tracking-widest uppercase mb-4">
-                {selectedCountry}
+                {translateCountryName(selectedCountry)}
               </h3>
               <p className="text-[#4A5568] text-sm lg:text-base leading-relaxed mb-8">
                 {selectedCountry === "Pakistan"
-                  ? t('homepage.whereToSell.description.full', { country: selectedCountry })
+                  ? t('homepage.whereToSell.description.full', { country: translateCountryName(selectedCountry) })
                   : selectedCountry === "Qatar" || selectedCountry === "Kuwait"
-                    ? t('homepage.whereToSell.description.noDropshipping', { country: selectedCountry })
-                    : t('homepage.whereToSell.description.full', { country: selectedCountry })
+                    ? t('homepage.whereToSell.description.noDropshipping', { country: translateCountryName(selectedCountry) })
+                    : t('homepage.whereToSell.description.full', { country: translateCountryName(selectedCountry) })
                 }
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
