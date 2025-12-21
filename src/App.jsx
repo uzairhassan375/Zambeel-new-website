@@ -10,6 +10,7 @@ import TeamPage from "./pages/TeamPage";
 import Zambeel360Page from "./pages/Zambeel360Page";
 import Zambeel3PLPage from "./pages/Zambeel3PLPage";
 import DropshippingPage from "./pages/DropshippingPage";
+import LearnEcommercePage from "./pages/LearnEcommercePage";
 import StakingCardsDemo from "./pages/StakingCardsDemo";
 
 function ScrollToTop() {
@@ -31,7 +32,7 @@ function AppContent() {
       <ScrollToTop />
       <WhatsAppPopup />
       <WhatsAppFloat />
-      <Header theme={location.pathname === "/zambeel-360" || location.pathname === "/dropshipping" || location.pathname === "/zambeel-3pl" ? "light" : "dark"} />
+      <Header theme={location.pathname === "/zambeel-360" || location.pathname === "/dropshipping" || location.pathname === "/zambeel-3pl" || location.pathname === "/learn-ecommerce" ? "light" : "dark"} />
       <main className={`flex-grow bg-transparent ${shouldHavePadding ? "pt-20" : ""}`}>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -40,6 +41,7 @@ function AppContent() {
             <Route path="/zambeel-360" element={<Zambeel360Page />} />
             <Route path="/zambeel-3pl" element={<Zambeel3PLPage />} />
             <Route path="/dropshipping" element={<DropshippingPage />} />
+            <Route path="/learn-ecommerce" element={<LearnEcommercePage />} />
             <Route path="/staking-cards-demo" element={<StakingCardsDemo />} />
           </Routes>
         </main>

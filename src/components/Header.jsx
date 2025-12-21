@@ -131,7 +131,7 @@ export default function Header({ theme = "dark" }) {
                     {t('header.zambeel3PL')}
                   </Link>
                   <Link
-                    to="/"
+                    to="/learn-ecommerce"
                     className={`block px-4 py-3 ${isLightTheme ? 'text-[#2E3B78]' : 'text-[#2E3B78]'} ${dropdownHoverColor} transition text-sm font-medium w-full`}
                   >
                     {t('header.learnEcomm')}
@@ -391,7 +391,7 @@ export default function Header({ theme = "dark" }) {
                     {t('header.zambeel3PL')}
                   </Link>
                   <Link
-                    to="/"
+                    to="/learn-ecommerce"
                     className={`block ${isLightTheme ? 'text-[#2E3B78]/80' : 'text-white/80'} ${isLightTheme ? 'hover:text-[#2E3B78]' : 'hover:text-[#FCD64C]'} transition py-2 text-sm`}
                     onClick={() => setShowMobileMenu(false)}
                   >

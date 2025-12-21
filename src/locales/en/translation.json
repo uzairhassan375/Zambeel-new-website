@@ -431,5 +431,19 @@
     "joinOur": "Join our",
     "exclusiveWhatsApp": "Exclusive Whatsapp Channel!",
     "joinNow": "Join Now!"
+  },
+  "learnEcommerce": {
+    "hero": {
+      "title": "Learn E-commerce with Zambeel",
+      "description": "We offer master ecommerce class every week in which we help you to understand and learn ecommerce"
+    },
+    "topics": {
+      "marketUnderstanding": "Market Understanding",
+      "productHunting": "Product Hunting",
+      "creativeHunting": "Creative Hunting",
+      "websiteLandingPages": "Website Landing Pages",
+      "pixelAndAdManager": "Pixel and Ad Manager"
+    },
+    "joinClass": "Join Our Class"
   }
 }

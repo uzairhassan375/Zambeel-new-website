@@ -431,5 +431,19 @@
         "joinOur": "انضم إلى",
         "exclusiveWhatsApp": "قناة واتساب الحصرية!",
         "joinNow": "انضم الآن!"
+    },
+    "learnEcommerce": {
+        "hero": {
+            "title": "تعلم التجارة الإلكترونية مع زمبيل",
+            "description": "نقدم فصول التجارة الإلكترونية المتقدمة كل أسبوع والتي نساعدك فيها على فهم وتعلم التجارة الإلكترونية"
+        },
+        "topics": {
+            "marketUnderstanding": "فهم السوق",
+            "productHunting": "البحث عن المنتجات",
+            "creativeHunting": "البحث عن الإبداعات",
+            "websiteLandingPages": "صفحات الهبوط للموقع",
+            "pixelAndAdManager": "بكسل ومدير الإعلانات"
+        },
+        "joinClass": "انضم إلى الفصل"
     }
 }

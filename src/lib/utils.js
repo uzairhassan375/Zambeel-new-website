@@ -5,7 +5,7 @@ export const cardData = [
     description: "Learn to Start, Build & Grow your E-commerce business from scratch.",
     color: "rgba(99, 102, 241, 0.8)",
     cta: "Learn E-commerce",
-    link: "/"
+    link: "/learn-ecommerce"
   },
   {
     id: 2,

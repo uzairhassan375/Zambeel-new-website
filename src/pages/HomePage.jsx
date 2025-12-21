@@ -230,7 +230,7 @@ export default function HomePage() {
         t('homepage.featureCards.learnEcommerce.desc')
       ],
       cta: t('homepage.featureCards.learnEcommerce.cta'),
-      link: "/",
+      link: "/learn-ecommerce",
     },
     {
       title: t('homepage.featureCards.dropshipping.title'),
