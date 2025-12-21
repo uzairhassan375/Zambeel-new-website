@@ -1,41 +1,7 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import ipify from 'ipify';
 
 function AboutPage() {
   const { t } = useTranslation();
-
-  useEffect(() => {
-    // Fetch user's IP address using ipify package
-    const fetchUserIP = async () => {
-      try {
-        // Get IPv4 address (you can set useIPv6: true for IPv6)
-        const userIP = await ipify({ useIPv6: false });
-        
-        console.log('User IP Address:', userIP);
-        
-        // Optional: Also fetch more detailed IP info
-        try {
-          const detailedResponse = await fetch(`https://ipapi.co/${userIP}/json/`);
-          const detailedData = await detailedResponse.json();
-          console.log('User IP Details:', {
-            ip: userIP,
-            city: detailedData.city,
-            region: detailedData.region,
-            country: detailedData.country_name,
-            timezone: detailedData.timezone,
-            isp: detailedData.org
-          });
-        } catch (detailedError) {
-          console.log('Could not fetch detailed IP info:', detailedError);
-        }
-      } catch (error) {
-        console.error('Error fetching IP address:', error);
-      }
-    };
-
-    fetchUserIP();
-  }, []);
   
   return (
     <div className="min-h-screen bg-white">
